@@ -1,3 +1,4 @@
+/* General styles*/
 * {
     box-sizing: border-box;
 }
@@ -27,6 +28,8 @@ span {
 p {
     margin: 2%;
 }
+
+/* Styles for sections*/
 
 #Pollo {
         float: left;
@@ -73,37 +76,30 @@ p {
         background-color: rgb(68, 110, 64);
         margin-left: 66%;
     }
-/********** Large devices only **********/
+/* Large devices only */
 
 @media (min-width: 992px) {
     #Pollo {
-        float: left;
         width: 32%;
     }
     #Carne {
-        float: left;
         width: 32%;
     }
     #Mojarra {
-        float: left;
         width: 32%;
     }
 }
 
-/********** tablet devices only **********/
+/* tablet devices only */
 
 @media (min-width: 768px) and (max-width:991px) {
     #Pollo {
-        float: left;
         width: 48.5%;
     }
     #Carne {
-        float: left;
         width: 48.5%;
     }
     #Mojarra {
-        float: left;
         margin-right:1%;
-        /*width: 32%;*/
     }
 }
