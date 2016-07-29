@@ -1,0 +1,92 @@
+    /* dummy css file*/
+    /*HEADER*/
+    
+    #header-nav {
+        background-color: rgb(247, 247, 249);
+    }
+    
+    .navbar-default .navbar-brand {
+        /* Brand name*/
+        /* Simply using .navbar-brand is less specific and thus ignored*/
+        font-family: 'Galada', cursive;
+        font-size: 2.2em;
+        color: #005CB9;
+        text-shadow: #000 0 1px;
+        margi
+    }
+    
+    .navbar-brand a:hover,
+    .navbar-brand a:focus {
+        text-decoration: none;
+    }
+    
+    .navbar-default .navbar-header a span {
+        /* LLC text */
+        font-family: 'Lato', sans-serif;
+        font-size: 0.4em;
+        text-shadow: none;
+    }
+    
+    #nav-list {
+        margin-top: 10px;
+    }
+    
+    #nav-list a {
+        font-family: 'Raleway', sans-serif;
+        color: rgb(78, 168, 232);
+        text-shadow: white 0 1px;
+        text-align: center;
+    }
+    
+    #nav-list a:hover {
+        background: #E7E7E7;
+    }
+    
+    header h1 {
+        /* Our Menu */
+        font-family: 'Indie Flower', cursive;
+        color: rgb(232, 78, 78);
+        font-size: 4em;
+        text-shadow: #white 0 1px;
+    }
+    
+    .divider {
+        color: black;
+    }
+    /*END HEADER*/
+    
+    .container-fluid {
+        padding-left: 2%;
+        padding-right: 2%;
+        overflow: hidden;
+    }
+    /*CONTENT*/
+    
+    #content {
+        height: 100%;
+        background-color: rgb(70, 136, 183);
+        width: 96%;
+    }
+    
+    #content p {
+        color: white;
+        text-align: justify;
+    }
+    /*media queries*/
+    /********** Small devices only **********/
+    
+    @media (min-width: 768px) and (max-width: 991px) {
+        #content {
+            width: 85%;
+        }
+    }
+    /********** Extra small devices only **********/
+    
+    @media (max-width: 767px) {
+        header h1 {
+            font-size: 3em;
+        }
+        #content {
+            width: 85%;
+        }
+    }
