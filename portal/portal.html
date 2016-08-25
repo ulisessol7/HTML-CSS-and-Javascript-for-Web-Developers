@@ -1277,8 +1277,8 @@ $(document).ready( function() {
 		
 		document.title = "My Portal";
 		viewer.setEDLEnabled(true);
-		viewer.setShowSkybox(false);
-		viewer.setMaterialID(Potree.PointColorType.RGB);
+		viewer.setShowSkybox(true);
+		viewer.setMaterialID(Potree.PointColorType.ELEVATION);
 		viewer.setDescription('');
 		
 		viewer.loadSettingsFromURL();

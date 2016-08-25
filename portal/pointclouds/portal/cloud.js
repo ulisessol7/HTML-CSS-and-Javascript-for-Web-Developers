@@ -1,7 +1,7 @@
 {
     "version": "1.7",
     "octreeDir": "data",
-    "projection": "",
+    "projection": "+proj=geocent +datum=WGS84 +no_defs",
     "points": 5974454,
     "boundingBox": {
         "lx": -289.57750000000007,
