@@ -72,14 +72,23 @@
         color: white;
         text-align: justify;
     }
+    
+    #mydiv {
+        height: 1000px;
+        width: 100%;
+    }
+    
+    iframe {
+        height: 100%;
+        width: 100%;
+    }
     /*media queries*/
     /********** Small devices only **********/
-    
-    @media (min-width: 768px) and (max-width: 991px) {
+    /*    @media (min-width: 768px) and (max-width: 991px) {
         #content {
             width: 85%;
         }
-    }
+    }*/
     /********** Extra small devices only **********/
     
     @media (max-width: 767px) {
