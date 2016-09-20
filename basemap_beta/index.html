@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/stylesheet.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://js.arcgis.com/3.17/esri/css/esri.css">
+    <link rel="stylesheet" href="https://s3-us-west-1.amazonaws.com/patterns.esri.com/files/calcite-web/1.0.0-beta.31/css/calcite-web.min.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/3.17/esri/themes/calcite/dijit/calcite.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/3.17/esri/themes/calcite/esri/esri.css">
+</head>
+
+<body class="calcite">
+    <!-- GOOGLE PLACES API -->
+    <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDaA_i_r5wKG8WPxMz_pcodZcwCZTlUMM&libraries=places"></script> -->
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" integrity="VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU" crossorigin="anonymous"></script> -->
+    <script src="https://js.arcgis.com/3.17/"></script>
+    <script type="text/javascript">
+    var map, extent, popup;
+
+    require(["esri/map", "esri/dijit/Search", "esri/layers/FeatureLayer", "esri/InfoTemplate", "esri/symbols/PictureMarkerSymbol", "esri/layers/GraphicsLayer",
+        "esri/dijit/Popup", "esri/dijit/PopupTemplate", "esri/geometry/Extent", "dojo/domReady!"
+    ], function(Map, Search, FeatureLayer, InfoTemplate, PictureMarkerSymbol, GraphicsLayer, Popup, PopupTemplate, Extent) {
+        map = new Map("map", {
+            basemap: "topo",
+            center: [-105.2659, 40.0076], // long, lat  
+            zoom: 16,
+            slider: false,
+            infoWindow: popup
+        });
+        var search = new Search({
+            enableButtonMode: true, //this enables the search widget to display as a single button
+            enableLabel: false,
+            enableInfoWindow: true,
+            showInfoWindowOnSelect: false,
+            map: map
+        }, "search");
+
+        var sources = search.get("sources");
+        // this layer  mimics what we have in our GIS system right now, the layer is hosted in ArcGIS Online
+        var cu_bldgs = new FeatureLayer("https://services5.arcgis.com/G79PVu14Duuuwxv3/ArcGIS/rest/services/BLDGS_test/FeatureServer/0");
+        // popup template
+        popup = new PopupTemplate({
+            title: "{BLDG_NAME}",
+            // fieldInfos: [{
+            //     "fieldName": "BLDG_NUMBE",
+            //     "label": "Building number:",
+            //     "format": {
+            //         "places": 0,
+            //         "digitSeparator": true
+            //     }
+            // }],
+
+            description: "</br>Building Code: {BLDG_CODE}</br> Building Number: {BLDG_NUMBE}</br>1720 Pleasant St, Boulder, CO 80309{BLDG_ADDRE}</br>",
+            mediaInfos: [{ //define the picture
+                "title": "",
+                "caption": "",
+                "type": "image",
+                "value": {
+                    "sourceURL": "img/{BLDG_NUMBE}.jpg",
+                }
+            }],
+        });
+
+        //Push the sources used to search, by default the ArcGIS Online World geocoder is included.
+        sources.push({
+            featureLayer: cu_bldgs,
+            searchFields: ["BLDG_CODE", "BLDG_NUMBE", "BLDG_NAME"],
+            displayField: "BLDG_NAME",
+            exactMatch: false,
+            outFields: ["BLDG_NAME", "BLDG_CODE", "BLDG_NUMBE"],
+            name: "CU Boulder Buildings",
+            placeholder: "search by building code, name or number",
+            maxResults: 6,
+            maxSuggestions: 6,
+            enableHighlight: true,
+            infoTemplate: popup,
+            // we can also custom build our own marker
+            highlightSymbol: new PictureMarkerSymbol("https://js.arcgis.com/3.17/esri/dijit/Search/images/search-pointer.png", 36, 36),
+        });
+        //Set the sources above to the search widget
+        search.set("sources", sources);
+        // boulder search extent
+        var boulder_extent = new Extent({
+            "xmin": 3043062.709893935,
+            "ymin": 1242503.5101015298,
+            "xmax": 3081808.4767370443,
+            "ymax": 1258757.248199367,
+            "spatialReference": {
+                "wkid": 2876
+            }
+        });
+        // controls the extent of the search geocoder
+        search.sources[0].searchExtent = boulder_extent;
+        sources.splice(0, 2, sources[1], sources[0]);
+        search.startup();
+
+        map.on("load", function() {
+            extent = map.extent;
+        });
+    });
+    // custom "HomeButton"
+    function zoomFunction() {
+        map.setExtent(extent);
+    }
+    // popup.resize(250, 100);
+    </script>
+    <div id="map">
+    </div>
+    <!-- map -->
+    <nav id="cu_nav" class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button> -->
+                <a class="navbar-brand" href="#"><img src="img/colorado-buffaloes.png" onclick="zoomFunction();"></a>
+                <div id="search"></div>
+                <!-- <button type="button" class="my_button" onclick="zoomFunction();">Zoom to Original Extent</button> -->
+                <!-- <div id="HomeButton"></div> -->
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
+            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+            <!-- <button type="button" class="btn btn-primary">Primary</button> -->
+            <!-- <ul class="nav navbar-nav"> -->
+            <!-- <li class="nav nav-pills" role="presentation"><a href="#">Link</a></li> -->
+            <!-- <li class="dropdown"> -->
+            <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">One more separated link</a></li> -->
+            <!-- </ul> -->
+            <!--   </li>
+                </ul> -->
+            <!-- <form class="navbar-form navbar-left">
+                <div id="mysearch" class="form-group">
+                    <input type="text" class="form-control" placeholder="Where would you like to walk to?">
+                </div>
+                <button id="go" type="submit" class="btn btn-default">Search</button>
+            </form> -->
+        </div>
+        <!-- /.navbar-collapse -->
+        <!-- </div> -->
+        <!-- /.container-fluid -->
+    </nav>
+</body>
+
+</html>

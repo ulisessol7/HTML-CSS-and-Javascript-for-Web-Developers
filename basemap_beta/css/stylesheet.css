@@ -1,0 +1,143 @@
+    /*Basemap Styles*/
+    /*GENERAL STYLES*/
+    
+    * {
+        box-sizing: border-box;
+    }
+    
+    html,
+    body,
+    #map {
+        /*the height value for map needs to be here*/
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    /*POPUP*/
+    /*removes the zoomto button from the popup*/
+    
+    #map .esriPopup .action.zoomTo {
+        display: none;
+    }
+    /*removes the title pane element from the popup*/
+    
+    #map .esriPopup .titlePane {
+        display: none;
+    }
+    
+    #map .esriPopup .actionsPane {
+        display: none;
+    }
+    
+    #map .esriPopup .contentPane {
+        background-color: black;
+        color: #CFB87C;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        padding: 0;
+    }
+    
+    #map .esriViewPopup .break {
+        display: none;
+    }
+    
+    #map .esriViewPopup div.mainSection .header {
+        /*font-weight: bold;*/
+        font-style: normal;
+        font-family: Arial;
+        width: 50%;
+        float: right;
+        text-align: center;
+    }
+    
+    #map .esriPopup .mediaSection {
+        width: 50%;
+        float: left;
+    }
+    
+    #map .esriViewPopup div.mainSection div {
+        width: 50%;
+        float: right;
+        color: white;
+    }
+    
+    #map .esriViewPopup .gallery {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+    }
+    
+    #map .gallery .frame img {
+        max-width: 262px;
+        max-height: 140px;
+        float: left;
+        width: 100%;
+        height: 100%;
+        margin: 0px;
+    }
+    
+    #map .gallery .frame img.esriPopupMediaImage {
+        margin: 0px !important;
+    }
+    /*#map .esriViewPopup .hzLine {
+        border-bottom: 1px solid #565A5C;
+    }*/
+    
+    #map .esriPopup .outerPointer.left {
+        display: none;
+    }
+    
+    #map .esriPopup .outerPointer.right {
+        display: none;
+    }
+    
+    #map .esriPopup .pointer.top {
+        display: none;
+    }
+    /*NAVBAR*/
+    
+    #cu_nav {
+        background-color: transparent;
+        border-color: transparent;
+        position: absolute;
+        top: 0px;
+    }
+    /*RALPHIE*/
+    
+    .navbar-brand {
+        padding: 0px;
+    }
+    
+    .navbar-brand>img {
+        height: 100%;
+        padding: 0px;
+        width: auto;
+    }
+    /*SEARCH  BAR USING CALCITE*/
+    
+    #search {
+        display: block;
+        float: right;
+        margin-top: 5px;
+        height: 30px;
+        */
+        /*font-size: 10px;*/
+    }
+    
+    #search .searchIcon {
+        color: #C5A230;
+        font-size: 10px;
+    }
+    
+    #search .searchInput {
+        background-color: black;
+    }
+    
+    #search .searchInput:focus {
+        border-color: #C5A230;
+        -moz-box-shadow: 0px 0px 4px #C5A230;
+        -webkit-box-shadow: 0px 0px 4px #C5A230;
+        box-shadow: 0px 0px 4px #C5A230;
+        color: white;
+    }
+    /*AIzaSyDDaA_i_r5wKG8WPxMz_pcodZcwCZTlUMM */
