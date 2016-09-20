@@ -28,25 +28,24 @@
     #map .esriPopup .actionsPane {
         display: none;
     }
+    /*controls the overall size of the popup*/
+    
+    #map .esriPopup .sizer {
+        max-height: 130px;
+        max-width: 300px;
+    }
     
     #map .esriPopup .contentPane {
         background-color: black;
         color: #CFB87C;
         font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
         padding: 0;
+        max-height: 130px;
+        max-width: 300px;
     }
     
     #map .esriViewPopup .break {
         display: none;
-    }
-    
-    #map .esriViewPopup div.mainSection .header {
-        /*font-weight: bold;*/
-        font-style: normal;
-        font-family: Arial;
-        width: 50%;
-        float: right;
-        text-align: center;
     }
     
     #map .esriPopup .mediaSection {
@@ -54,34 +53,53 @@
         float: left;
     }
     
-    #map .esriViewPopup div.mainSection div {
-        width: 50%;
-        float: right;
-        color: white;
-    }
-    
-    #map .esriViewPopup .gallery {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        margin: 0 auto;
-    }
-    
     #map .gallery .frame img {
-        max-width: 262px;
-        max-height: 140px;
-        float: left;
+        max-width: 150px;
+        max-height: 130px;
+        /*float: left;*/
         width: 100%;
         height: 100%;
         margin: 0px;
     }
     
+    #map .esriViewPopup div.mainSection {
+        width: 50%;
+        float: right;
+    }
+    
+    #map .esriViewPopup div.mainSection .header {
+        font-style: normal;
+        font-family: Arial;
+        width: 100%;
+        float: right !important;
+        text-align: center;
+        color: #565A5C;
+        float: left;
+    }
+    
+    #map .esriViewPopup .hzLine + div {
+        width: 100%;
+        float: right !important;
+        color: #CFB87C;
+        padding-left: 3%;
+        vertical-align: middle;
+    }
+    
+    #map .esriViewPopup .gallery {
+        /*position: relative;*/
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+    }
+    
     #map .gallery .frame img.esriPopupMediaImage {
         margin: 0px !important;
     }
-    /*#map .esriViewPopup .hzLine {
-        border-bottom: 1px solid #565A5C;
-    }*/
+    
+    #map .esriViewPopup .hzLine {
+        /*border-bottom: 1px solid #565A5C;*/
+        border-bottom: none;
+    }
     
     #map .esriPopup .outerPointer.left {
         display: none;

@@ -24,11 +24,11 @@
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" integrity="VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU" crossorigin="anonymous"></script> -->
     <script src="https://js.arcgis.com/3.17/"></script>
     <script type="text/javascript">
-    var map, extent, popup;
+    var map, extent, popup, cu_bldgs;
 
     require(["esri/map", "esri/dijit/Search", "esri/layers/FeatureLayer", "esri/InfoTemplate", "esri/symbols/PictureMarkerSymbol", "esri/layers/GraphicsLayer",
-        "esri/dijit/Popup", "esri/dijit/PopupTemplate", "esri/geometry/Extent", "dojo/domReady!"
-    ], function(Map, Search, FeatureLayer, InfoTemplate, PictureMarkerSymbol, GraphicsLayer, Popup, PopupTemplate, Extent) {
+        "esri/dijit/Popup", "esri/dijit/PopupTemplate", "esri/geometry/Extent", "esri/renderers/SimpleRenderer", "esri/graphic", "dojo/domReady!"
+    ], function(Map, Search, FeatureLayer, InfoTemplate, PictureMarkerSymbol, GraphicsLayer, Popup, PopupTemplate, Extent, Graphic, dijitPopup) {
         map = new Map("map", {
             basemap: "topo",
             center: [-105.2659, 40.0076], // long, lat  
@@ -46,20 +46,12 @@
 
         var sources = search.get("sources");
         // this layer  mimics what we have in our GIS system right now, the layer is hosted in ArcGIS Online
-        var cu_bldgs = new FeatureLayer("https://services5.arcgis.com/G79PVu14Duuuwxv3/ArcGIS/rest/services/BLDGS_test/FeatureServer/0");
+        cu_bldgs = new FeatureLayer("https://services5.arcgis.com/G79PVu14Duuuwxv3/ArcGIS/rest/services/BLDGS_test/FeatureServer/0");
         // popup template
         popup = new PopupTemplate({
             title: "{BLDG_NAME}",
-            // fieldInfos: [{
-            //     "fieldName": "BLDG_NUMBE",
-            //     "label": "Building number:",
-            //     "format": {
-            //         "places": 0,
-            //         "digitSeparator": true
-            //     }
-            // }],
-
-            description: "</br>Building Code: {BLDG_CODE}</br> Building Number: {BLDG_NUMBE}</br>1720 Pleasant St, Boulder, CO 80309{BLDG_ADDRE}</br>",
+            description: "Building Code: {BLDG_CODE}</br> Building Number: {BLDG_NUMBE}</br><i style='text-transform: lowercase;'>{BLDG_ADDRE}<i>",
+            // description: "Radiohead",
             mediaInfos: [{ //define the picture
                 "title": "",
                 "caption": "",
@@ -76,15 +68,16 @@
             searchFields: ["BLDG_CODE", "BLDG_NUMBE", "BLDG_NAME"],
             displayField: "BLDG_NAME",
             exactMatch: false,
-            outFields: ["BLDG_NAME", "BLDG_CODE", "BLDG_NUMBE"],
+            outFields: ["BLDG_NAME", "BLDG_CODE", "BLDG_NUMBE", "BLDG_ADDRE"],
             name: "CU Boulder Buildings",
             placeholder: "search by building code, name or number",
             maxResults: 6,
             maxSuggestions: 6,
             enableHighlight: true,
-            infoTemplate: popup,
+            infoTemplate: false,
             // we can also custom build our own marker
-            highlightSymbol: new PictureMarkerSymbol("https://js.arcgis.com/3.17/esri/dijit/Search/images/search-pointer.png", 36, 36),
+            // highlightSymbol: new PictureMarkerSymbol("https://js.arcgis.com/3.17/esri/dijit/Search/images/search-pointer.png", 36, 36),
+            highlightSymbol: new PictureMarkerSymbol("img/search-pointer_cu.png", 36, 36),
         });
         //Set the sources above to the search widget
         search.set("sources", sources);
@@ -98,6 +91,8 @@
                 "wkid": 2876
             }
         });
+        // adding  the bldgs
+        map.addLayer(cu_bldgs);
         // controls the extent of the search geocoder
         search.sources[0].searchExtent = boulder_extent;
         sources.splice(0, 2, sources[1], sources[0]);
@@ -105,13 +100,28 @@
 
         map.on("load", function() {
             extent = map.extent;
+            map.graphics.enableMouseEvents();
+            map.graphics.on("mouse-out", closeDialog);
         });
+        // hover - popup;
+        cu_bldgs.on("mouse-over", function(evt) {
+            dijitPopup.open({
+                popup: popup,
+                x: evt.pageX,
+                y: evt.pageY
+            });
+        });
+
+        function closeDialog() {
+            map.graphics.clear();
+            dijitPopup.close(popup);
+        }
     });
+
     // custom "HomeButton"
     function zoomFunction() {
         map.setExtent(extent);
     }
-    // popup.resize(250, 100);
     </script>
     <div id="map">
     </div>
@@ -128,6 +138,7 @@
                 </button> -->
                 <a class="navbar-brand" href="#"><img src="img/colorado-buffaloes.png" onclick="zoomFunction();"></a>
                 <div id="search"></div>
+                <!-- <button></button> -->
                 <!-- <button type="button" class="my_button" onclick="zoomFunction();">Zoom to Original Extent</button> -->
                 <!-- <div id="HomeButton"></div> -->
             </div>
