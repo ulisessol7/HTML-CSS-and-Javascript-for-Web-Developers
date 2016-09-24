@@ -123,25 +123,7 @@
             ),
             new Color([125, 125, 125, 0.35])
         );
-        // credits https://developers.arcgis.com/javascript/3/sandbox/sandbox.html?sample=query_nomap
-        function showResults(results) {
-            var resultItems = [];
-            var resultCount = results.features.length;
-            for (var i = 0; i < resultCount; i++) {
-                var featureAttributes = results.features[i].attributes;
-                for (var attr in featureAttributes) {
-                    resultItems.push('"' + attr + '"' + ":" + "'" + featureAttributes[attr] +
-                        "'");
 
-                }
-                // resultItems.push("<br>");
-                console.log(resultItems);
-                console.log(resultItems[1]);
-                return resultItems;
-            }
-        }
-
-        // credits to http://jsfiddle.net/td2htn7q/1/
         function queryMapService(g) {
             var queryTask = new QueryTask("https://services5.arcgis.com/G79PVu14Duuuwxv3/ArcGIS/rest/services/BLDGS_test/FeatureServer/0");
             var query = new Query();
@@ -149,10 +131,32 @@
             query.outFields = ["BLDG_NAME", "BLDG_CODE", "BLDG_NUMBE", "BLDG_ADDRE"];
             var g_id = g.attributes["OBJECTID"]; //number
             query.objectIds = [g_id];
-            queryTask.execute(query, showResults);
-            console.log(typeof g_id);
+            var resultItems = [];
+            queryTask.execute(query, function showResults(results) {
+                // var resultItems = [];
+                var resultCount = results.features.length;
+                for (var i = 0; i < resultCount; i++) {
+                    var featureAttributes = results.features[i].attributes;
+                    for (var attr in featureAttributes) {
+                        resultItems.push(attr + ":" + featureAttributes[attr]);
+                    }
+                }
+                // console.log(resultItems);
+                var name = resultItems[0].split(":")[1];
+                var code = resultItems[1].split(":")[1];
+                var number = resultItems[2].split(":")[1];
+                var addr = resultItems[3].split(":")[1].toLowerCase();
+                g.setAttributes({
+                    'BLDG_NAME': name,
+                    'BLDG_CODE': code,
+                    'BLDG_NUMBE': number,
+                    'BLDG_ADDRE': addr
+                });
+                map.infoWindow.setContent(g.getContent());
+                return resultItems;
+            });
+        };
 
-        }
 
         // hover - popup;
         cu_bldgs.on("mouse-over", function(evt) {
@@ -163,24 +167,14 @@
             // var highlightGraphic = new Graphic(g.geometry, highlightSymbol);
             // map.graphics.add(highlightGraphic);
             queryMapService(g);
-            // g.setAttributes({
-            //     "BLDG_CODE": 'DLC',
-            //     "BLDG_NUMBE": '315',
-            //     "BLDG_NAME": 'RESEARCH LAB 2',
-            //     "BLDG_ADDRE": 'street 190 Boulder, Colorado'
-            // });
-            map.infoWindow.setContent(g.getContent());
-            map.infoWindow.set("popupWindow", true);
             map.infoWindow.show(evt.mapPoint);
-            // console.log(g.attributes["OBJECTID"]);
-            console.log('in');
-
         });
         cu_bldgs.on("mouse-out", function() {
             /* Act on the event */
             map.graphics.clear();
             // map.graphics.hide();
             map.infoWindow.hide();
+            resultItems = [];
             console.log("out")
 
         })
