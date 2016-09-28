@@ -115,47 +115,139 @@
     /*NAVBAR*/
     
     #cu_nav {
-        background-color: transparent;
         border-color: transparent;
         position: absolute;
         top: 0px;
+        border: none;
+        margin-top: 1%;
+        margin-left: 1%;
+        background-color: black;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+        opacity: 0.90;
+    }
+    
+    #cu_nav:hover {
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     }
     /*RALPHIE*/
     
-    .navbar-brand {
+    .container-fluid {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+    
+    .navbar-header {
+        left: 0px;
+        /*background-color: red;*/
+        width: 100%;
+        height: 100%;
+        /*float: left;*/
+    }
+    
+    .navbar>.container .navbar-brand,
+    .navbar>.container-fluid .navbar-brand {
         padding: 0px;
+        text-align: center;
+        width: 20%;
+        float: left;
+        margin-left: 0px;
+        margin-right: 2.5%;
     }
     
     .navbar-brand>img {
         height: 100%;
         padding: 0px;
+        display: block;
+        margin: auto;
         width: auto;
     }
     /*SEARCH  BAR USING CALCITE*/
     
     #search {
-        display: block;
-        float: right;
-        margin-top: 5px;
-        height: 30px;
-        */
-        /*font-size: 10px;*/
+        position: relative;
+        float: left;
+        /*display: block;*/
+        /*margin-top: 5px;*/
+        height: 100%;
+        width: 55%;
+        /*background-color: yellow;*/
+        /*display: flex;*/
     }
     
     #search .searchIcon {
         color: #C5A230;
         font-size: 10px;
+        padding-top: 5px;
     }
     
-    #search .searchInput {
+    .arcgisSearch .searchInputGroup {
+        width: 100% !important;
+    }
+    
+    .calcite .arcgisSearch .searchExpandContainer {
+        width: 90% !important;
+    }
+    
+    .calcite .arcgisSearch .searchGroup .searchInput {
+        width: 100% !important;
+    }
+    
+    .calcite .arcgisSearch .hasMultipleSources .searchToggle {
+        display: none !important;
+    }
+    
+    .calcite .arcgisSearch .searchGroup {
+        padding-top: 9px;
+    }
+    
+    .calcite .arcgisSearch .searchBtn {
+        position: relative !important;
+        width: 9% !important;
+    }
+    
+    .calcite .arcgisSearch .hasMultipleSources .searchInput {
+        color: #C5A230 !important;
+    }
+    /*when user enters a search in the widget*/
+    
+    .calcite .arcgisSearch .hasMultipleSources .searchInput:focus {
+        box-shadow: 0 0 3px 3px #A2A4A3;
+    }
+    
+    .calcite .arcgisSearch .searchBtn:hover {
+        color: #A2A4A3 !important;
+        background-color: #A2A4A3 !important;
+    }
+    
+    .calcite .arcgisSearch .searchBtn:active,
+    .calcite .arcgisSearch .searchBtn:focus {
+        color: #A2A4A3 !important;
+        background-color: #A2A4A3 !important;
+    }
+    
+    #borderContainer {
+        width: 100%;
+        height: 100%;
         background-color: black;
+        padding: none;
     }
     
-    #search .searchInput:focus {
-        border-color: #C5A230;
-        -moz-box-shadow: 0px 0px 4px #C5A230;
-        -webkit-box-shadow: 0px 0px 4px #C5A230;
-        box-shadow: 0px 0px 4px #C5A230;
-        color: white;
+    #directions {
+        padding: 0px;
+        text-align: right;
+        width: 20%;
+        float: left;
+        margin-left: 2.5%;
+        height: 50px;
     }
-    /*AIzaSyDDaA_i_r5wKG8WPxMz_pcodZcwCZTlUMM */
+    
+    #directions >img {
+        height: 90%;
+        padding: 0px;
+        display: block;
+        margin: 0 auto;
+        width: auto;
+        text-align: right;
+        padding-top: 7px;
+    }

@@ -16,179 +16,17 @@
 </head>
 
 <body class="calcite">
-    <!-- GOOGLE PLACES API -->
-    <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDaA_i_r5wKG8WPxMz_pcodZcwCZTlUMM&libraries=places"></script> -->
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" integrity="VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU" crossorigin="anonymous"></script> -->
     <script src="https://js.arcgis.com/3.17/"></script>
-    <script type="text/javascript">
-    var map, extent, popup, cu_bldgs, popup_template, bldgs_graphic;
-
-    // require(["esri/map", "esri/dijit/Search", "esri/layers/FeatureLayer", "esri/dijit/PopupTemplate", "esri/geometry/Extent", "esri/symbols/PictureMarkerSymbol", "esri/layers/GraphicsLayer", "esri/dijit/Popup",
-    //     "esri/renderers/SimpleRenderer", "esri/graphic", "dijit/popup", "dojo/_base/connect", "esri/graphic", "dojo/dom-construct", "dojo/parser", "esri/symbols/SimpleMarkerSymbol", "esri/Color", "esri/tasks/query", "esri/tasks/QueryTask",
-    //     "dojo/domReady!"
-    require(["esri/map", "esri/dijit/Search", "esri/layers/FeatureLayer", "esri/dijit/PopupTemplate", "esri/symbols/PictureMarkerSymbol", "esri/geometry/Extent", "esri/symbols/SimpleFillSymbol", "esri/symbols/SimpleLineSymbol", "esri/Color", "esri/tasks/QueryTask", "esri/tasks/query", "esri/graphic",
-        "dojo/domReady!"
-    ], function(Map, Search, FeatureLayer, PopupTemplate, PictureMarkerSymbol, Extent, SimpleFillSymbol, SimpleLineSymbol, Color, QueryTask, Query, Graphic) {
-        map = new Map("map", {
-            basemap: "topo",
-            center: [-105.2659, 40.0076], // long, lat  
-            zoom: 16,
-            slider: false,
-            // infoWindow: pop
-        });
-
-        var search = new Search({
-            enableButtonMode: true, //this enables the search widget to display as a single button
-            enableLabel: false,
-            enableInfoWindow: true,
-            showInfoWindowOnSelect: false,
-            map: map
-        }, "search");
-
-        var sources = search.get("sources");
-        // this layer  mimics what we have in our GIS system right now, the layer is hosted in ArcGIS Online
-        cu_bldgs = new FeatureLayer("https://services5.arcgis.com/G79PVu14Duuuwxv3/ArcGIS/rest/services/BLDGS_test/FeatureServer/0"), {
-            // mode: FeatureLayer.MODE_SELECTION,
-            outFields: ["BLDG_NAME", "BLDG_CODE", "BLDG_NUMBE", "BLDG_ADDRE"],
-            infoTemplate: popup_template
-        };
-        // popup template
-        popup_template = new PopupTemplate({
-            title: "{BLDG_NAME}",
-            description: 'Building Code: {BLDG_CODE}</br> Building Number: {BLDG_NUMBE}</br><i style=text-transform: lowercase;">{BLDG_ADDRE}<i>',
-            // description: "Radiohead",
-            mediaInfos: [{ //define the picture
-                "title": "",
-                "caption": "",
-                "type": "image",
-                "value": {
-                    "sourceURL": "img/{BLDG_NUMBE}.jpg",
-                }
-            }],
-        });
-
-        //Push the sources used to search, by default the ArcGIS Online World geocoder is included.
-        sources.push({
-            featureLayer: cu_bldgs,
-            searchFields: ["BLDG_CODE", "BLDG_NUMBE", "BLDG_NAME"],
-            displayField: "BLDG_NAME",
-            exactMatch: false,
-            outFields: ["BLDG_NAME", "BLDG_CODE", "BLDG_NUMBE", "BLDG_ADDRE"],
-            name: "CU Boulder Buildings",
-            placeholder: "search by building code, name or number",
-            maxResults: 6,
-            maxSuggestions: 6,
-            enableHighlight: true,
-            infoTemplate: popup_template,
-            // we can also custom build our own marker
-            // highlightSymbol: new PictureMarkerSymbol("https://js.arcgis.com/3.17/esri/dijit/Search/images/search-pointer.png", 36, 36),
-            highlightSymbol: new PictureMarkerSymbol("img/search-pointer_cu.png", 36, 36),
-        });
-        //Set the sources above to the search widget
-        search.set("sources", sources);
-        // boulder search extent
-        var boulder_extent = new Extent({
-            "xmin": 3043062.709893935,
-            "ymin": 1242503.5101015298,
-            "xmax": 3081808.4767370443,
-            "ymax": 1258757.248199367,
-            "spatialReference": {
-                "wkid": 2876
-            }
-        });
-
-        // adding  the bldgs
-        map.addLayer(cu_bldgs);
-        // cu_bldgs.setInfoTemplate(popup_template);
-
-        // cu_bldgs.setInfoTemplate(popup);
-        // controls the extent of the search geocoder
-        search.sources[0].searchExtent = boulder_extent;
-        sources.splice(0, 2, sources[1], sources[0]);
-        search.startup();
-
-        map.on("load", function() {
-            extent = map.extent;
-            map.graphics.enableMouseEvents();
-
-        });
-        var highlightSymbol = new SimpleFillSymbol(
-            SimpleFillSymbol.STYLE_SOLID,
-            new SimpleLineSymbol(
-                SimpleLineSymbol.STYLE_SOLID,
-                new Color([207, 184, 124]), 3
-            ),
-            new Color([125, 125, 125, 0.35])
-        );
-
-        function queryMapService(g) {
-            var queryTask = new QueryTask("https://services5.arcgis.com/G79PVu14Duuuwxv3/ArcGIS/rest/services/BLDGS_test/FeatureServer/0");
-            var query = new Query();
-            query.returnGeometry = false;
-            query.outFields = ["BLDG_NAME", "BLDG_CODE", "BLDG_NUMBE", "BLDG_ADDRE"];
-            var g_id = g.attributes["OBJECTID"]; //number
-            query.objectIds = [g_id];
-            var resultItems = [];
-            queryTask.execute(query, function showResults(results) {
-                // var resultItems = [];
-                var resultCount = results.features.length;
-                for (var i = 0; i < resultCount; i++) {
-                    var featureAttributes = results.features[i].attributes;
-                    for (var attr in featureAttributes) {
-                        resultItems.push(attr + ":" + featureAttributes[attr]);
-                    }
-                }
-                // console.log(resultItems);
-                var name = resultItems[0].split(":")[1];
-                var code = resultItems[1].split(":")[1];
-                var number = resultItems[2].split(":")[1];
-                var addr = resultItems[3].split(":")[1].toLowerCase();
-                g.setAttributes({
-                    'BLDG_NAME': name,
-                    'BLDG_CODE': code,
-                    'BLDG_NUMBE': number,
-                    'BLDG_ADDRE': addr
-                });
-                map.infoWindow.setContent(g.getContent());
-                return resultItems;
-            });
-        };
-
-
-        // hover - popup;
-        cu_bldgs.on("mouse-over", function(evt) {
-            /* Act on the event */
-            //Add graphic to the map graphics layer.
-            var g = evt.graphic;
-            g.setInfoTemplate(popup_template);
-            // var highlightGraphic = new Graphic(g.geometry, highlightSymbol);
-            // map.graphics.add(highlightGraphic);
-            queryMapService(g);
-            map.infoWindow.show(evt.mapPoint);
-        });
-        cu_bldgs.on("mouse-out", function() {
-            /* Act on the event */
-            map.graphics.clear();
-            // map.graphics.hide();
-            map.infoWindow.hide();
-            resultItems = [];
-            console.log("out")
-
-        })
-
-    });
-    // custom "HomeButton"
-    function zoomFunction() {
-        map.setExtent(extent);
-    }
+    <script src="js/map_beta.js">
     </script>
+    <!-- map -->
     <div id="map">
     </div>
-    <!-- map -->
-    <nav id="cu_nav" class="navbar navbar-default">
+    <nav id="cu_nav" class="navbar navbar-default col-lg-3">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -199,11 +37,18 @@
                     <span class="icon-bar"></span>
                 </button> -->
                 <a class="navbar-brand" href="#"><img src="img/colorado-buffaloes.png" onclick="zoomFunction();"></a>
-                <div id="search"></div>
+                <div id="search">
+                </div>
+                <div id="directions"><img src="img/walking-icon.png"></div>
                 <!-- <button></button> -->
                 <!-- <button type="button" class="my_button" onclick="zoomFunction();">Zoom to Original Extent</button> -->
                 <!-- <div id="HomeButton"></div> -->
             </div>
+            <!-- <div>University of Colorado Boulder</div> -->
+            <!-- <div data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design:'sidebar', gutters:true, liveSplitters:true" id="borderContainer" >
+                <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="splitter:true, region:'leading'" style="width: 100px;">Hi, I'm leading pane</div>
+                <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="splitter:true, region:'center'">Hi, I'm center pane</div>
+            </div> -->
             <!-- Collect the nav links, forms, and other content for toggling -->
             <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
             <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
