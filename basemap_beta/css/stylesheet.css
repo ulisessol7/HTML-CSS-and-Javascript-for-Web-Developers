@@ -1,19 +1,23 @@
     /*Basemap Styles*/
+    /************************************************************************************************************************************/
     /*GENERAL STYLES*/
+    /************************************************************************************************************************************/
     
     * {
         box-sizing: border-box;
     }
     
     html,
-    body,
+    S body,
     #map {
         /*the height value for map needs to be here*/
         height: 100%;
         margin: 0;
         padding: 0;
     }
-    /*POPUP*/
+    /************************************************************************************************************************************/
+    /*CUSTOM HOVER OVER POPUP*/
+    /************************************************************************************************************************************/
     /*removes the zoomto button from the popup*/
     
     #map .esriPopup .action.zoomTo {
@@ -86,7 +90,6 @@
     }
     
     #map .esriViewPopup .gallery {
-        /*position: relative;*/
         width: 100%;
         height: 100%;
         margin: 0 auto;
@@ -97,7 +100,6 @@
     }
     
     #map .esriViewPopup .hzLine {
-        /*border-bottom: 1px solid #565A5C;*/
         border-bottom: none;
     }
     
@@ -112,7 +114,9 @@
     #map .esriPopup .pointer.top {
         display: none;
     }
-    /*NAVBAR*/
+    /************************************************************************************************************************************/
+    /*BOOTSTRAP NAVIGATION BAR*/
+    /************************************************************************************************************************************/
     
     #cu_nav {
         border-color: transparent;
@@ -130,7 +134,9 @@
     #cu_nav:hover {
         box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     }
-    /*RALPHIE*/
+    /************************************************************************************************************************************/
+    /*CUSTOM HOME BUTTON (RALPHIE LOGO)*/
+    /************************************************************************************************************************************/
     
     .container-fluid {
         padding-right: 0px;
@@ -162,7 +168,9 @@
         margin: auto;
         width: auto;
     }
-    /*SEARCH  BAR USING CALCITE*/
+    /************************************************************************************************************************************/
+    /*SEARCH WIDGET*/
+    /************************************************************************************************************************************/
     
     #search {
         position: relative;
@@ -174,6 +182,7 @@
         /*background-color: yellow;*/
         /*display: flex;*/
     }
+    /*the !important tag is utilized to override the styles applied from the calcite theme*/
     
     #search .searchIcon {
         color: #C5A230;
@@ -225,13 +234,9 @@
         color: #A2A4A3 !important;
         background-color: #A2A4A3 !important;
     }
-    
-    #borderContainer {
-        width: 100%;
-        height: 100%;
-        background-color: black;
-        padding: none;
-    }
+    /************************************************************************************************************************************/
+    /*DIRECTIONS BUTTON*/
+    /************************************************************************************************************************************/
     
     #directions {
         padding: 0px;
@@ -250,4 +255,43 @@
         width: auto;
         text-align: right;
         padding-top: 7px;
+    }
+    
+    #directions >img:hover {
+        -webkit-transform: rotate(-10deg);
+        -moz-transform: rotate(-10deg);
+        -o-transform: rotate(-10deg);
+        -ms-transform: rotate(-10deg);
+        transform: rotate(-10deg);
+    }
+    /************************************************************************************************************************************/
+    /*SIDEBAR WITH POPUP CONTENT*/
+    /************************************************************************************************************************************/
+    
+    #border {
+        /*border-radius: 10px;*/
+        float: left;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        text-align: left;
+        margin-bottom: 2.5%;
+        /*padding: 5px;*/
+    }
+    
+    #bldg {
+        color: white;
+        background-color: #565A5C;
+        text-indent: 5px;
+        /*border-bottom-style: solid;*/
+        /*border-bottom-color: #A2A4A3;
+        border-bottom-width: 0.5px;*/
+    }
+    
+    #code,
+    #numbe,
+    #address {
+        color: #CFB87C;
+        text-indent: 5px;
+        background-color: #565A5C;
     }

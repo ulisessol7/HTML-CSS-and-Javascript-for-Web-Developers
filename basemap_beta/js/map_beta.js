@@ -6,8 +6,20 @@ var map, extent, popup, cu_bldgs, popup_template, bldgs_graphic;
 // DOJO REQUIRES
 // **********************************************************************************************************************************
 require(["esri/map", "esri/dijit/Search", "esri/layers/FeatureLayer", "esri/dijit/PopupTemplate", "esri/symbols/PictureMarkerSymbol", "esri/geometry/Extent", "esri/symbols/SimpleFillSymbol", "esri/symbols/SimpleLineSymbol", "esri/Color", "esri/tasks/QueryTask", "esri/tasks/query", "esri/graphic",
-    "dojo/parser", "dijit/layout/ContentPane", "dijit/layout/BorderContainer", "dojo/domReady!"
-], function(Map, Search, FeatureLayer, PopupTemplate, PictureMarkerSymbol, Extent, SimpleFillSymbol, SimpleLineSymbol, Color, QueryTask, Query, Graphic) {
+    "dojo/on",
+    "dojo/_base/connect",
+    "dojo/dom",
+    "dijit/registry",
+    "dojo/dom-construct",
+    "dojo/parser", "dijit/layout/BorderContainer", "dijit/layout/ContentPane", "dojo/html", "dojo/domReady!"
+], function(Map, Search, FeatureLayer, PopupTemplate, PictureMarkerSymbol, Extent, SimpleFillSymbol, SimpleLineSymbol, Color, QueryTask, Query, Graphic,
+    on,
+    connect,
+    dom,
+    registry,
+    domConstruct,
+    parser, BorderContainer,
+    ContentPane, html, ready) {
     // **********************************************************************************************************************************
     // MAP
     // **********************************************************************************************************************************
@@ -32,7 +44,7 @@ require(["esri/map", "esri/dijit/Search", "esri/layers/FeatureLayer", "esri/diji
     // this layer  mimics what we have in our GIS system right now, the layer is hosted in ArcGIS Online
     cu_bldgs = new FeatureLayer("https://services5.arcgis.com/G79PVu14Duuuwxv3/ArcGIS/rest/services/BLDGS_test/FeatureServer/0"), {
         outFields: ["BLDG_NAME", "BLDG_CODE", "BLDG_NUMBE", "BLDG_ADDRE"],
-        infoTemplate: popup_template
+        // infoTemplate: popup_template
     };
     // **********************************************************************************************************************************
     // POUP TEMPLATE FOR HOVER OVER MOUSE EVENT
@@ -65,7 +77,7 @@ require(["esri/map", "esri/dijit/Search", "esri/layers/FeatureLayer", "esri/diji
         infoTemplate: popup_template,
         // we can also custom build our own marker
         // highlightSymbol: new PictureMarkerSymbol("https://js.arcgis.com/3.17/esri/dijit/Search/images/search-pointer.png", 36, 36),
-        highlightSymbol: new PictureMarkerSymbol("img/search-pointer_cu.png", 36, 36),
+        // highlightSymbol: new PictureMarkerSymbol("img/search-pointer_cu.png", 36, 36),
     });
     // **********************************************************************************************************************************
     // SEARCH EXTENTS FOR BOULDER
@@ -146,6 +158,7 @@ require(["esri/map", "esri/dijit/Search", "esri/layers/FeatureLayer", "esri/diji
     cu_bldgs.on("mouse-over", function(evt) {
         /* Act on the event */
         //Add graphic to the map graphics layer.
+        map.infoWindow.set("popupWindow", true);
         var g = evt.graphic;
         g.setInfoTemplate(popup_template);
         // var highlightGraphic = new Graphic(g.geometry, highlightSymbol);
@@ -160,8 +173,21 @@ require(["esri/map", "esri/dijit/Search", "esri/layers/FeatureLayer", "esri/diji
         map.infoWindow.hide();
         console.log("out")
 
-    })
+    });
 
+    cu_bldgs.on("click", function(evt) {
+        map.infoWindow.set("popupWindow", false);
+        map.infoWindow.hide();
+        var g = evt.graphic;
+        var pic = "img_pane/" + g.attributes['BLDG_NUMBE'] + ".jpg"
+        document.getElementById("pic").src = pic;
+        html.set("bldg", g.attributes['BLDG_NAME']);
+        document.getElementById("bldg").style.borderBottom = "0.5px solid #A2A4A3";
+        html.set("code", "Building code: " + g.attributes['BLDG_CODE']);
+        html.set("numbe", "Building number: " + g.attributes['BLDG_NUMBE']);
+        html.set("address", g.attributes['BLDG_ADDRE']);
+        console.log("Bubu");
+    });
 });
 // **********************************************************************************************************************************
 // CUSTOM HOME BUTTON

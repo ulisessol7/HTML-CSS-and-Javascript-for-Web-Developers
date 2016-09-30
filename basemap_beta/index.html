@@ -19,7 +19,6 @@
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" integrity="VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU" crossorigin="anonymous"></script> -->
     <script src="https://js.arcgis.com/3.17/"></script>
     <script src="js/map_beta.js">
     </script>
@@ -44,19 +43,27 @@
                 <!-- <button type="button" class="my_button" onclick="zoomFunction();">Zoom to Original Extent</button> -->
                 <!-- <div id="HomeButton"></div> -->
             </div>
-            <!-- <div>University of Colorado Boulder</div> -->
-            <!-- <div data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design:'sidebar', gutters:true, liveSplitters:true" id="borderContainer" >
+            <div id="bubu" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="gutters:true" region="left">
+                <div id="border" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'">
+                    <div> <img id="pic" src=""></div>
+                    <div id="bldg"></div>
+                    <div id="code"></div>
+                    <div id="numbe"></div>
+                    <div id="address"></div>
+                </div>
+                <!-- <div>University of Colorado Boulder</div> -->
+                <!-- <div data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design:'sidebar', gutters:true, liveSplitters:true" id="borderContainer" >
                 <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="splitter:true, region:'leading'" style="width: 100px;">Hi, I'm leading pane</div>
                 <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="splitter:true, region:'center'">Hi, I'm center pane</div>
             </div> -->
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
-            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-            <!-- <button type="button" class="btn btn-primary">Primary</button> -->
-            <!-- <ul class="nav navbar-nav"> -->
-            <!-- <li class="nav nav-pills" role="presentation"><a href="#">Link</a></li> -->
-            <!-- <li class="dropdown"> -->
-            <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
+                <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                <!-- <button type="button" class="btn btn-primary">Primary</button> -->
+                <!-- <ul class="nav navbar-nav"> -->
+                <!-- <li class="nav nav-pills" role="presentation"><a href="#">Link</a></li> -->
+                <!-- <li class="dropdown"> -->
+                <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Action</a></li>
                             <li><a href="#">Another action</a></li>
@@ -65,19 +72,19 @@
                             <li><a href="#">Separated link</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="#">One more separated link</a></li> -->
-            <!-- </ul> -->
-            <!--   </li>
+                <!-- </ul> -->
+                <!--   </li>
                 </ul> -->
-            <!-- <form class="navbar-form navbar-left">
+                <!-- <form class="navbar-form navbar-left">
                 <div id="mysearch" class="form-group">
                     <input type="text" class="form-control" placeholder="Where would you like to walk to?">
                 </div>
                 <button id="go" type="submit" class="btn btn-default">Search</button>
             </form> -->
-        </div>
-        <!-- /.navbar-collapse -->
-        <!-- </div> -->
-        <!-- /.container-fluid -->
+            </div>
+            <!-- /.navbar-collapse -->
+            <!-- </div> -->
+            <!-- /.container-fluid -->
     </nav>
 </body>
 
