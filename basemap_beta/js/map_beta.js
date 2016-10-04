@@ -11,7 +11,7 @@ require(["esri/map", "esri/dijit/Search", "esri/layers/FeatureLayer", "esri/diji
     "dojo/dom",
     "dijit/registry",
     "dojo/dom-construct",
-    "dojo/parser", "dijit/layout/BorderContainer", "dijit/layout/ContentPane", "dojo/html", "dojo/domReady!"
+    "dojo/parser", "dijit/layout/BorderContainer", "dijit/layout/ContentPane", "dojo/html", "esri/dijit/Directions", "dojo/domReady!"
 ], function(Map, Search, FeatureLayer, PopupTemplate, PictureMarkerSymbol, Extent, SimpleFillSymbol, SimpleLineSymbol, Color, QueryTask, Query, Graphic,
     on,
     connect,
@@ -19,7 +19,7 @@ require(["esri/map", "esri/dijit/Search", "esri/layers/FeatureLayer", "esri/diji
     registry,
     domConstruct,
     parser, BorderContainer,
-    ContentPane, html, ready) {
+    ContentPane, html, Directions, ready) {
     // **********************************************************************************************************************************
     // MAP
     // **********************************************************************************************************************************
@@ -43,8 +43,7 @@ require(["esri/map", "esri/dijit/Search", "esri/layers/FeatureLayer", "esri/diji
     var sources = search.get("sources");
     // this layer  mimics what we have in our GIS system right now, the layer is hosted in ArcGIS Online
     cu_bldgs = new FeatureLayer("https://services5.arcgis.com/G79PVu14Duuuwxv3/ArcGIS/rest/services/BLDGS_test/FeatureServer/0"), {
-        outFields: ["BLDG_NAME", "BLDG_CODE", "BLDG_NUMBE", "BLDG_ADDRE"],
-        // infoTemplate: popup_template
+        outFields: ["BLDG_NAME", "BLDG_CODE", "BLDG_NUMBE", "BLDG_ADDRE"]
     };
     // **********************************************************************************************************************************
     // POUP TEMPLATE FOR HOVER OVER MOUSE EVENT
@@ -70,14 +69,15 @@ require(["esri/map", "esri/dijit/Search", "esri/layers/FeatureLayer", "esri/diji
         exactMatch: false,
         outFields: ["BLDG_NAME", "BLDG_CODE", "BLDG_NUMBE", "BLDG_ADDRE"],
         name: "CU Boulder Buildings",
-        placeholder: "search by building code, name or number",
+        allPlaceholder: "search by building code, name or number",
         maxResults: 3,
         maxSuggestions: 3,
-        enableHighlight: true,
+        enableHighlight: false,
         infoTemplate: popup_template,
-        // we can also custom build our own marker
-        // highlightSymbol: new PictureMarkerSymbol("https://js.arcgis.com/3.17/esri/dijit/Search/images/search-pointer.png", 36, 36),
-        // highlightSymbol: new PictureMarkerSymbol("img/search-pointer_cu.png", 36, 36),
+        showInfoWindowOnSelect: true
+            // we can also custom build our own marker
+            // highlightSymbol: new PictureMarkerSymbol("https://js.arcgis.com/3.17/esri/dijit/Search/images/search-pointer.png", 36, 36),
+            // highlightSymbol: new PictureMarkerSymbol("img/search-pointer_cu.png", 36, 36),
     });
     // **********************************************************************************************************************************
     // SEARCH EXTENTS FOR BOULDER
@@ -117,14 +117,18 @@ require(["esri/map", "esri/dijit/Search", "esri/layers/FeatureLayer", "esri/diji
         new Color([125, 125, 125, 0.35])
     );
     // **********************************************************************************************************************************
-    // HOVER OVER POPUP 
+    // HOVER OVER POPUP
     // **********************************************************************************************************************************
     function queryMapService(g) {
         var queryTask = new QueryTask("https://services5.arcgis.com/G79PVu14Duuuwxv3/ArcGIS/rest/services/BLDGS_test/FeatureServer/0");
         var query = new Query();
         query.returnGeometry = false;
         query.outFields = ["BLDG_NAME", "BLDG_CODE", "BLDG_NUMBE", "BLDG_ADDRE"];
-        var g_id = g.attributes["OBJECTID"]; //number
+        // for debugging purposes
+        // console.log('first', g.attributes.OBJECTID);
+        var g_id = g.attributes.OBJECTID; //number
+        console.log(g);
+        console.log([g_id], query.objectId);
         query.objectIds = [g_id];
         var resultItems = [];
         queryTask.execute(query, function showResults(results) {
@@ -142,16 +146,19 @@ require(["esri/map", "esri/dijit/Search", "esri/layers/FeatureLayer", "esri/diji
             var number = resultItems[2];
             var addr = resultItems[3].toLowerCase();
             g.setAttributes({
+                'OBJECTID': g_id,
                 'BLDG_NAME': name,
                 'BLDG_CODE': code,
                 'BLDG_NUMBE': number,
                 'BLDG_ADDRE': addr
             });
+            // for debugging purposes
+            // console.log('IN', g.attributes.OBJECTID);
             map.infoWindow.setContent(g.getContent());
             // return resultItems;
 
         });
-    };
+    }
 
 
     // hover - popup;
@@ -171,27 +178,63 @@ require(["esri/map", "esri/dijit/Search", "esri/layers/FeatureLayer", "esri/diji
         map.graphics.clear();
         // map.graphics.hide();
         map.infoWindow.hide();
-        console.log("out")
-
+        // for debugging purposes
+        console.log("out");
     });
 
     cu_bldgs.on("click", function(evt) {
         map.infoWindow.set("popupWindow", false);
         map.infoWindow.hide();
         var g = evt.graphic;
-        var pic = "img_pane/" + g.attributes['BLDG_NUMBE'] + ".jpg"
+        var pic = "img_pane/" + g.attributes.BLDG_NUMBE + ".jpg";
         document.getElementById("pic").src = pic;
-        html.set("bldg", g.attributes['BLDG_NAME']);
+        document.getElementById("pic").style.display = '';
+        html.set("bldg", g.attributes.BLDG_NAME);
         document.getElementById("bldg").style.borderBottom = "0.5px solid #A2A4A3";
-        html.set("code", "Building code: " + g.attributes['BLDG_CODE']);
-        html.set("numbe", "Building number: " + g.attributes['BLDG_NUMBE']);
-        html.set("address", g.attributes['BLDG_ADDRE']);
-        console.log("Bubu");
+        html.set("code", "Building code: " + g.attributes.BLDG_CODE);
+        html.set("numbe", "Building number: " + g.attributes.BLDG_NUMBE);
+        html.set("address", g.attributes.BLDG_ADDRE);
+        console.log("building click");
     });
+
+    map.on("click", function(evt) {
+        var layerId;
+        if (evt.graphic) {
+            layerId = evt.graphic.getLayer().id
+            console.log(layerId)
+        }
+        if (layerId !== "graphicsLayer1") {
+            var pic = "";
+            document.getElementById("pic").src = "";
+            document.getElementById("pic").style.display = 'none';
+            html.set("bldg", "");
+            document.getElementById("bldg").style.borderBottom = 'none';
+            html.set("code", "");
+            html.set("numbe", "");
+            html.set("address", "");
+            console.log("map click");
+        }
+    });
+
+    // **********************************************************************************************************************************
+    // DIRECTIONS MENU
+    // **********************************************************************************************************************************
+
+    window.directionsMenu = function() {
+            document.getElementById("search menu").style.display = 'none';
+            var directionsWidget = new Directions({
+                map: map,
+                routeTaskUrl: "http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Network/USA/NAServer/Route",
+            }, "dir");
+            directionsWidget.startup();
+        }
+
+    // **********************************************************************************************************************************
+    // CUSTOM HOME BUTTON
+    // **********************************************************************************************************************************
+
+    window.zoomFunction = function() {
+        map.setExtent(extent);
+    }
+
 });
-// **********************************************************************************************************************************
-// CUSTOM HOME BUTTON
-// **********************************************************************************************************************************
-function zoomFunction() {
-    map.setExtent(extent);
-}

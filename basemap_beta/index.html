@@ -20,15 +20,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
     <script src="https://js.arcgis.com/3.17/"></script>
-    <script src="js/map_beta.js">
-    </script>
+    <script src="js/map_beta.js" type="text/javascript"></script>
     <!-- map -->
     <div id="map">
     </div>
     <nav id="cu_nav" class="navbar navbar-default col-lg-3">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
+            <div id="search menu" class="navbar-header">
                 <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
@@ -38,7 +37,7 @@
                 <a class="navbar-brand" href="#"><img src="img/colorado-buffaloes.png" onclick="zoomFunction();"></a>
                 <div id="search">
                 </div>
-                <div id="directions"><img src="img/walking-icon.png" onclick="zoomFunction();"></div>
+                <div id="directions"><img src="img/walking-icon.png" onclick="directionsMenu();"></div>
                 <!-- <button></button> -->
                 <!-- <button type="button" class="my_button" onclick="zoomFunction();">Zoom to Original Extent</button> -->
                 <!-- <div id="HomeButton"></div> -->
@@ -82,6 +81,7 @@
                 <button id="go" type="submit" class="btn btn-default">Search</button>
             </form> -->
             </div>
+            <div id="dir"></div>
             <!-- /.navbar-collapse -->
             <!-- </div> -->
             <!-- /.container-fluid -->
