@@ -1,311 +1,573 @@
-    /*Basemap Styles*/
-    /************************************************************************************************************************************/
-    /*GENERAL STYLES*/
-    /************************************************************************************************************************************/
-    
-    * {
-        box-sizing: border-box;
-    }
-    
-    html,
-    body,
-    #map {
-        /*the height value for map needs to be here*/
-        height: 100%;
-        margin: 0;
-        padding: 0;
-    }
-    /************************************************************************************************************************************/
-    /*CUSTOM HOVER OVER POPUP*/
-    /************************************************************************************************************************************/
-    /*removes the zoomto button from the popup*/
-    
-    #map .esriPopup .action.zoomTo {
-        display: none;
-    }
-    /*removes the title pane element from the popup*/
-    
-    #map .esriPopup .titlePane {
-        display: none;
-    }
-    
-    #map .esriPopup .actionsPane {
-        display: none;
-    }
-    /*controls the overall size of the popup*/
-    
-    #map .esriPopup .sizer {
-        max-height: 130px;
-        max-width: 300px;
-    }
-    
-    #map .esriPopup .contentPane {
-        background-color: black;
-        color: #CFB87C;
-        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-        padding: 0;
-        max-height: 130px;
-        max-width: 300px;
-    }
-    
-    #map .esriViewPopup .break {
-        display: none;
-    }
-    
-    #map .esriPopup .mediaSection {
-        width: 50%;
-        float: left;
-    }
-    
-    #map .gallery .frame img {
-        max-width: 150px;
-        max-height: 130px;
-        /*float: left;*/
-        width: 100%;
-        height: 100%;
-        margin: 0px;
-    }
-    
-    #map .esriViewPopup div.mainSection {
-        width: 50%;
-        float: right;
-    }
-    
-    #map .esriViewPopup div.mainSection .header {
-        font-style: normal;
-        font-family: Arial;
-        width: 100%;
-        float: right !important;
-        text-align: center;
-        color: #565A5C;
-        float: left;
-    }
-    
-    #map .esriViewPopup .hzLine + div {
-        width: 100%;
-        float: right !important;
-        color: #CFB87C;
-        padding-left: 3%;
-        vertical-align: middle;
-    }
-    
-    #map .esriViewPopup .gallery {
-        width: 100%;
-        height: 100%;
-        margin: 0 auto;
-    }
-    
-    #map .gallery .frame img.esriPopupMediaImage {
-        margin: 0px !important;
-    }
-    
-    #map .esriViewPopup .hzLine {
-        border-bottom: none;
-    }
-    
-    #map .esriPopup .outerPointer.left {
-        display: none;
-    }
-    
-    #map .esriPopup .outerPointer.right {
-        display: none;
-    }
-    
-    #map .esriPopup .pointer.top {
-        display: none;
-    }
-    
-    #map .esriPopup .pointer.bottom {
-        display: none;
-    }
-    /************************************************************************************************************************************/
-    /*BOOTSTRAP NAVIGATION BAR*/
-    /************************************************************************************************************************************/
-    
-    #cu_nav {
-        border-color: transparent;
-        position: absolute;
-        top: 0px;
-        border: none;
-        margin-top: 1%;
-        margin-left: 1%;
-        background-color: black;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-        transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
-        opacity: 0.90;
-    }
-    
-    #cu_nav:hover {
-        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    }
-    /************************************************************************************************************************************/
-    /*CUSTOM HOME BUTTON (RALPHIE LOGO)*/
-    /************************************************************************************************************************************/
-    
-    .container-fluid {
-        padding-right: 0px;
-        padding-left: 0px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
-    
-    .navbar-header {
-        left: 0px;
-        /*background-color: red;*/
-        width: 100%;
-        height: 100%;
-        /*float: left;*/
-    }
-    
-    .navbar>.container .navbar-brand,
-    .navbar>.container-fluid .navbar-brand {
-        padding: 0px;
-        text-align: center;
-        width: 20%;
-        float: left;
-        margin-left: 0px;
-        margin-right: 2.5%;
-    }
-    
-    .navbar-brand>img {
-        height: 100%;
-        padding: 0px;
-        display: block;
-        margin: auto;
-        width: auto;
-    }
-    /************************************************************************************************************************************/
-    /*SEARCH WIDGET*/
-    /************************************************************************************************************************************/
-    
-    #search {
-        position: relative;
-        float: left;
-        /*display: block;*/
-        /*margin-top: 5px;*/
-        height: 100%;
-        width: 55%;
-        /*background-color: yellow;*/
-        /*display: flex;*/
-    }
-    /*the !important tag is utilized to override the styles applied from the calcite theme*/
-    
-    #search .searchIcon {
-        color: #C5A230;
-        font-size: 10px;
-        padding-top: 5px;
-    }
-    
-    .arcgisSearch .searchInputGroup {
-        width: 100% !important;
-    }
-    
-    .calcite .arcgisSearch .searchExpandContainer {
-        width: 90% !important;
-    }
-    
-    .calcite .arcgisSearch .searchGroup .searchInput {
-        width: 100% !important;
-    }
-    
-    .calcite .arcgisSearch .hasMultipleSources .searchToggle {
-        display: none !important;
-    }
-    
-    .calcite .arcgisSearch .searchGroup {
-        padding-top: 9px;
-    }
-    
-    .calcite .arcgisSearch .searchBtn {
-        position: relative !important;
-        width: 9% !important;
-    }
-    
-    .calcite .arcgisSearch .hasMultipleSources .searchInput {
-        color: #C5A230 !important;
-    }
-    /*when user enters a search in the widget*/
-    
-    .calcite .arcgisSearch .hasMultipleSources .searchInput:focus {
-        box-shadow: 0 0 3px 3px #A2A4A3;
-    }
-    
-    .calcite .arcgisSearch .searchBtn:hover {
-        color: #A2A4A3 !important;
-        background-color: #A2A4A3 !important;
-    }
-    
-    .calcite .arcgisSearch .searchBtn:active,
-    .calcite .arcgisSearch .searchBtn:focus {
-        color: #A2A4A3 !important;
-        background-color: #A2A4A3 !important;
-    }
-    /************************************************************************************************************************************/
-    /*DIRECTIONS BUTTON*/
-    /************************************************************************************************************************************/
-    
-    #directions {
-        padding: 0px;
-        text-align: right;
-        width: 20%;
-        float: left;
-        margin-left: 2.5%;
-        height: 50px;
-    }
-    
-    #directions >img {
-        height: 90%;
-        padding: 0px;
-        display: block;
-        margin: 0 auto;
-        width: auto;
-        text-align: right;
-        padding-top: 7px;
-    }
-    
-    #directions >img:hover {
-        -webkit-transform: rotate(-10deg);
-        -moz-transform: rotate(-10deg);
-        -o-transform: rotate(-10deg);
-        -ms-transform: rotate(-10deg);
-        transform: rotate(-10deg);
-    }
-    /************************************************************************************************************************************/
-    /*SIDEBAR WITH POPUP CONTENT*/
-    /************************************************************************************************************************************/
-    
-    #border {
-        /*border-radius: 10px;*/
-        float: left;
-        width: 100%;
-        height: 100%;
-        background-color: white;
-        text-align: left;
-        margin-bottom: 2.5%;
-        /*padding: 5px;*/
-    }
-    
-    #bldg {
-        color: white;
-        background-color: #565A5C;
-        text-indent: 5px;
-        /*border-bottom-style: solid;*/
-        /*border-bottom-color: #A2A4A3;
+/*Basemap Styles*/
+
+
+/*Know issues with calcite theme*/
+
+
+/*The issue is that calcite bootstrap is loaded first, then we load main.scss 
+which contains bootstrap and variables. Therefore, bootstrap overrides
+the components inside calcite bootstrap.
+
+Which could be the reason why there are !important tags on calcite-bootstrap
+components... to supersede bootstrap. Therefore, anytime we want to change
+something from calcite-bootstrap we'd have to use !important to supersede
+the !important on calcite-bootstrap components. 
+Comment by julio8a
+https://github.com/Esri/calcite-bootstrap/issues/255*/
+
+
+/************************************************************************************************************************************/
+
+
+/*GENERAL STYLES*/
+
+
+/************************************************************************************************************************************/
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body,
+#map {
+    /*the height value for map needs to be here*/
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+/************************************************************************************************************************************/
+
+
+/*CUSTOM HOVER OVER POPUP*/
+
+
+/************************************************************************************************************************************/
+
+
+/*removes the zoomto button from the popup*/
+
+#map .esriPopup .action.zoomTo {
+    display: none;
+}
+
+
+/*removes the title pane element from the popup*/
+
+#map .esriPopup .titlePane {
+    display: none;
+}
+
+#map .esriPopup .actionsPane {
+    display: none;
+}
+
+
+/*controls the overall size of the popup*/
+
+#map .esriPopup .sizer {
+    max-height: 130px;
+    max-width: 300px;
+}
+
+#map .esriPopup .contentPane {
+    background-color: black;
+    color: #CFB87C;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    padding: 0;
+    max-height: 130px;
+    max-width: 300px;
+}
+
+#map .esriViewPopup .break {
+    display: none;
+}
+
+#map .esriPopup .mediaSection {
+    width: 50%;
+    float: left;
+}
+
+#map .gallery .frame img {
+    max-width: 150px;
+    max-height: 130px;
+    /*float: left;*/
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+}
+
+#map .esriViewPopup div.mainSection {
+    width: 50%;
+    float: right;
+}
+
+#map .esriViewPopup div.mainSection .header {
+    font-style: normal;
+    font-family: Arial;
+    width: 100%;
+    float: right !important;
+    text-align: center;
+    color: #565A5C;
+    float: left;
+}
+
+#map .esriViewPopup .hzLine + div {
+    width: 100%;
+    float: right !important;
+    color: #CFB87C;
+    padding-left: 3%;
+    vertical-align: middle;
+}
+
+#map .esriViewPopup .gallery {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+#map .gallery .frame img.esriPopupMediaImage {
+    margin: 0px !important;
+}
+
+#map .esriViewPopup .hzLine {
+    border-bottom: none;
+}
+
+#map .esriPopup .outerPointer.left {
+    display: none;
+}
+
+#map .esriPopup .outerPointer.right {
+    display: none;
+}
+
+#map .esriPopup .pointer.top {
+    display: none;
+}
+
+#map .esriPopup .pointer.bottom {
+    display: none;
+}
+
+
+/************************************************************************************************************************************/
+
+
+/*BOOTSTRAP NAVIGATION BAR*/
+
+
+/************************************************************************************************************************************/
+
+#cu_nav {
+    border-color: transparent;
+    position: absolute;
+    top: 0px;
+    border: none;
+    margin-top: 1%;
+    margin-left: 1%;
+    background-color: black;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+    opacity: 0.90;
+}
+
+#cu_nav:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+
+/************************************************************************************************************************************/
+
+
+/*CUSTOM HOME BUTTON (RALPHIE LOGO)*/
+
+
+/************************************************************************************************************************************/
+
+.container-fluid {
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.navbar-header {
+    left: 0px;
+    /*background-color: red;*/
+    width: 100%;
+    height: 100%;
+    /*float: left;*/
+}
+
+.navbar>.container .navbar-brand,
+.navbar>.container-fluid .navbar-brand {
+    padding: 0px;
+    text-align: center;
+    width: 20%;
+    float: left;
+    margin-left: 0px;
+    margin-right: 2.5%;
+}
+
+.navbar-brand>img {
+    height: 100%;
+    padding: 0px;
+    display: block;
+    margin: auto;
+    width: auto;
+}
+
+
+/************************************************************************************************************************************/
+
+
+/*SEARCH WIDGET*/
+
+
+/************************************************************************************************************************************/
+
+#search {
+    position: relative;
+    float: left;
+    /*display: block;*/
+    /*margin-top: 5px;*/
+    height: 100%;
+    width: 55%;
+    /*background-color: yellow;*/
+    /*display: flex;*/
+}
+
+
+/*the !important tag is utilized to override the styles applied from the calcite theme*/
+
+#search .searchIcon {
+    color: #C5A230;
+    font-size: 10px;
+    padding-top: 5px;
+}
+
+.arcgisSearch .searchInputGroup {
+    width: 100% !important;
+}
+
+.calcite .arcgisSearch .searchExpandContainer {
+    width: 90% !important;
+}
+
+.calcite .arcgisSearch .searchGroup .searchInput {
+    width: 100% !important;
+}
+
+.calcite .arcgisSearch .hasMultipleSources .searchToggle {
+    display: none !important;
+}
+
+.calcite .arcgisSearch .searchGroup {
+    padding-top: 9px;
+}
+
+.calcite .arcgisSearch .searchBtn {
+    position: relative !important;
+    width: 9% !important;
+}
+
+.calcite .arcgisSearch .hasMultipleSources .searchInput {
+    /*color: #4c4c4c !important;*/
+    color: white !important;
+    font-family: "Avenir Next W01", "Avenir Next", "Avenir", "Helvetica Neue", "Helvetica", "Arial", sans-serif !important;
+}
+
+
+/*when user enters a search in the widget*/
+
+.calcite .arcgisSearch .hasMultipleSources .searchInput:focus {
+    /*box-shadow: 0 0 3px 3px #A2A4A3;*/
+    box-shadow: none;
+    background-color: #CFB87C;
+}
+
+.calcite .arcgisSearch .searchBtn:hover {
+    color: #A2A4A3 !important;
+    background-color: #A2A4A3 !important;
+}
+
+.calcite .arcgisSearch .searchBtn:active,
+.calcite .arcgisSearch .searchBtn:focus {
+    color: #A2A4A3 !important;
+    background-color: #A2A4A3 !important;
+}
+
+
+/************************************************************************************************************************************/
+
+
+/*DIRECTIONS BUTTON*/
+
+
+/************************************************************************************************************************************/
+
+#directions {
+    padding: 0px;
+    text-align: right;
+    width: 20%;
+    float: left;
+    margin-left: 2.5%;
+    height: 50px;
+}
+
+#directions >img {
+    height: 90%;
+    padding: 0px;
+    display: block;
+    margin: 0 auto;
+    width: auto;
+    text-align: right;
+    padding-top: 7px;
+}
+
+#directions >img:hover {
+    -webkit-transform: rotate(-10deg);
+    -moz-transform: rotate(-10deg);
+    -o-transform: rotate(-10deg);
+    -ms-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+}
+
+
+/************************************************************************************************************************************/
+
+
+/*SIDEBAR WITH POPUP CONTENT*/
+
+
+/************************************************************************************************************************************/
+
+#border {
+    /*border-radius: 10px;*/
+    float: left;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    text-align: left;
+    margin-bottom: 2.5%;
+    /*padding: 5px;*/
+}
+
+#bldg {
+    color: white;
+    background-color: #565A5C;
+    text-indent: 5px;
+    /*border-bottom-style: solid;*/
+    /*border-bottom-color: #A2A4A3;
         border-bottom-width: 0.5px;*/
-    }
-    
-    #code,
-    #numbe,
-    #address {
-        color: #CFB87C;
-        text-indent: 5px;
-        background-color: #565A5C;
-    }
-    
-    #dir {
-        float: left;
-        width: 100%;
-    }
-    /************************************************************************************************************************************/
-    /*SIDEBAR DIRECTIONS WIDGET*/
-    /************************************************************************************************************************************/
+}
+
+#code,
+#numbe,
+#address {
+    color: #CFB87C;
+    text-indent: 5px;
+    background-color: #565A5C;
+}
+
+#dir {
+    float: left;
+    width: 100%;
+}
+
+
+/************************************************************************************************************************************/
+
+
+/*SIDEBAR DIRECTIONS WIDGET*/
+
+
+/************************************************************************************************************************************/
+
+.calcite .simpleDirections .esriStops,
+
+/*middle section of the widget, this is where the ADD DESTINATION*/
+
+
+/*PRINT and GET DIRECTION  buttons live*/
+
+.esriDirectionsContainer {
+    background-color: #565A5C;
+}
+
+
+/*customization for the stop icons in the widget*/
+
+.calcite .simpleDirections .esriStop .esriStopIcon {
+    background-color: #CFB87C !important;
+    border: none !important;
+}
+
+.calcite .simpleDirections .esriStop .esriStopIcon {
+    background: none;
+}
+
+
+/*deactives the reverse calcite object*/
+
+.calcite .simpleDirections .esriStopsReverse:before {
+    display: none;
+}
+
+
+/*switch location button in the widget*/
+
+.calcite .simpleDirections .esriStop .esriStopDnDHandle:before,
+.calcite .simpleDirections .esriStop .esriStopDnDHandleHidden:before {
+    color: #36383a;
+}
+
+
+/*removes the border from the find places section*/
+
+table {
+    border: none !important;
+}
+
+
+/*button directions container*/
+
+.calcite .simpleDirections .esriStopsGetDirectionsContainer {
+    width: 50%;
+    float: left;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    margin-top: 0px !important;
+}
+
+.getDirectionsBtnContainer {
+    width: 100%;
+}
+
+
+/*get directions widget button*/
+
+.calcite .simpleDirections .esriStopsGetDirections {
+    background-color: #CFB87C !important;
+    border: none !important;
+    font-size: 11px !important;
+    float: left !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+    padding: 5px 3px 5px 3px!important;
+    color: #4c4c4c !important;
+    line-height: normal !important;
+}
+
+.calcite .simpleDirections .esriStopsGetDirections:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    color: white !important;
+}
+
+
+/*clear widget button*/
+
+.calcite .simpleDirections .esriStopsClearDirections {
+    background-color: #CFB87C !important;
+    border: none !important;
+    font-size: 11px !important;
+    font-family: "Avenir Next W01", "Avenir Next", "Avenir", "Helvetica Neue", "Helvetica", "Arial", sans-serif !important;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    float: left !important;
+    margin: 0px 0px 0px 1% !important;
+    border: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1) !important;
+    line-height: normal !important;
+    padding: 5px 3px 5px 3px!important;
+}
+
+.calcite .simpleDirections .esriStopsClearDirections:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    color: white !important;
+    text-decoration: none !important;
+}
+
+
+/*.calcite .simpleDirections .esriLinkButton {
+    line-height: normal !important;
+}
+*/
+
+
+/*disables the more options button*/
+
+.calcite .simpleDirections .esriStopsOptionsEnabled .esriStopsOptionsButton {
+    display: none !important;
+}
+
+
+/*stop buttons container*/
+
+.calcite .simpleDirections .esriStopsButtons {
+    width: 50%;
+    float: left;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+
+
+/*controls the marker that adds the locations*/
+
+.calcite .simpleDirections .esriDirectionsTabButton {
+    /*display: none !important;*/
+    width: 25%
+}
+
+
+/*add destination button*/
+
+.calcite .simpleDirections .esriStopsAdd .esriStopsAddDestinationBtn {
+    float: left !important;
+    font-size: 11px !important;
+    line-height: normal !important;
+    border-radius: 3px;
+    background-color: #CFB87C !important;
+    color: #4c4c4c !important;
+    margin-left: 3px;
+    width: 70%;
+    text-align: center;
+}
+
+.calcite .simpleDirections .esriStopsAdd .esriStopsAddDestinationBtn:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    color: white !important;
+    text-decoration: none !important;
+}
+
+
+/*it is really important to override these margins*/
+
+.calcite .simpleDirections .esriStopsAdd .esriStopsAddDestination {
+    margin-bottom: 0px !important;
+    margin-top: 0px !important;
+    height: 23px !important;
+}
+
+
+/*.simpleDirections .esriStopsAdd .esriStopsAddDestination {}*/
+
+.calcite .simpleDirections .esriLinkButton {
+    padding: 5px 3px 5px 3px!important;
+    border: none !important;
+    line-height: normal !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1) !important;
+}
+
+
+/*style for plus sign in destination button*/
+
+.calcite .simpleDirections .esriStopsAdd .esriStopsAddDestinationBtn:before {
+    line-height: normal !important;
+    font-size: 11px !important;
+}

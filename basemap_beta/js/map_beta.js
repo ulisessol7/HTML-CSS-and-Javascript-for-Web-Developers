@@ -37,6 +37,7 @@ require(["esri/map", "esri/dijit/Search", "esri/layers/FeatureLayer", "esri/diji
         enableLabel: false,
         enableInfoWindow: true,
         showInfoWindowOnSelect: false,
+        AllPlaceholder: "GO BUFFS!",
         map: map
     }, "search");
 
@@ -69,7 +70,6 @@ require(["esri/map", "esri/dijit/Search", "esri/layers/FeatureLayer", "esri/diji
         exactMatch: false,
         outFields: ["BLDG_NAME", "BLDG_CODE", "BLDG_NUMBE", "BLDG_ADDRE"],
         name: "CU Boulder Buildings",
-        allPlaceholder: "search by building code, name or number",
         maxResults: 3,
         maxSuggestions: 3,
         enableHighlight: false,
@@ -221,13 +221,14 @@ require(["esri/map", "esri/dijit/Search", "esri/layers/FeatureLayer", "esri/diji
     // **********************************************************************************************************************************
 
     window.directionsMenu = function() {
-            document.getElementById("search menu").style.display = 'none';
-            var directionsWidget = new Directions({
-                map: map,
-                routeTaskUrl: "http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Network/USA/NAServer/Route",
-            }, "dir");
-            directionsWidget.startup();
-        }
+        document.getElementById("search menu").style.display = 'none';
+        var directionsWidget = new Directions({
+            map: map,
+            showClearButton: true,
+            routeTaskUrl: "http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Network/USA/NAServer/Route",
+        }, "dir");
+        directionsWidget.startup();
+    }
 
     // **********************************************************************************************************************************
     // CUSTOM HOME BUTTON
