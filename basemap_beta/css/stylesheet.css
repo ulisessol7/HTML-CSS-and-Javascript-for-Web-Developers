@@ -286,6 +286,7 @@ body,
 .calcite .arcgisSearch .hasMultipleSources .searchInput:focus {
     /*box-shadow: 0 0 3px 3px #A2A4A3;*/
     box-shadow: none;
+    transition: background-color 0.5s ease;
     background-color: #CFB87C;
 }
 
@@ -570,4 +571,78 @@ table {
 .calcite .simpleDirections .esriStopsAdd .esriStopsAddDestinationBtn:before {
     line-height: normal !important;
     font-size: 11px !important;
+}
+
+
+/*hide locate button*/
+
+#dir div.LocateButton {
+    /*background-color: blue !important;*/
+    background-image: none !important;
+    visibility: : none !important;
+}
+
+
+/*search input styles*/
+
+.calcite .simpleDirections .arcgisSearch .searchGroup .searchInput {
+    /*border-bottom: none !important;*/
+    box-shadow: none;
+    /*background-color: white !important;*/
+    /*subtle grey */
+    border-color: #838384 !important;
+    /*color: red !important;*/
+    /*width: 2% !important;*/
+}
+
+.calcite .simpleDirections .arcgisSearch .searchGroup .searchInput:focus {
+    transform-origin: center;
+    -webkit-transition: border-color .8s ease-in-out;
+    transition: border-color .8s ease-in-out;
+    /*border-left: 0.5px solid white;
+    border-right: 0.5px solid white;*/
+    /*border-top: 0.5px solid white;*/
+    border-bottom: : 0.5px solid white;
+    border-color: white !important;
+    color: white !important;
+    font-family: "Avenir Next W01", "Avenir Next", "Avenir", "Helvetica Neue", "Helvetica", "Arial", sans-serif !important;
+    font-size: 1.6em;
+}
+
+
+/*placeholder styles*/
+
+
+/* Firefox 18- */
+
+input[title="Find address or place"]:-moz-placeholder {
+    color: #838384 !important;
+}
+
+
+/*Chrome*/
+
+input[title="Find address or place"]::-webkit-input-placeholder {
+    color: #838384 !important;
+}
+
+
+/*Chrome*/
+
+input[title="Find address or place"]:focus::-webkit-input-placeholder {
+    color: #d6d6d6 !important;
+}
+
+
+/* Firefox 19+ */
+
+input[title="Find address or place"]::-moz-placeholder {
+    color: #838384 !important;
+}
+
+
+/*Internet Explorer*/
+
+input[title="Find address or place"]:-ms-input-placeholder {
+    color: #838384 !important;
 }
