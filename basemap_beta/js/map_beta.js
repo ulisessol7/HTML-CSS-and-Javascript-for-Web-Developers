@@ -5,13 +5,16 @@ var map, extent, cu_bldgs, popup_template;
 // **********************************************************************************************************************************
 // DOJO REQUIRES
 // **********************************************************************************************************************************
-require(["esri/map", "esri/dijit/Search", "esri/layers/FeatureLayer", "esri/dijit/PopupTemplate", "esri/symbols/PictureMarkerSymbol", "esri/geometry/Extent", "esri/symbols/SimpleFillSymbol", "esri/symbols/SimpleLineSymbol", "esri/Color", "esri/tasks/QueryTask", "esri/tasks/query", "esri/graphic",
+require(["esri/map", "esri/dijit/Search", "esri/layers/FeatureLayer", "esri/dijit/PopupTemplate", "esri/symbols/PictureMarkerSymbol",
+    "esri/geometry/Extent", "esri/symbols/SimpleFillSymbol", "esri/symbols/SimpleLineSymbol", "esri/Color", "esri/tasks/QueryTask",
+    "esri/tasks/query", "esri/graphic",
     "dojo/on",
     "dojo/_base/connect",
     "dojo/dom",
     "dijit/registry",
     "dojo/dom-construct",
-    "dojo/parser", "dijit/layout/BorderContainer", "dijit/layout/ContentPane", "dojo/html", "esri/dijit/Directions", "dojo/i18n!esri/nls/jsapi", "dojo/domReady!"
+    "dojo/parser", "dijit/layout/BorderContainer", "dijit/layout/ContentPane", "dojo/html", "esri/dijit/Directions",
+    "dojo/i18n!esri/nls/jsapi", "dojo/domReady!"
 ], function(Map, Search, FeatureLayer, PopupTemplate, PictureMarkerSymbol, Extent, SimpleFillSymbol, SimpleLineSymbol, Color, QueryTask, Query, Graphic,
     on,
     connect,
@@ -40,6 +43,8 @@ require(["esri/map", "esri/dijit/Search", "esri/layers/FeatureLayer", "esri/diji
         enableInfoWindow: true,
         showInfoWindowOnSelect: false,
         AllPlaceholder: "GO BUFFS!",
+        maxResults: 3,
+        maxSuggestions: 3,
         map: map
     }, "search");
 
@@ -105,13 +110,6 @@ require(["esri/map", "esri/dijit/Search", "esri/layers/FeatureLayer", "esri/diji
     search.sources[0].searchExtent = boulder_extent;
     sources.splice(0, 2, sources[1], sources[0]);
     search.startup();
-    // test event********************************************************************************
-    search.on('select-result', function(event) {
-        console.log(search.sources);
-        console.log(search.suggestResults);
-        console.log(search.searchResults);
-        /* Act on the event */
-    });
     map.on("load", function() {
         extent = map.extent;
         map.graphics.enableMouseEvents();
@@ -221,7 +219,7 @@ require(["esri/map", "esri/dijit/Search", "esri/layers/FeatureLayer", "esri/diji
             html.set("code", "");
             html.set("numbe", "");
             html.set("address", "");
-            console.log("map click");
+            console.log("graphicsLayer1 map click");
         }
     });
 
@@ -230,40 +228,60 @@ require(["esri/map", "esri/dijit/Search", "esri/layers/FeatureLayer", "esri/diji
     // **********************************************************************************************************************************
     // this line removes the ZOOM TO FULL ROUTE DEFAULT TEXT
     esriBundle.widgets.directions.viewFullRoute = " ";
-    window.directionsMenu = function() {
-        document.getElementById("search menu").style.display = "none";
-        var dir_sources = {
-            sources: [{
-                featureLayer: cu_bldgs,
-                searchFields: ["BLDG_CODE", "BLDG_NUMBE", "BLDG_NAME", "BLDG_ADDRE"],
-                displayField: "BLDG_NAME",
-                exactMatch: false,
-                // outFields: ["ObjectID","BLDG_NAME"],
-                outFields: ["*"],
-                name: "CU Boulder Buildings",
-                maxResults: 3,
-                maxSuggestions: 3,
-                enableHighlight: false,
-            }]
-        };
+    var dir_sources = {
+        sources: [{
+            featureLayer: cu_bldgs,
+            searchFields: ["BLDG_CODE", "BLDG_NUMBE", "BLDG_NAME", "BLDG_ADDRE"],
+            displayField: "BLDG_NAME",
+            exactMatch: false,
+            // outFields: ["ObjectID","BLDG_NAME"],
+            outFields: ["*"],
+            name: "CU Boulder Buildings",
+            maxResults: 3,
+            maxSuggestions: 3,
+            enableHighlight: false
+        }]
+    };
 
-        var directionsWidget = new Directions({
-            map: map,
-            showClearButton: true,
-            searchOptions: dir_sources,
-            routeTaskUrl: "http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Network/USA/NAServer/Route"
-        }, "dir");
-        directionsWidget.startup();
-        directionsWidget.on("directions-start", function(evt) {
-            for (var i = 0; i < directionsWidget.stops.length; i++) {
-                if (typeof directionsWidget.stops[i].feature.attributes.BLDG_NAME != "undefined") {
-                    directionsWidget.stops[i].name = directionsWidget.stops[i].feature.attributes.BLDG_NAME;
-                };
+    var directionsWidget = new Directions({
+        map: map,
+        showClearButton: true,
+        searchOptions: dir_sources,
+        routeTaskUrl: "http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Network/USA/NAServer/Route"
+    }, "dir");
+    directionsWidget.on("directions-start", function(evt) {
+        for (var i = 0; i < directionsWidget.stops.length; i++) {
+            // checking for coordinates to avoid renaming, I need to revisit this logic later
+            if ((directionsWidget.stops[i].name.startsWith("-") === false) && (typeof directionsWidget.stops[i].feature.attributes.BLDG_NAME != "undefined")) {
+                directionsWidget.stops[i].name = directionsWidget.stops[i].feature.attributes.BLDG_NAME;
             }
+        }
+
+
+    });
+    $(function() {
+        $("#dir").hide();
+        var add_stops_button_active = ".esriActivateButton.esriDirectionsButton.esriDirectionsTabButton.esriDirectionsPressedButton";
+        // this opens the direction panel & closes the navbar
+        $('#directions').on('click', function() {
+            $('.navbar-header').hide();
+            $('.directions-menu').show();
+            directionsWidget.startup();
+            $('#dir').show();
+            $("[data-toggle='tooltip']").tooltip('toggle');
 
         });
+        // this closes the direction panel & opens the navbar
+        $('.close-button').on('click', function() {
+            $(add_stops_button_active).trigger('click');
+            directionsWidget.reset();
+            $('.navbar-header').show();
+            $('.directions-menu').hide();
+            $('#dir').hide();
+        });
+        // $(".route").tooltip();
 
-    };
+    });
 
     // **********************************************************************************************************************************
     // CUSTOM HOME BUTTON
@@ -272,5 +290,27 @@ require(["esri/map", "esri/dijit/Search", "esri/layers/FeatureLayer", "esri/diji
     window.zoomFunction = function() {
         map.setExtent(extent);
     };
-
+    // **********************************************************************************************************************************
+    // COLLAPSE MENU BUTTON
+    // **********************************************************************************************************************************
+    $(function() {
+        $('#off-canvas').on('click', function() {
+            $('#cu_nav').hide("slide", {
+                direction: "left"
+            }, function() {
+                $('#on-canvas').show()
+            });
+            $('#off-canvas').hide();
+        });
+        $('#on-canvas').on('click', function() {
+            $('#cu_nav').show("slide", {
+                direction: "right"
+            });
+            $('#off-canvas').show();
+            $('#on-canvas').hide();
+        });
+    });
 });
+
+
+// $('#off-canvas')

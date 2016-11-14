@@ -1,0 +1,33 @@
+	/*
+  	Flaticon icon font: Flaticon
+  	Creation date: 10/11/2016 22:30
+  	*/
+
+@font-face {
+  font-family: "Flaticon_directions";
+  src: url("./Flaticon_directions.eot");
+  src: url("./Flaticon_directions.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon_directions.woff") format("woff"),
+       url("./Flaticon_directions.ttf") format("truetype"),
+       url("./Flaticon_directions.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon_directions";
+    src: url("./Flaticon_directions.svg#Flaticon_directions") format("svg");
+  }
+}
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+  font-family: Flaticon_directions;
+        font-size: 20px;
+font-style: normal;
+margin-left: 20px;
+}
+
+.flaticon-pedestrian-walking:before { content: "\f100"; }
+.flaticon-person-walking:before { content: "\f101"; }

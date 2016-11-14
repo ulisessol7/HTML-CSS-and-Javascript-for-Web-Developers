@@ -7,8 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <!-- Bootstrap CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="css/stylesheet.css" rel="stylesheet">
+    <link href="css/font/flaticon.css" rel="stylesheet">
     <link rel="stylesheet" href="https://js.arcgis.com/3.17/esri/css/esri.css">
     <link rel="stylesheet" href="https://s3-us-west-1.amazonaws.com/patterns.esri.com/files/calcite-web/1.0.0-beta.31/css/calcite-web.min.css">
     <link rel="stylesheet" href="https://js.arcgis.com/3.17/esri/themes/calcite/dijit/calcite.css">
@@ -19,67 +21,55 @@
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
+    <!-- jQuery 3.1.1-->
+    <script src="js/jquery-3.1.1.js" type="text/javascript"></script>
+    <!-- JQuery UI -->
+    <script src="http://code.jquery.com/ui/1.12.0/jquery-ui.js" integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk=" crossorigin="anonymous"></script>
+    <!-- ArcGIS API for JavaScript 3.17 -->
     <script src="https://js.arcgis.com/3.17/"></script>
     <script src="js/map_beta.js" type="text/javascript"></script>
     <!-- map -->
     <div id="map">
     </div>
-    <nav id="cu_nav" class="navbar navbar-default col-lg-3">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div id="search menu" class="navbar-header">
-                <a class="navbar-brand" href="#"><img src="img/colorado-buffaloes.png" onclick="zoomFunction();"></a>
-                <div id="search">
+    <div>
+        <nav id="cu_nav" class="navbar navbar-default col-md-3">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div id="search menu" class="navbar-header">
+                    <a class="navbar-brand" href="#"><img src="img/colorado-buffaloes.png" onclick="zoomFunction();"></a>
+                    <!-- <a class="navbar-brand" href="#"><img src="img/colorado-buffaloes.png" onclick="zoomFunction();"></a> -->
+                    <div id="search">
+                    </div>
+                    <div id="directions"><img src="img/walking-icon.png"></div>
+                    <!-- <div id="directions"><span aria-hidden="true" class="flaticon-pedestrian-walking" data-toggle="tooltip" title="Directions"></span></div> -->
+                    <!-- <button></button> -->
+                    <!-- <button type="button" class="my_button" onclick="zoomFunction();">Zoom to Original Extent</button> -->
+                    <!-- <div id="HomeButton"></div> -->
                 </div>
-                <div id="directions"><img src="img/walking-icon.png" onclick="directionsMenu();"></div>
-                <!-- <button></button> -->
-                <!-- <button type="button" class="my_button" onclick="zoomFunction();">Zoom to Original Extent</button> -->
-                <!-- <div id="HomeButton"></div> -->
-            </div>
-            <div id="bubu" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="gutters:true" region="left">
-                <div id="border" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'">
-                    <div> <img id="pic" src=""></div>
-                    <div id="bldg"></div>
-                    <div id="code"></div>
-                    <div id="numbe"></div>
-                    <div id="address"></div>
+                <div id="bldg-info" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="gutters:true" region="left">
+                    <div id="border" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'">
+                        <div> <img id="pic" src=""></div>
+                        <div id="bldg"></div>
+                        <div id="code"></div>
+                        <div id="numbe"></div>
+                        <div id="address"></div>
+                    </div>
                 </div>
-                <!-- <div>University of Colorado Boulder</div> -->
-                <!-- <div data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design:'sidebar', gutters:true, liveSplitters:true" id="borderContainer" >
-                <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="splitter:true, region:'leading'" style="width: 100px;">Hi, I'm leading pane</div>
-                <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="splitter:true, region:'center'">Hi, I'm center pane</div>
-            </div> -->
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
-                <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                <!-- <button type="button" class="btn btn-primary">Primary</button> -->
-                <!-- <ul class="nav navbar-nav"> -->
-                <!-- <li class="nav nav-pills" role="presentation"><a href="#">Link</a></li> -->
-                <!-- <li class="dropdown"> -->
-                <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">One more separated link</a></li> -->
-                <!-- </ul> -->
-                <!--   </li>
-                </ul> -->
-                <!-- <form class="navbar-form navbar-left">
-                <div id="mysearch" class="form-group">
-                    <input type="text" class="form-control" placeholder="Where would you like to walk to?">
+                <div class="directions-menu">
+                    <button type="button" class="close-button"><span aria-hidden="true">X</span></button>
+                    <button type="button" class="route"><span aria-hidden="true" class="flaticon-in-love" data-tooltip data-placement="auto" title="Love route"></span></button>
+                    <button type="button" class="route"><span aria-hidden="true" class="flaticon-paralympic" data-tooltip data-placement="auto" title="ADA friendly route"></span></button>
+                    <button type="button" class="route"><span aria-hidden="true" class="flaticon-runer-silhouette-running-fast" data-tooltip data-placement="auto" title="Fastest route"></span></button>
+                    <button type="button" class="route"><span aria-hidden="true" class="flaticon-tree-silhouette" data-tooltip data-placement="auto" title="Vince's tree route"></span></button>
+                    <button type="button" class="route"><span aria-hidden="true" class="flaticon-dice" data-tooltip data-placement="auto" title="Random route"></span></button>
                 </div>
-                <button id="go" type="submit" class="btn btn-default">Search</button>
-            </form> -->
-            </div>
-            <div id="dir"></div>
-            <!-- /.navbar-collapse -->
-            <!-- </div> -->
-            <!-- /.container-fluid -->
-    </nav>
+                <div id="dir"></div>
+        </nav>
+        <button id="off-canvas" type="button" class="btn btn-primary btn-sm"><img id="arrow" src="img_dir/keyboard-left-arrow-button.png"></button>
+        <button id="on-canvas" type="button" class="btn btn-primary btn-sm"><img id="arrow" src="img_dir/keyboard-right-arrow-button.png"></button>
 </body>
 
 </html>
+<div>Icons made by <a href="http://www.flaticon.com/authors/google" title="Google">Google</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
