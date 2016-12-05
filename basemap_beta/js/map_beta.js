@@ -189,6 +189,7 @@ require(["esri/map", "esri/dijit/Search", "esri/layers/FeatureLayer", "esri/diji
         // console.log("out");
     });
 
+
     cu_bldgs.on("click", function(evt) {
         map.infoWindow.set("popupWindow", false);
         map.infoWindow.hide();
@@ -206,10 +207,12 @@ require(["esri/map", "esri/dijit/Search", "esri/layers/FeatureLayer", "esri/diji
 
     map.on("click", function(evt) {
         var layerId;
+        // hides the context -menu on right click
+        $(".context-menu-container").hide();
         if (evt.graphic) {
             layerId = evt.graphic.getLayer().id;
-            console.log(layerId);
-        }
+
+        };
         if (layerId !== "graphicsLayer1") {
             // var pic = "";
             document.getElementById("pic").src = "";
@@ -220,9 +223,31 @@ require(["esri/map", "esri/dijit/Search", "esri/layers/FeatureLayer", "esri/diji
             html.set("numbe", "");
             html.set("address", "");
             console.log("graphicsLayer1 map click");
-        }
+
+        };
     });
 
+    // deactives the default context menu
+    document.oncontextmenu = function() {
+        // Use document as opposed to window for IE8 compatibility
+        return false;
+    };
+
+    // **********************************************************************************************************************************
+    // CONTEXT MENU EVENTS
+    // **********************************************************************************************************************************
+    map.on("mouse-down", function(evt) {
+        // if event is a right mouse click '3'
+        if (evt.which == 3) {
+            map.infoWindow.hide();
+            console.log("Right Mouse button pressed.");
+            console.log(evt);
+            $(".context-menu-container").show().css({
+                left: evt.pageX + "px",
+                top: evt.pageY + "px"
+            });
+        };
+    });
     // **********************************************************************************************************************************
     // DIRECTIONS MENU
     // **********************************************************************************************************************************
@@ -247,6 +272,7 @@ require(["esri/map", "esri/dijit/Search", "esri/layers/FeatureLayer", "esri/diji
         map: map,
         showClearButton: true,
         searchOptions: dir_sources,
+        // routeTaskUrl: "http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Network/USA/NAServer/Route"
         routeTaskUrl: "http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Network/USA/NAServer/Route"
     }, "dir");
     directionsWidget.on("directions-start", function(evt) {
@@ -268,7 +294,7 @@ require(["esri/map", "esri/dijit/Search", "esri/layers/FeatureLayer", "esri/diji
             $('.directions-menu').show();
             directionsWidget.startup();
             $('#dir').show();
-            $("[data-toggle='tooltip']").tooltip('toggle');
+            // $("[data-toggle='tooltip']").tooltip('toggle');
 
         });
         // this closes the direction panel & opens the navbar
@@ -279,7 +305,6 @@ require(["esri/map", "esri/dijit/Search", "esri/layers/FeatureLayer", "esri/diji
             $('.directions-menu').hide();
             $('#dir').hide();
         });
-        // $(".route").tooltip();
 
     });
 
@@ -310,7 +335,44 @@ require(["esri/map", "esri/dijit/Search", "esri/layers/FeatureLayer", "esri/diji
             $('#on-canvas').hide();
         });
     });
+    // **********************************************************************************************************************************
+    // TOOLTIP BOOSTRAP +  JQUERY
+    // **********************************************************************************************************************************
+    $(function() {
+        $('[title]').attr(
+            'data-toggle',
+            'tooltip'
+        );
+        $('[title]').tooltip({ placement: 'bottom' });
+        // this line hides the search tooltip when the user is typing
+        $('.calcite .arcgisSearch .hasMultipleSources .searchInput').focus(function() {
+            $('.calcite .arcgisSearch .hasMultipleSources .searchInput').tooltip('hide');
+            $('.calcite .arcgisSearch .hasMultipleSources .searchInput').tooltip('disable');
+        });
+        $('.calcite .arcgisSearch .hasMultipleSources .searchInput').focusout(function() {
+            $('.calcite .arcgisSearch .hasMultipleSources .searchInput').tooltip('enable');
+            // $('.calcite .arcgisSearch .hasMultipleSources .searchInput').tooltip('show');
+        });
+    });
+    // **********************************************************************************************************************************
+    // SUGGESTIONS DROPDOWN
+    // **********************************************************************************************************************************
+    $(function() {
+        // esri doesn't make easy to modify the behavior of the dropdown
+        // I wanted the dropdown to be the same width as the cu nav
+        var sugg2 = '.calcite .arcgisSearch .showSuggestions .suggestionsMenu';
+        var sugg = '#search > div > div.searchExpandContainer > div > div.searchInputGroup > div.searchMenu.suggestionsMenu';
+        $(sugg).bind("DOMNodeInserted", function() {
+            var nav_w = $('#cu_nav').width();
+            var sugg_w = $(sugg).width();
+            $(sugg).css('width', nav_w);
+        });
+        $(window).resize(function() {
+            var nav_w = $('#cu_nav').width();
+            var sugg_w = $(sugg).width();
+            $(sugg).css('width', nav_w);
+
+        });
+
+    });
 });
-
-
-// $('#off-canvas')

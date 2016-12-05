@@ -13,12 +13,14 @@ https://github.com/Esri/calcite-bootstrap/issues/255*/
             /************************************************************************************************************************************/
             /*GENERAL STYLES*/
             /************************************************************************************************************************************/
-
+            
             * {
                 box-sizing: border-box;
             }
-
-            html, body, #map {
+            
+            html,
+            body,
+            #map {
                 /*the height value for map needs to be here*/
                 height: 100%;
                 margin: 0;
@@ -28,26 +30,26 @@ https://github.com/Esri/calcite-bootstrap/issues/255*/
             /*CUSTOM HOVER OVER POPUP*/
             /************************************************************************************************************************************/
             /*removes the zoomto button from the popup*/
-
+            
             #map .esriPopup .action.zoomTo {
                 display: none;
             }
             /*removes the title pane element from the popup*/
-
+            
             #map .esriPopup .titlePane {
                 display: none;
             }
-
+            
             #map .esriPopup .actionsPane {
                 display: none;
             }
             /*controls the overall size of the popup*/
-
+            
             #map .esriPopup .sizer {
                 max-height: 130px;
                 max-width: 300px;
             }
-
+            
             #map .esriPopup .contentPane {
                 background-color: black;
                 color: #CFB87C;
@@ -56,16 +58,16 @@ https://github.com/Esri/calcite-bootstrap/issues/255*/
                 max-height: 130px;
                 max-width: 300px;
             }
-
+            
             #map .esriViewPopup .break {
                 display: none;
             }
-
+            
             #map .esriPopup .mediaSection {
                 width: 50%;
                 float: left;
             }
-
+            
             #map .gallery .frame img {
                 max-width: 150px;
                 max-height: 130px;
@@ -74,12 +76,12 @@ https://github.com/Esri/calcite-bootstrap/issues/255*/
                 height: 100%;
                 margin: 0px;
             }
-
+            
             #map .esriViewPopup div.mainSection {
                 width: 50%;
                 float: right;
             }
-
+            
             #map .esriViewPopup div.mainSection .header {
                 font-style: normal;
                 font-family: Arial;
@@ -89,7 +91,7 @@ https://github.com/Esri/calcite-bootstrap/issues/255*/
                 color: #565A5C;
                 float: left;
             }
-
+            
             #map .esriViewPopup .hzLine+div {
                 width: 100%;
                 float: right !important;
@@ -97,70 +99,73 @@ https://github.com/Esri/calcite-bootstrap/issues/255*/
                 padding-left: 3%;
                 vertical-align: middle;
             }
-
+            
             #map .esriViewPopup .gallery {
                 width: 100%;
                 height: 100%;
                 margin: 0 auto;
             }
-
+            
             #map .gallery .frame img.esriPopupMediaImage {
                 margin: 0px !important;
             }
-
+            
             #map .esriViewPopup .hzLine {
                 border-bottom: none;
             }
-
+            
             #map .esriPopup .outerPointer.left {
                 display: none;
             }
-
+            
             #map .esriPopup .outerPointer.right {
                 display: none;
             }
-
+            
             #map .esriPopup .pointer.top {
                 display: none;
             }
-
+            
             #map .esriPopup .pointer.bottom {
                 display: none;
             }
             /************************************************************************************************************************************/
             /*BOOTSTRAP NAVIGATION BAR*/
             /************************************************************************************************************************************/
-
+            
             #cu_nav {
                 border-color: transparent;
                 position: absolute;
                 top: 0px;
                 border: none;
-                margin-top: 1%;
-                margin-left: 1%;
-                /*background-color: #919191;*/
-                background-color: black;
+                /*margin-top: 1%;*/
+                margin-top: 20px;
+                /*margin-left: 1%;*/
+                margin-left: 20px;
+                background-color: #565A5C;
+                /*background-color: black;*/
+                /*background-color: #666A6B;*/
                 box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
                 transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
                 opacity: 0.90;
                 padding: 0px;
                 border-radius: 0px;
             }
-
+            
             #cu_nav:hover {
                 box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
             }
             /************************************************************************************************************************************/
             /*CUSTOM HOME BUTTON (RALPHIE LOGO)*/
             /************************************************************************************************************************************/
-
+            
             .container-fluid {
                 padding-right: 0px;
                 padding-left: 0px;
                 padding-top: 0px;
                 padding-bottom: 0px;
             }
-
+            
             .navbar-header {
                 left: 0px;
                 /*background-color: red;*/
@@ -168,8 +173,9 @@ https://github.com/Esri/calcite-bootstrap/issues/255*/
                 height: 100%;
                 /*float: left;*/
             }
-
-            .navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
+            
+            .navbar>.container .navbar-brand,
+            .navbar>.container-fluid .navbar-brand {
                 padding: 0px;
                 text-align: center;
                 width: 20%;
@@ -177,7 +183,7 @@ https://github.com/Esri/calcite-bootstrap/issues/255*/
                 margin-left: 0px;
                 margin-right: 2.5%;
             }
-
+            
             .navbar-brand>img {
                 height: 100%;
                 padding: 0px;
@@ -188,7 +194,7 @@ https://github.com/Esri/calcite-bootstrap/issues/255*/
             /************************************************************************************************************************************/
             /*SEARCH WIDGET*/
             /************************************************************************************************************************************/
-
+            
             #search {
                 position: relative;
                 float: left;
@@ -200,65 +206,76 @@ https://github.com/Esri/calcite-bootstrap/issues/255*/
                 /*display: flex;*/
             }
             /*the !important tag is utilized to override the styles applied from the calcite theme*/
-
+            
             #search .searchIcon {
                 color: #C5A230;
                 font-size: 10px;
                 padding-top: 5px;
             }
-
+            
             .arcgisSearch .searchInputGroup {
                 width: 100% !important;
             }
-
+            
+            .calcite .arcgisSearch {
+                -webkit-box-shadow: none !important;
+                -moz-box-shadow: none !important;
+            }
+            
             .calcite .arcgisSearch .searchExpandContainer {
                 width: 90% !important;
             }
-
+            
             .calcite .arcgisSearch .searchGroup .searchInput {
                 width: 100% !important;
             }
-
+            
             .calcite .arcgisSearch .hasMultipleSources .searchToggle {
                 display: none !important;
             }
-
+            
             .calcite .arcgisSearch .searchGroup {
                 padding-top: 9px;
             }
-
+            
             .calcite .arcgisSearch .searchBtn {
                 position: relative !important;
                 width: 9% !important;
             }
-
+            
             .calcite .arcgisSearch .hasMultipleSources .searchInput {
-                /*color: #4c4c4c !important;*/
-                color: white !important;
+                color: #a9a9a9 !important;
                 font-family: "Avenir Next W01", "Avenir Next", "Avenir", "Helvetica Neue", "Helvetica", "Arial", sans-serif !important;
             }
             /*when user enters a search in the widget*/
-
+            
             .calcite .arcgisSearch .hasMultipleSources .searchInput:focus {
                 /*box-shadow: 0 0 3px 3px #A2A4A3;*/
                 box-shadow: none;
                 transition: background-color 0.5s ease;
                 background-color: #CFB87C;
+                color: white !important;
             }
-
+            
             .calcite .arcgisSearch .searchBtn:hover {
                 color: #A2A4A3 !important;
                 background-color: #A2A4A3 !important;
             }
-
-            .calcite .arcgisSearch .searchBtn:active, .calcite .arcgisSearch .searchBtn:focus {
+            
+            .calcite .arcgisSearch .searchBtn:active,
+            .calcite .arcgisSearch .searchBtn:focus {
                 color: #A2A4A3 !important;
                 background-color: #A2A4A3 !important;
+            }
+            /*controls the X button in the search bar*/
+            
+            .calcite .arcgisSearch .searchClear {
+                height: 100%;
             }
             /************************************************************************************************************************************/
             /*DIRECTIONS BUTTON*/
             /************************************************************************************************************************************/
-
+            
             #directions {
                 /*display: none;*/
                 padding: 0px;
@@ -267,9 +284,9 @@ https://github.com/Esri/calcite-bootstrap/issues/255*/
                 float: left;
                 margin-left: 2.5%;
                 height: 50px;
-                background-color: black;
+                background-color: #565A5C;
             }
-
+            
             #directions>img {
                 height: 90%;
                 padding: 0px;
@@ -279,7 +296,7 @@ https://github.com/Esri/calcite-bootstrap/issues/255*/
                 text-align: right;
                 padding-top: 7px;
             }
-
+            
             #directions>img:hover {
                 -webkit-transform: rotate(-10deg);
                 -moz-transform: rotate(-10deg);
@@ -290,7 +307,7 @@ https://github.com/Esri/calcite-bootstrap/issues/255*/
             /************************************************************************************************************************************/
             /*SIDEBAR WITH POPUP CONTENT*/
             /************************************************************************************************************************************/
-
+            
             #border {
                 /*border-radius: 10px;*/
                 float: left;
@@ -301,7 +318,7 @@ https://github.com/Esri/calcite-bootstrap/issues/255*/
                 margin-bottom: 2.5%;
                 /*padding: 5px;*/
             }
-
+            
             #bldg {
                 color: white;
                 background-color: #565A5C;
@@ -310,13 +327,15 @@ https://github.com/Esri/calcite-bootstrap/issues/255*/
                 /*border-bottom-color: #A2A4A3;
         border-bottom-width: 0.5px;*/
             }
-
-            #code, #numbe, #address {
+            
+            #code,
+            #numbe,
+            #address {
                 color: #CFB87C;
                 text-indent: 5px;
                 background-color: #565A5C;
             }
-
+            
             #dir {
                 float: left;
                 width: 100%;
@@ -324,35 +343,35 @@ https://github.com/Esri/calcite-bootstrap/issues/255*/
             /************************************************************************************************************************************/
             /*SIDEBAR DIRECTIONS WIDGET*/
             /************************************************************************************************************************************/
-
+            
             .calcite .simpleDirections .esriStops,
             /*middle section of the widget, this is where the ADD DESTINATION*/
             /*PRINT and GET DIRECTION  buttons live*/
-
+            
             .esriDirectionsContainer {
                 background-color: #565A5C;
             }
             /*customization for the stop icons in the widget*/
-
+            
             .calcite .simpleDirections .esriStop .esriStopIcon {
                 background-color: #CFB87C !important;
                 border: none !important;
             }
-
+            
             .calcite .simpleDirections .esriStop .esriStopIcon {
                 background: none;
             }
             /*removes the border from the find places section*/
-
+            
             table {
                 border: none !important;
             }
             /*button directions container*/
-
+            
             .simpleDirections .esriStopsGetDirectionsContainer {
                 display: block !important;
             }
-
+            
             .calcite .simpleDirections .esriStopsGetDirectionsContainer {
                 width: 50%;
                 float: left;
@@ -363,12 +382,12 @@ https://github.com/Esri/calcite-bootstrap/issues/255*/
                 height: 28px;
                 background-color: #565A5C !important;
             }
-
+            
             .getDirectionsBtnContainer {
                 width: 70%;
             }
             /*get directions widget button*/
-
+            
             .calcite .simpleDirections .esriStopsGetDirections {
                 background-color: #CFB87C !important;
                 border: none !important;
@@ -381,13 +400,13 @@ https://github.com/Esri/calcite-bootstrap/issues/255*/
                 line-height: normal !important;
                 height: 23px;
             }
-
+            
             .calcite .simpleDirections .esriStopsGetDirections:hover {
                 box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
                 color: white !important;
             }
             /*clear widget button*/
-
+            
             .calcite .simpleDirections .esriStopsClearDirections {
                 background-color: #CFB87C !important;
                 border: none !important;
@@ -403,24 +422,24 @@ https://github.com/Esri/calcite-bootstrap/issues/255*/
                 line-height: normal !important;
                 padding: 5px 3px 5px 3px!important;
             }
-
+            
             .calcite .simpleDirections .esriStopsClearDirections:hover {
                 box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
                 color: white !important;
                 text-decoration: none !important;
             }
-
+            
             .calcite .simpleDirections .esriStopsClearDirections:focus {
                 color: white !important;
                 outline: none !important;
             }
             /*disables the more options button*/
-
+            
             .calcite .simpleDirections .esriStopsOptionsEnabled .esriStopsOptionsButton {
                 display: none !important;
             }
             /*stop buttons container*/
-
+            
             .calcite .simpleDirections .esriStopsButtons {
                 width: 50%;
                 float: left;
@@ -429,7 +448,7 @@ https://github.com/Esri/calcite-bootstrap/issues/255*/
                 background-color: #565A5C !important;
             }
             /*add destination button*/
-
+            
             .calcite .simpleDirections .esriStopsAdd .esriStopsAddDestinationBtn {
                 float: left !important;
                 font-size: 11px !important;
@@ -442,20 +461,20 @@ https://github.com/Esri/calcite-bootstrap/issues/255*/
                 text-align: center;
                 border: none;
             }
-
+            
             .calcite .simpleDirections .esriStopsAdd .esriStopsAddDestinationBtn:hover {
                 box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
                 color: white !important;
                 text-decoration: none !important;
             }
             /*it is really important to override these margins*/
-
+            
             .calcite .simpleDirections .esriStopsAdd .esriStopsAddDestination {
                 margin-bottom: 5px !important;
                 margin-top: 0px !important;
                 height: 23px !important;
             }
-
+            
             / .calcite .simpleDirections .esriLinkButton {
                 padding: 5px 3px 5px 3px!important;
                 border: none !important;
@@ -464,19 +483,19 @@ https://github.com/Esri/calcite-bootstrap/issues/255*/
                 transition: all 0.3s cubic-bezier(.25, .8, .25, 1) !important;
             }
             /*style for plus sign in destination button*/
-
+            
             .calcite .simpleDirections .esriStopsAdd .esriStopsAddDestinationBtn:before {
                 line-height: normal !important;
                 font-size: 11px !important;
             }
             /*hide locate button*/
-
+            
             .calcite .simpleDirections .LocateButton {
                 display: none !important;
                 /*background-color: red !important;*/
             }
             /*search input styles*/
-
+            
             .calcite .simpleDirections .arcgisSearch .searchGroup .searchInput {
                 /*border-bottom: none !important;*/
                 box-shadow: none;
@@ -486,7 +505,7 @@ https://github.com/Esri/calcite-bootstrap/issues/255*/
                 color: #bcc0c6 !important;
                 /*width: 2% !important;*/
             }
-
+            
             .calcite .simpleDirections .arcgisSearch .searchGroup .searchInput:focus {
                 transform-origin: center;
                 -webkit-transition: border-color .8s ease-in-out;
@@ -502,70 +521,72 @@ https://github.com/Esri/calcite-bootstrap/issues/255*/
             }
             /*placeholder styles*/
             /* Firefox 18- */
-
+            
             input[title="Find address or place"]:-moz-placeholder {
                 color: #838384 !important;
             }
             /*Chrome*/
-
+            
             input[title="Find address or place"]::-webkit-input-placeholder {
                 color: #838384 !important;
             }
             /*Chrome*/
-
+            
             input[title="Find address or place"]:focus::-webkit-input-placeholder {
                 color: #d6d6d6 !important;
             }
             /* Firefox 19+ */
-
+            
             input[title="Find address or place"]::-moz-placeholder {
                 color: #838384 !important;
             }
             /*Internet Explorer*/
-
+            
             input[title="Find address or place"]:-ms-input-placeholder {
                 color: #838384 !important;
             }
             /*esriDirectionsTabButton - marker button*/
             /*controls the marker that adds the locations*/
-
+            
             .calcite .simpleDirections .esriDirectionsTabButton {
                 /*display: none !important;*/
                 width: 25%
             }
-
+            
             .calcite .simpleDirections .esriDirectionsTabButton {
                 background-color: transparent !important;
                 border: transparent !important;
                 padding-left: 3.5px !important;
                 width: 10% !important;
             }
-
-            .calcite .simpleDirections .esriDirectionsTabButton:hover, .calcite .simpleDirections .esriActivateButton.esriDirectionsPressedButton {
+            
+            .calcite .simpleDirections .esriDirectionsTabButton:hover,
+            .calcite .simpleDirections .esriActivateButton.esriDirectionsPressedButton {
                 color: white !important;
                 border: none;
                 box-shadow: none;
             }
-
+            
             .simpleDirections .esriActivateButton {
                 background-image: none !important;
             }
-
+            
             .calcite .simpleDirections .esriActivateButton {
                 line-height: 0.75 !important;
             }
             /*controls the reverse icon*/
             /*deactives the reverse calcite object*/
-
+            
             .calcite .simpleDirections .esriStopsReverse:before {
                 display: none;
             }
             /*switch location button in the widget*/
-
-            .calcite .simpleDirections .esriStop .esriStopDnDHandle:before, .calcite .simpleDirections .esriStop .esriStopDnDHandleHidden:before {
+            
+            .calcite .simpleDirections .esriStop .esriStopDnDHandle:before,
+            .calcite .simpleDirections .esriStop .esriStopDnDHandleHidden:before {
                 color: #36383a;
             }
-
+            
             .simpleDirections .esriStopsReverse {
                 /*background-color, background-image, background-position, background-size,
     background-repeat, background-origin, background-clip, and background-attachment.*/
@@ -575,50 +596,50 @@ https://github.com/Esri/calcite-bootstrap/issues/255*/
                 padding: 0px !important;
                 margin-top: 0px !important;
             }
-
+            
             .simpleDirections .esriStopsReverse:hover {
                 background: url("../img_dir/reverse_w.png") 5px !important;
                 background-repeat: no-repeat !important;
                 background-position: center;
                 opacity: 1 !important;
             }
-
+            
             .calcite .simpleDirections .esriStop .esriStopReverseColumn {
                 text-align: center !important;
                 padding: 0px;
             }
             /*x icon that closes the new stop adde by the + add destination button*/
-
+            
             .calcite .simpleDirections .esriStopsRemovable .esriStop .esriStopIconRemove {
                 background-image: none;
             }
-
+            
             .simpleDirections .esriStopsRemovable .esriStop .esriStopIconRemove {
                 color: #36383a;
             }
-
+            
             .calcite .simpleDirections .esriStopsRemovable .esriStop .esriStopIconRemove:hover {
                 color: white;
                 opacity: 1 !important;
             }
             /*print button*/
             /*removes extra print icon*/
-
+            
             .calcite .simpleDirections .esriResultsPrint:before {
                 display: none;
             }
-
+            
             .simpleDirections .savePrintBtnContainer {
                 /*background-color: blue;*/
                 margin: 0px 0px 0px 3px !important;
                 height: 23px;
                 width: 10%;
             }
-
+            
             .calcite .simpleDirections .esriResultsPrint {
                 float: left !important;
             }
-
+            
             .simpleDirections .esriResultsPrint {
                 margin: 0px !important;
                 position: relative !important;
@@ -627,16 +648,16 @@ https://github.com/Esri/calcite-bootstrap/issues/255*/
                 background-position: center;
                 opacity: 1 !important;
             }
-
+            
             .simpleDirections .esriDirectionsTabButton {
                 height: 23px !important;
             }
             /*this line centers the print icon on big screens this should be fixed with media queries*/
-
+            
             .calcite .simpleDirections .esriDirectionsTabButton+.esriDirectionsTabButton {
                 padding-right: 18px;
             }
-
+            
             .simpleDirections .esriResultsPrint:hover {
                 margin: 0px !important;
                 position: relative !important;
@@ -646,7 +667,7 @@ https://github.com/Esri/calcite-bootstrap/issues/255*/
                 opacity: 1 !important;
             }
             /*this part controls the  summary results  area*/
-
+            
             .calcite .simpleDirections .esriResultsSummary {
                 font-family: "Avenir Next W01", "Avenir Next", "Avenir", "Helvetica Neue", "Helvetica", "Arial", sans-serif !important;
                 font-weight: lighter !important;
@@ -660,25 +681,25 @@ https://github.com/Esri/calcite-bootstrap/issues/255*/
             }
             /*this code is required to make the zoom to full route button and the result
 summary area float next to each other*/
-
+            
             .calcite .simpleDirections .esriClear {
                 display: none !important;
             }
             /*controls the zoom to full route button*/
-
+            
             #cu_nav .simpleDirections .esriResultsButtonsContainer {
                 margin: 0px;
                 float: left;
                 width: 5%;
             }
-
+            
             .calcite .simpleDirections .esriResultsViewFullRoute {
                 text-align: center !important;
                 width: 100%;
                 background-color: #565A5C !important;
                 height: 38px;
             }
-
+            
             .calcite .simpleDirections .esriResultsViewFullRoute:before {
                 font-size: 13px !important;
                 color: #a9a9a9 !important;
@@ -687,18 +708,18 @@ summary area float next to each other*/
                 float: right;
                 /*background-color: #565A5C;*/
             }
-
+            
             .calcite .simpleDirections .esriResultsViewFullRoute:hover:before {
                 font-size: 13px !important;
                 color: white !important;
                 line-height: 2.2 !important;
                 text-decoration: none !important;
             }
-
+            
             .calcite .simpleDirections .esriResultsViewFullRoute:focus {
                 outline: none !important;
             }
-
+            
             #cu_nav .simpleDirections .esriLinkButton:hover {
                 text-decoration: none;
             }
@@ -706,33 +727,34 @@ summary area float next to each other*/
             /*    .esriRoutes {
         background-color: #565A5C;
     }*/
-
-            .calcite .simpleDirections .esriRouteTextColumn, .calcite .simpleDirections .esriRouteIconColumn {
+            
+            .calcite .simpleDirections .esriRouteTextColumn,
+            .calcite .simpleDirections .esriRouteIconColumn {
                 background-color: #565A5C;
                 border-bottom: 1px solid #565A5C !important;
                 border-right: 1px solid #565A5C !important;
                 width: 100%;
             }
-
+            
             .esriRouteText {
                 color: #bcc0c6;
                 font-family: "Avenir Next W01", "Avenir Next", "Avenir", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
                 font-weight: lighter !important;
                 font-size: 1.4em;
             }
-
+            
             #cu_nav .simpleDirections .esriRouteInfo strong {
                 color: white;
                 font-size: 1.1em;
                 font-weight: lighter;
             }
-
+            
             .calcite .simpleDirections .esriRouteLength {
                 color: #d2d2d2 !important;
                 background-color: #2b2929;
             }
             /*this is an important line to get the route summary layout right*/
-
+            
             .calcite .simpleDirections .esriRoutes {
                 float: left !important;
                 width: 100% !important;
@@ -740,24 +762,26 @@ summary area float next to each other*/
             }
             /*this line removes the space between find address section*/
             /*and the add destination section*/
-
-            table.esriStops.dojoDndSource.dojoDndTarget.dojoDndContainer, table.esriStops.dojoDndSource.dojoDndTarget.dojoDndContainerOver {
+            
+            table.esriStops.dojoDndSource.dojoDndTarget.dojoDndContainer,
+            table.esriStops.dojoDndSource.dojoDndTarget.dojoDndContainerOver {
                 /*background-color: blue;*/
                 margin-bottom: 0px;
             }
             /*this line removes the space between the add destination ssection*/
             /*and the directions section*/
-
-            .calcite .simpleDirections .esriResultsContainer {
+            
+            .calcite .simpleDirections .e sriResultsContainer {
                 margin-top: 0px !important;
             }
             /*this line removes the left border of the directions section*/
-
-            table th, table td {
+            
+            table th,
+            table td {
                 border-left: 0px !important;
             }
             /*this line removes the color that appears on the right side of the directions section*/
-
+            
             .calcite .simpleDirections .esriRoutes table {
                 display: block !important;
                 background-color: #565A5C;
@@ -765,29 +789,50 @@ summary area float next to each other*/
             /************************************************************************************************************************************/
             /*SUGGESTIONS DROPDOWN*/
             /************************************************************************************************************************************/
-
+            
             .calcite .arcgisSearch .searchMenu {
                 border-radius: 0px;
+                /* top: 40px !important;
+                left: -98px !important;
+                width: 430px !important;*/
+                /*border-color: red !important;*/
             }
-
+            
             .calcite .arcgisSearch .searchMenu .menuHeader {
                 display: none;
             }
-
+            
+            .calcite .arcgisSearch .showSuggestions .suggestionsMenu {
+                position: fixed !important;
+                left:19px !important;
+                top: 69px !important;
+                width: 430px ;
+            }
+            
             #cu_nav li {
                 margin: 0;
+                font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+                font-size: 12px;
+                color: #a9a9a9;
+                background-color: #565A5C;
+                /*border-color: #a9a9a9;*/
+                border-color: #36383a;
+            }
+            
+            #cu_nav li:hover {
+                color: white;
             }
             /************************************************************************************************************************************/
             /*DIRECTIONS MENU - ROUTING OPTIONS*/
             /************************************************************************************************************************************/
-
+            
             .directions-menu {
                 display: none;
                 background-color: #646667;
                 width: 100%;
                 height: 45px;
             }
-
+            
             .close-button {
                 display: block;
                 float: left;
@@ -800,7 +845,7 @@ summary area float next to each other*/
                 margin-right: 0.5%;
                 border-color: transparent;
             }
-
+            
             .route {
                 display: block;
                 float: left;
@@ -811,25 +856,32 @@ summary area float next to each other*/
                 background-color: transparent;
                 border-color: transparent;
             }
-
-            .directions-menu .route [class^="flaticon-"]:before, [class*=" flaticon-"]:before, [class^="flaticon-"]:after, [class*=" flaticon-"]:after {
+            
+            .directions-menu .route [class^="flaticon-"]:before,
+            [class*=" flaticon-"]:before,
+            [class^="flaticon-"]:after,
+            [class*=" flaticon-"]:after {
                 margin-left: 0px;
                 font-size: 28px;
                 background-color: : transparent;
                 color: #a9a9a9;
             }
-
-            .directions-menu .route [class^="flaticon-"]:hover:before, [class*=" flaticon-"]:hover:before, [class^="flaticon-"]:hover:after, [class*=" flaticon-"]:hover:after {
+            
+            .directions-menu .route [class^="flaticon-"]:hover:before,
+            [class*=" flaticon-"]:hover:before,
+            [class^="flaticon-"]:hover:after,
+            [class*=" flaticon-"]:hover:after {
                 color: white;
             }
-
-            .close-button:hover, .route:hover {
+            
+            .close-button:hover,
+            .route:hover {
                 background-color: transparent;
             }
             /************************************************************************************************************************************/
             /*ON-OFF MENU BUTTON*/
             /************************************************************************************************************************************/
-
+            
             #off-canvas {
                 width: 25px;
                 height: 50px;
@@ -840,7 +892,7 @@ summary area float next to each other*/
                 background-color: transparent;
                 border-color: transparent;
             }
-
+            
             #on-canvas {
                 display: none;
                 width: 25px;
@@ -854,7 +906,69 @@ summary area float next to each other*/
             }
             /**********************/
             /*en proceso*/
-
+            
             #bldg-info {
                 display: none;
             }
+            /************************************************************************************************************************************/
+            /*CONTEXT MENU*/
+            /************************************************************************************************************************************/
+            
+            .context-menu-container {
+                display: none;
+                /*background-color: #FFFFFF;*/
+                /*background-color: #E5E5DD;*/
+                background-color: #666A6B;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                z-index: 10;
+                max-width: 190px;
+                max-height: 210px;
+                width: 180px;
+                height: auto;
+                position: absolute;
+                outline: none;
+                box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.16), 0 1.5px 3px rgba(0, 0, 0, 0.23);
+            }
+            
+            .context-menu-container ul {
+                list-style: none;
+                font-family: Helveticas Neue, Helvetica, Arial, sans-serif;
+                font-size: 12px;
+                line-height: 1.5em;
+                margin-left: 0.6em;
+                height: 100%;
+                margin-bottom: 0em;
+                /*z-index: -1;*/
+            }
+            
+            .context-menu-container ul li {
+                margin: 0px;
+                width: 100%;
+                /*color: #565A5C;*/
+                color: #a9a9a9;
+            }
+            
+            .context-menu-container ul li:hover {
+                color: white;
+            }
+            /************************************************************************************************************************************/
+            /*TOOLTIP BOOSTRAP +  JQUERY*/
+            /************************************************************************************************************************************/
+            
+            .tooltip.bottom {
+                position: absolute;
+                font-size: 10.5px;
+            }
+            /************************************************************************************************************************************/
+            /*MEDIA QUERIES*/
+            /************************************************************************************************************************************/
+            
+            @media (min-width: 1200px) {
+                #cu_nav,
+                .calcite .arcgisSearch .showSuggestions .suggestionsMenu {
+                    max-width: 430px;
+                }
+            }
+            
+            ;
