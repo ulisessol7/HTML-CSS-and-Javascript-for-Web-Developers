@@ -334,6 +334,34 @@ require(["esri/map", "esri/dijit/Search", "esri/layers/FeatureLayer", "esri/diji
             $('#off-canvas').show();
             $('#on-canvas').hide();
         });
+
+        // focus events handler
+        $('#off-canvas').focus(function() {
+            $('#arrow_l').attr('src', 'img_dir/keyboard-left-arrow-button_w.png');
+        });
+        $('#off-canvas').blur(function() {
+            $('#arrow_l').attr('src', 'img_dir/keyboard-left-arrow-button.png');
+        });
+        $('#on-canvas').focus(function() {
+            $('#arrow_r').attr('src', 'img_dir/keyboard-right-arrow-button_w.png');
+        });
+        $('#on-canvas').blur(function() {
+            $('#arrow_r').attr('src', 'img_dir/keyboard-right-arrow-button.png');
+        });
+
+        // hover handler + mouse leave
+        $('#off-canvas').hover(function() {
+            $('#arrow_l').attr('src', 'img_dir/keyboard-left-arrow-button_w.png');
+        });
+        $('#off-canvas').mouseleave(function() {
+            $('#arrow_l').attr('src', 'img_dir/keyboard-left-arrow-button.png');
+        });
+        $('#on-canvas').hover(function() {
+            $('#arrow_r').attr('src', 'img_dir/keyboard-right-arrow-button_w.png');
+        });
+        $('#on-canvas').mouseleave(function() {
+            $('#arrow_r').attr('src', 'img_dir/keyboard-right-arrow-button.png');
+        });
     });
     // **********************************************************************************************************************************
     // TOOLTIP BOOSTRAP +  JQUERY
@@ -343,7 +371,9 @@ require(["esri/map", "esri/dijit/Search", "esri/layers/FeatureLayer", "esri/diji
             'data-toggle',
             'tooltip'
         );
-        $('[title]').tooltip({ placement: 'bottom' });
+        $('[title]').tooltip({
+            placement: 'bottom'
+        });
         // this line hides the search tooltip when the user is typing
         $('.calcite .arcgisSearch .hasMultipleSources .searchInput').focus(function() {
             $('.calcite .arcgisSearch .hasMultipleSources .searchInput').tooltip('hide');
@@ -355,24 +385,94 @@ require(["esri/map", "esri/dijit/Search", "esri/layers/FeatureLayer", "esri/diji
         });
     });
     // **********************************************************************************************************************************
-    // SUGGESTIONS DROPDOWN
+    // SUGGESTIONS DROPDOWN - SEACH BAR
     // **********************************************************************************************************************************
     $(function() {
         // esri doesn't make easy to modify the behavior of the dropdown
         // I wanted the dropdown to be the same width as the cu nav
-        var sugg2 = '.calcite .arcgisSearch .showSuggestions .suggestionsMenu';
-        var sugg = '#search > div > div.searchExpandContainer > div > div.searchInputGroup > div.searchMenu.suggestionsMenu';
-        $(sugg).bind("DOMNodeInserted", function() {
-            var nav_w = $('#cu_nav').width();
-            var sugg_w = $(sugg).width();
-            $(sugg).css('width', nav_w);
-        });
-        $(window).resize(function() {
-            var nav_w = $('#cu_nav').width();
-            var sugg_w = $(sugg).width();
-            $(sugg).css('width', nav_w);
+        // var sugg = '#search > div > div.searchExpandContainer > div > div.searchInputGroup > div.searchMenu.suggestionsMenu';
+        // $(sugg).bind("DOMNodeInserted", function() {
+        //     var nav_w = $('#cu_nav').width();
+        //     var sugg_w = $(sugg).width();
+        //     $(sugg).css('width', nav_w);
+        // });
+        // $(window).resize(function() {
+        //     var nav_w = $('#cu_nav').width();
+        //     var sugg_w = $(sugg).width();
+        //     $(sugg).css('width', nav_w);
+        //
+        // });
+        // Mutation observer to implement a Google maps like
+        // suggestions behavior
+        // In jQuery, to get the same result as document.getElementById,
+        // you can access the jQuery Object and get the first element in the
+        // object (Remember JavaScript objects act similar to associative
+        // arrays).stackoverflow.
+        // targets
+        var esri_sugg = $('#search > div > div.searchExpandContainer > div > div.searchInputGroup > div.searchMenu.suggestionsMenu')[0];
+        var esri_class_mon = $('#search > div')[0];
+        // console.log(esri_class_mon);
+        // var custom_sugg = $('#cu_nav > div > div.searchMenu.suggestionsMenu')[0];
+        var custom_sugg = $('#cu_nav > div > div:nth-child(5)')[0];
+        // Classes to be observed
+        var suggestions_on = 'searchGroup hasMultipleSources hasValue showSuggestions';
+        var suggestions_off = 'searchGroup hasMultipleSources';
+        // configuration of the observer:
+        var config = {
+            attributes: true,
+            childList: true,
+            characterData: true
+        };
+        // #cu_nav > div > div.searchMenu.suggestionsMenu > div > ul > li
+        // esri suggestions observer
+        var esri_class_mon_observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (esri_class_mon.attributes[1].value === suggestions_on) {
+                    console.log(esri_class_mon.attributes[1].value);
+                    // $(esri_sugg).clone().insertAfter('#dir');
+                    $(esri_sugg).insertAfter('#dir');
+                    $(esri_sugg).show();
+                    // $(custom_sugg).show();
+                    $(esri_sugg).css('background-color', 'white');
+                    $(esri_sugg).css('width', '100%');
+                    // $(custom_sugg).css('position', 'fixed');
+                    $(esri_sugg).css('float', 'left');
+                    // $(custom_sugg).css('list-style', 'none');
+                } else if (esri_class_mon.attributes[1].value === suggestions_off) {
+                    $(custom_sugg).hide();
+                    $(esri_sugg).hide();
+                    // $(custom_sugg).remove();
+                    console.log(esri_class_mon.attributes[1].value + 'OFF');
+                    $(custom_sugg).insertAfter('#search');
+                }
+            });
 
         });
+        // pass in the target node, as well as the observer options
+        esri_class_mon_observer.observe(esri_class_mon, config);
+        // $(custom_sugg).bind("DOMNodeInserted", function() {
+        //     var custom_sugg_observer = new MutationObserver(function(mutations) {
+        //         mutations.forEach(function(mutation) {
+        //             if (custom_sugg.attributes[1].value === suggestions_off) {
+        //                 $(custom_sugg).hide();
+        //                 $(custom_sugg).insertAfter('#search');
+        //             }
+        //         });
+        //     });
+        //     custom_sugg_observer.observe(custom_sugg, config);
+        //
+        // });
 
+        //
+        // // pass in the target node, as well as the observer options
+        //  esri_class_mon_observer.observe(esri_sugg, config);
+
+        // //     // later, you can stop observing
+        // //     // observer.disconnect();
+        // //
     });
 });
+//
+// #esri_dijit_Search_1 > div
+// searchGroup
+// searchGroup hasValue
