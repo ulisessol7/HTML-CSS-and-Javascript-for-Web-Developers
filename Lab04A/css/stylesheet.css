@@ -1,0 +1,84 @@
+    html,
+    body,
+    #container {
+        height: 100%;
+        overflow: hidden;
+        width: 100%;
+    }
+    
+    h1 {
+        font-family: 'Anton', sans-serif;
+        font-size: x-large !important;
+    }
+    
+    h2 {
+        font-family: 'Oswald', sans-serif;
+    }
+    
+    em {
+        font-family: 'Shadows Into Light', cursive;
+    }
+    
+    table {
+        display: table;
+        border-collapse: separate;
+        border-spacing: 10px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    tr {
+        /*display: flex;*/
+        align-items: center;
+    }
+    
+    th,
+    img,
+    td {
+        width: 135px;
+        height: 135px;
+        text-align: left;
+        font-size: 11px;
+    }
+    
+    #features > table > tbody > tr:nth-child(2) > td:nth-child(1) {
+        display: flex;
+    }
+    
+    .panel {
+        border: 0;
+    }
+    
+    #sidebar {
+        float: left;
+        height: 100%;
+        max-width: 100%;
+        /*width: 300px;*/
+        width: 100%;
+        text-align: center;
+    }
+    
+    #map {
+        /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);*/
+        height: 100%;
+        width: auto;
+        display: none;
+    }
+    
+    .sidebar-wrapper {
+        height: 100%;
+        position: relative;
+        width: 100%;
+    }
+    
+    #minimap,
+    #profile {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 -1px 0px rgba(0, 0, 0, 0.02);
+    }
+    
+    #minimap:hover,
+    #profile:hover {
+        -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    }

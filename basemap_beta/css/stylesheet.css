@@ -560,8 +560,7 @@ https://github.com/Esri/calcite-bootstrap/issues/255*/
             }
             /*esriDirectionsTabButton - marker button*/
             /*controls the marker that adds the locations*/
-            
-           /* .calcite .simpleDirections .esriDirectionsTabButton {
+            /* .calcite .simpleDirections .esriDirectionsTabButton {
                 display: none !important;
                 width: 25%
             }*/
@@ -1009,6 +1008,87 @@ summary area float next to each other*/
             .tooltip.bottom {
                 position: absolute;
                 font-size: 10.5px;
+            }
+            /************************************************************************************************************************************/
+            /*CLICK ON MAP*/
+            /************************************************************************************************************************************/
+            
+            #dot_location {
+                display: none;
+                z-index: 20;
+                width: 10px;
+                height: 10px;
+                position: absolute;
+                background: #565A5C;
+                border-radius: 30px;
+                /*border: 5px solid #CFB87C;*/
+            }
+            
+            .pulse {
+                border: 10px solid #CFB87C;
+                /*background: transparent;*/
+                /*-webkit-border-radius: 60px;
+                -moz-border-radius: 60px;*/
+                border-radius: 60px;
+                height: 50px;
+                width: 50px;
+                -webkit-animation: pulse 3s ease-out;
+                -moz-animation: pulse 3s ease-out;
+                animation: pulse 3s ease-out;
+                -webkit-animation-iteration-count: infinite;
+                -moz-animation-iteration-count: infinite;
+                animation-iteration-count: infinite;
+                top: -20px;
+                left: -20px;
+                z-index: 1;
+                opacity: 0;
+                position: absolute;
+            }
+
+            @-moz-keyframes pulse {
+                0% {
+                    -moz-transform: scale(0);
+                    opacity: 0.0;
+                }
+                25% {
+                    -moz-transform: scale(0);
+                    opacity: 0.1;
+                }
+                50% {
+                    -moz-transform: scale(0.1);
+                    opacity: 0.3;
+                }
+                75% {
+                    -moz-transform: scale(0.5);
+                    opacity: 0.5;
+                }
+                100% {
+                    -moz-transform: scale(1);
+                    opacity: 0.0;
+                }
+            }
+            
+            @-webkit-keyframes "pulse" {
+                0% {
+                    -webkit-transform: scale(0);
+                    opacity: 0.0;
+                }
+                25% {
+                    -webkit-transform: scale(0);
+                    opacity: 0.1;
+                }
+                50% {
+                    -webkit-transform: scale(0.1);
+                    opacity: 0.3;
+                }
+                75% {
+                    -webkit-transform: scale(0.5);
+                    opacity: 0.5;
+                }
+                100% {
+                    -webkit-transform: scale(1);
+                    opacity: 0.0;
+                }
             }
             /************************************************************************************************************************************/
             /*MEDIA QUERIES*/

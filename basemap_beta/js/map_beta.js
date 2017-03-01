@@ -210,9 +210,12 @@ $(document).ready(function() {
 
         map.on("click", function(evt) {
             var layerId;
-            // Working for first search box
-            // console.log($('td.esriStopGeocoderColumn').find('.searchMenu.suggestionsMenu').html());
-            // console.log($('#search_input').val());
+            console.log(evt);
+            $("#dot_location").show().css({
+                // I'm  using 5 to get the center of the dot.It's diameter is 10px
+                left: (evt.pageX - 5) + "px",
+                top: (evt.pageY - 5) + "px"
+            });
             // hides the context -menu on right click
             $(".context-menu-container").hide();
             if (evt.graphic) {
@@ -239,8 +242,6 @@ $(document).ready(function() {
             return false;
         };
 
-
-
         // **********************************************************************************************************************************
         // CONTEXT MENU EVENTS
         // **********************************************************************************************************************************
@@ -250,6 +251,7 @@ $(document).ready(function() {
                 map.infoWindow.hide();
                 console.log("Right Mouse button pressed.");
                 console.log(evt);
+                // change to css class
                 $(".context-menu-container").show().css({
                     left: evt.pageX + "px",
                     top: evt.pageY + "px"
@@ -284,17 +286,16 @@ $(document).ready(function() {
             // routeTaskUrl: "http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Network/USA/NAServer/Route"
             routeTaskUrl: "http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Network/USA/NAServer/Route"
         }, "dir");
-        directionsWidget.on("directions-start", function(evt) {
-            for (var i = 0; i < directionsWidget.stops.length; i++) {
-                // checking for coordinates to avoid renaming, I need to revisit this logic later
-                if ((directionsWidget.stops[i].name.startsWith("-") === false) && (typeof directionsWidget.stops[i].feature.attributes.BLDG_NAME != "undefined")) {
-                    directionsWidget.stops[i].name = directionsWidget.stops[i].feature.attributes.BLDG_NAME;
-                }
-            }
+        // directionsWidget.on("directions-start", function(evt) {
+        //     for (var i = 0; i < directionsWidget.stops.length; i++) {
+        //         // checking for coordinates to avoid renaming, I need to revisit this logic later
+        //         if ((directionsWidget.stops[i].name.startsWith("-") === false) && (typeof directionsWidget.stops[i].feature.attributes.BLDG_NAME != "undefined")) {
+        //             directionsWidget.stops[i].name = directionsWidget.stops[i].feature.attributes.BLDG_NAME;
+        //         }
+        //     }
 
 
-        });
-        // $(function() {
+        // });
         $("#dir").hide();
         var add_stops_button_active = ".esriActivateButton.esriDirectionsButton.esriDirectionsTabButton.esriDirectionsPressedButton";
         // this opens the direction panel & closes the navbar
@@ -303,12 +304,6 @@ $(document).ready(function() {
             $('.directions-menu').show();
             directionsWidget.startup();
             $('#dir').show();
-            var esri_class_mon_2 = $('.arcgisSearch.esriInnerGeocoder > div')[0];
-            // Classes to be observed
-
-            // console.log(esri_class_mon_2);
-            // $("[data-toggle='tooltip']").tooltip('toggle');
-
         });
         // this closes the direction panel & opens the navbar
         $('.close-button').on('click', function() {
@@ -331,7 +326,6 @@ $(document).ready(function() {
         // **********************************************************************************************************************************
         // COLLAPSE MENU BUTTON
         // **********************************************************************************************************************************
-        // $(function() {
         $('#off-canvas').on('click', function() {
             $('#cu_nav').hide("slide", {
                 direction: "left"
@@ -375,11 +369,9 @@ $(document).ready(function() {
         $('#on-canvas').mouseleave(function() {
             $('#arrow_r').attr('src', 'img_dir/keyboard-right-arrow-button.png');
         });
-        // });
         // **********************************************************************************************************************************
         // TOOLTIP BOOSTRAP +  JQUERY
         // **********************************************************************************************************************************
-        // $(function() {
         $('[title]').attr(
             'data-toggle',
             'tooltip'
@@ -396,7 +388,6 @@ $(document).ready(function() {
             $('.calcite .arcgisSearch .hasMultipleSources .searchInput').tooltip('enable');
             // $('.calcite .arcgisSearch .hasMultipleSources .searchInput').tooltip('show');
         });
-        // });
         // **********************************************************************************************************************************
         // SUGGESTIONS DROPDOWN - SEACH BAR
         // **********************************************************************************************************************************
@@ -422,9 +413,9 @@ $(document).ready(function() {
         // arrays).stackoverflow.
         // targets
         var esri_sugg = $('#search > div > div.searchExpandContainer > div > div.searchInputGroup > div.searchMenu.suggestionsMenu')[0];
-        var esri_class_mon = $('#search > div')[0];
+        var esri_class_monitored = $('#search > div')[0];
         var custom_sugg = $('#cu_nav > div > div:nth-child(5)')[0];
-        // Classes to be observed
+        // classes to be observed
         var suggestions_on = 'searchGroup hasMultipleSources hasValue showSuggestions';
         var suggestions_off = 'searchGroup hasMultipleSources';
         // configuration of the observer:
@@ -434,14 +425,14 @@ $(document).ready(function() {
             characterData: true
         };
         var custom_sugg_ul = '#cu_nav > div > div.searchMenu.suggestionsMenu > div > ul';
-        // #cu_nav > div > div.searchMenu.suggestionsMenu > div > ul
         // esri suggestions observer
-        var esri_class_mon_observer = new MutationObserver(function(mutations) {
+        var esri_class_monitored_observer = new MutationObserver(function(mutations) {
             mutations.forEach(function(mutation) {
-                if (esri_class_mon.attributes[1].value === suggestions_on) {
-                    console.log(esri_class_mon.attributes[1].value);
+                // replace with query has value
+                if (esri_class_monitored.attributes[1].value === suggestions_on) {
                     $(esri_sugg).insertAfter('#dir');
                     $(esri_sugg).show();
+                    // remember to change this to a css class
                     $(esri_sugg).css('background-color', 'white');
                     $(esri_sugg).css('width', '100%');
                     $(esri_sugg).css('float', 'left');
@@ -449,31 +440,61 @@ $(document).ready(function() {
                         console.log($(this).text());
                         var search_input = $(this).text();
                         $('#search_input').val(search_input);
-                        alert( search_input + ' ' + 'is working awesomely')
                     });
 
-                } else if (esri_class_mon.attributes[1].value === suggestions_off) {
-                    $(custom_sugg_ul).off('click', 'li', function() {
-                        console.log('event has beeen deactivated');
-                    });
-                    $(custom_sugg_ul).off('click keypress', 'li', function() {
-                        console.log('event has beeen deactivated');
-                    });
+                } else if (esri_class_monitored.attributes[1].value === suggestions_off) {
+                    $(custom_sugg_ul).off('click', 'li', function() {});
+                    $(custom_sugg_ul).off('click keypress', 'li', function() {});
                     $(custom_sugg).hide();
                     $(esri_sugg).hide();
-                    console.log(esri_class_mon.attributes[1].value + 'OFF');
+                    console.log(esri_class_monitored.attributes[1].value + 'OFF');
                     $(custom_sugg).insertAfter('#search');
                 }
             });
 
         });
         // pass in the target node, as well as the observer options
-        esri_class_mon_observer.observe(esri_class_mon, config);
+        esri_class_monitored_observer.observe(esri_class_monitored, config);
+
+        // // **********************************************************************************************************************************
+        // SUGGESTIONS DROPDOWN - DIRECTIONS WIDGET
+        // // **********************************************************************************************************************************
+        $('#directions, .esriLinkButton.esriStopsClearDirections').on('click', function() {
+            var dir_sugg = $('td.esriStopGeocoderColumn').find('.searchMenu.suggestionsMenu')[0];
+            // console.log(dir_sugg.html());
+            var dir_esri_class_monitored = $('td.esriStopGeocoderColumn').find('.searchGroup')[0];
+            var dir_custom_sugg = $('#cu_nav > div > div:nth-child(6)')[0];
+            var mut = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    // console.log(dir_esri_class_monitored.attributes[1].value);
+                    // if (dir_esri_class_monitored.attributes[1].value === suggestions_on) {
+                    // console.log('target has class: ' + suggestions_on);
+                    // console.log(dir_esri_class_monitored.attributes[1].value);
+                    // || 'searchGroup hasValue'
+                    // if ($('td.esriStopGeocoderColumn').find('.searchGroup').hasClass('searchGroup'))
+                    if ($('td.esriStopGeocoderColumn').find('.searchGroup').hasClass('searchGroup hasValue showSuggestions' || 'searchGroup hasValue')) {
+                        console.log(dir_esri_class_monitored.attributes[1].value);
+                        $(dir_sugg).insertAfter('#dir');
+                        $(dir_sugg).show();
+                        // remember to change this to a css class
+                        $(dir_sugg).css('background-color', 'white');
+                        $(dir_sugg).css('width', '100%');
+                        $(dir_sugg).css('float', 'left');
+                    } else {
+                        console.log(dir_esri_class_monitored.attributes[1].value);
+                        // $(dir_custom_sugg).hide();
+                        // $(dir_sugg).hide();
+
+                    }
+
+                });
+            });
+            // console.log(dir_esri_class_monitored);
+            // pass in the target node, as well as the observer options
+            mut.observe(dir_esri_class_monitored, config);
+        });
         // ESRI DOJO READY BRACKET
     });
 
-    // **********************************************************************************************************************************
-    // SUGGESTIONS DROPDOWN - DIRECTIONS WIDGET
-    //     // **********************************************************************************************************************************
     // DOM READY BRACKET
 });
