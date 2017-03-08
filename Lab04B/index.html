@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="css/stylesheet.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Anton|Oswald|Shadows+Into+Light" rel="stylesheet">
+</head>
+
+<body>
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+    <script src='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css' rel='stylesheet' />
+    <div id="container">
+        <div id="sidebar">
+            <div class="sidebar-wrapper">
+                <div id="features" class="panel panel-default">
+                    <div class="panel-heading">
+                        <h1 class="panel-title">GEOG 5095 Lab 04</h1>
+                        <h2 class="panel-title">Just another web experiment</h2>
+                        <h3 class="panel-title">by <em>Ulises Guzman</em></h3>
+                    </div>
+                    <table>
+                        <tr>
+                            <td title="Open Mapbox Map"><img id="minimap" src="img/map_preview.PNG"></td>
+                            <td title="Ulises's LinkedIn Profile">
+                                <a href="https://www.linkedin.com/pub/ulises-dario-guzman-sol/17/384/46"><img id="profile" src="img/profile.PNG"></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Leaflet is the leading open-source JavaScript library for mobile-friendly interactive maps. Weighing just about 38 KB of JS, it has all the mapping features most developers ever need. Leaflet is designed with simplicity, performance and usability in mind. It works efficiently across all major desktop and mobile platforms, can be extended with lots of plugins, has a beautiful, easy to use and well-documented API and a simple, readable source code that is a joy to contribute to.</td>
+                            <td title="Open Google Maps"><img id="minigmap" src="img/gmap_preview.PNG"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="map"></div>
+        <div id="gmap"></div>
+        <!-- <div id="map"></div> -->
+        <script src="js/map.js" type="text/javascript"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxYW2LiV8-Ws7pw9kd1pSOamMaaANGp0I&callback=initMap" async defer></script>
+</body>
+
+</html>

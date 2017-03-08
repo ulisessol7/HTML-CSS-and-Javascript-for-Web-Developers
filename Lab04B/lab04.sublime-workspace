@@ -1,0 +1,1795 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"local",
+				"local_gicon (obj)"
+			],
+			[
+				"size",
+				"iconSize"
+			],
+			[
+				"mer",
+				"merLink (str)"
+			],
+			[
+				"bold",
+				"bolder"
+			],
+			[
+				"feature",
+				"featureDiv (?)"
+			],
+			[
+				"feat",
+				"featureIds (str)"
+			],
+			[
+				"font",
+				"font-family"
+			],
+			[
+				"get",
+				"getjson\t$.getjson()"
+			],
+			[
+				"sugge",
+				"suggestions_on (str)"
+			],
+			[
+				"fun",
+				"function (?)"
+			],
+			[
+				"dir",
+				"dir_sugg (obj)"
+			],
+			[
+				"search",
+				"search_input (str)"
+			],
+			[
+				"sear",
+				"search_close_loc (str)"
+			],
+			[
+				"key",
+				"keypress\t.keypress()"
+			],
+			[
+				"esri_C",
+				"esri_class_mon_2 (?)"
+			],
+			[
+				"esri_cla",
+				"esri_class_mon_2 (?)"
+			],
+			[
+				"attr",
+				"attributes"
+			],
+			[
+				"spa",
+				"space_asf_df"
+			],
+			[
+				"paddin",
+				"padding-top"
+			],
+			[
+				"repl",
+				"replaceWith (fn)"
+			],
+			[
+				"off",
+				"offset (fn)"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"pa",
+				"PATH"
+			],
+			[
+				"cs",
+				"css\t.css() - single"
+			],
+			[
+				"append",
+				"appendTo\t.appendTo()"
+			],
+			[
+				"tool",
+				"tooltip"
+			],
+			[
+				"cu",
+				"cu_bldgs_depts_results_shp"
+			],
+			[
+				"read_",
+				"read_file"
+			],
+			[
+				"coun",
+				"counties_shp\tstatement"
+			],
+			[
+				"cou",
+				"counties_shp\tstatement"
+			],
+			[
+				"counti",
+				"county_boundaries"
+			],
+			[
+				"cp",
+				"county_boundaries.shp"
+			],
+			[
+				"e",
+				"ethnicity\tstatement"
+			],
+			[
+				"dept",
+				"depts_gis_ready\tstatement"
+			],
+			[
+				"to",
+				"to_file"
+			],
+			[
+				"deps",
+				"depts_gis_ready\tstatement"
+			],
+			[
+				"heatma",
+				"heatmap_data\tstatement"
+			],
+			[
+				"heat",
+				"heatmap_data\tstatement"
+			],
+			[
+				"pov",
+				"poverty_dataset\tstatement"
+			],
+			[
+				"sum",
+				"summary\tstatement"
+			],
+			[
+				"pover",
+				"poverty_dataset\tstatement"
+			],
+			[
+				"as",
+				"astype"
+			],
+			[
+				"po",
+				"popup_val〔variable〕"
+			],
+			[
+				"dep",
+				"depts_gis_ready"
+			],
+			[
+				"depts",
+				"depts_gis_ready〔variable〕"
+			],
+			[
+				"sp",
+				"space_asf_df_totals〔variable〕"
+			],
+			[
+				"gr",
+				"groupby"
+			],
+			[
+				"space",
+				"space_asf_df"
+			],
+			[
+				"column",
+				"columns"
+			],
+			[
+				"pivo",
+				"pivot_table\tfunction"
+			],
+			[
+				"sql",
+				"sql_query\tstatement"
+			],
+			[
+				"conne",
+				"connection〔variable〕"
+			],
+			[
+				"acc",
+				"access_db\tstatement"
+			],
+			[
+				"table",
+				"table_name〔variable〕"
+			],
+			[
+				"tab",
+				"table_name〔variable〕"
+			],
+			[
+				"cr",
+				"crsr〔variable〕"
+			],
+			[
+				"margin",
+				"margin-bottom"
+			],
+			[
+				"z",
+				"z-index"
+			],
+			[
+				"list",
+				"list-style"
+			],
+			[
+				"tri",
+				"trigger\t.trigger()"
+			],
+			[
+				"stop",
+				"stops_button_idle"
+			],
+			[
+				"tog",
+				"toggleClass〔function〕"
+			],
+			[
+				"stops",
+				"stops_button_pressed"
+			],
+			[
+				"mar",
+				"margin-top"
+			],
+			[
+				"padd",
+				"padding-left"
+			],
+			[
+				"diret",
+				"directions"
+			],
+			[
+				"T",
+				"TRUE"
+			],
+			[
+				"deps_",
+				"depts_gis_ready〔variable〕"
+			],
+			[
+				"in",
+				"index\tforstmt"
+			],
+			[
+				"colu",
+				"columns"
+			],
+			[
+				"active_dep",
+				"active_depts_df\tstatement"
+			],
+			[
+				"activ",
+				"active_depts_sh\tstatement"
+			],
+			[
+				"xl",
+				"xlsx"
+			],
+			[
+				"bld",
+				"bldgs_2〔variable〕"
+			],
+			[
+				"backgr",
+				"background-color"
+			],
+			[
+				"or",
+				"orstationc.csv"
+			],
+			[
+				"orc",
+				"orstationc"
+			],
+			[
+				"station",
+				"stations.shp"
+			],
+			[
+				"u",
+				"uppercase"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"Quer",
+				"QueryTask"
+			],
+			[
+				"Q",
+				"QueryTask"
+			],
+			[
+				"fu",
+				"function (?)"
+			],
+			[
+				"pop",
+				"popupWindow"
+			],
+			[
+				"qq",
+				"qqplot\t{stats}"
+			],
+			[
+				"vari",
+				"variables"
+			],
+			[
+				"ali",
+				"align-self"
+			],
+			[
+				"alig",
+				"align-items"
+			],
+			[
+				"align",
+				"align-items"
+			],
+			[
+				"vote",
+				"vote_pearson_r"
+			],
+			[
+				"pad",
+				"padding"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"backgrou",
+				"background"
+			],
+			[
+				"spec",
+				"specmap"
+			],
+			[
+				"spe",
+				"specmap"
+			],
+			[
+				"CO",
+				"CO"
+			],
+			[
+				"att",
+				"attach\t{base}"
+			],
+			[
+				"read",
+				"read.csv\t{utils}"
+			],
+			[
+				"tra",
+				"transform-origin"
+			],
+			[
+				"fon",
+				"font-size"
+			],
+			[
+				"backgou",
+				"background-color"
+			],
+			[
+				"out",
+				"output"
+			],
+			[
+				"insta",
+				"install.packages\t{utils}"
+			],
+			[
+				"jul_",
+				"jul_colcode"
+			],
+			[
+				"tit",
+				"tittle"
+			],
+			[
+				"jul",
+				"july_temp"
+			],
+			[
+				"jan",
+				"january_pre"
+			],
+			[
+				"map",
+				"maptools"
+			],
+			[
+				"updat",
+				"update.packages\t{utils}"
+			],
+			[
+				"layer",
+				"layerId〔variable〕"
+			],
+			[
+				"gra",
+				"graphics"
+			],
+			[
+				"border-bot",
+				"border-bottom-width"
+			],
+			[
+				"border-bo",
+				"border-bottom-color"
+			],
+			[
+				"bor",
+				"border-bottom"
+			],
+			[
+				"text",
+				"text-indent"
+			],
+			[
+				"conten",
+				"content"
+			],
+			[
+				"BL",
+				"BLDG_NAME"
+			],
+			[
+				"di",
+				"div\tTag"
+			],
+			[
+				"op",
+				"opacity"
+			],
+			[
+				"background-c",
+				"background-color"
+			],
+			[
+				"BLDG",
+				"BLDG_NUMBE"
+			],
+			[
+				"BLD",
+				"BLDG_NAME"
+			],
+			[
+				"console",
+				"console.log"
+			],
+			[
+				"consol",
+				"console.log"
+			],
+			[
+				"resu",
+				"resultItems〔variable〕"
+			],
+			[
+				"sho",
+				"showResults"
+			],
+			[
+				"conso",
+				"console.log"
+			],
+			[
+				"queryT",
+				"queryTask.execute"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 3038,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "js/jquery.googlemap.js",
+			"settings":
+			{
+				"buffer_size": 9955,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/map.js",
+			"settings":
+			{
+				"buffer_size": 5209,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "css/stylesheet.css",
+			"settings":
+			{
+				"buffer_size": 1764,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 354.0,
+		"last_filter": "insta",
+		"selected_items":
+		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"repl r",
+				"SublimeREPL: R"
+			],
+			[
+				"repl",
+				"SendREPL: Choose REPL Program"
+			],
+			[
+				"git:add",
+				"Git: Add All"
+			],
+			[
+				"git",
+				"Git: Commit"
+			],
+			[
+				"ins",
+				"Package Control: Install Local Dependency"
+			],
+			[
+				"packag",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"send",
+				"SendREPL: Choose REPL Program"
+			],
+			[
+				"replr",
+				"SublimeREPL: R"
+			],
+			[
+				"REPL R",
+				"SublimeREPL: R"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 510.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/G/GEOG_5095/Lab04B",
+		"/G/GEOG_5095/Lab04B/css",
+		"/G/GEOG_5095/Lab04B/js"
+	],
+	"file_history":
+	[
+		"/G/WebAppBuilderForArcGIS/client/stemapp/widgets/SiteProjectsFinder/utils.js",
+		"/G/WebAppBuilderForArcGIS/client/stemapp/widgets/SiteProjectsFinder/search.js",
+		"/G/WebAppBuilderForArcGIS/client/stemapp/widgets/SiteProjectsFinder/searchSourceUtils.js",
+		"/G/WebAppBuilderForArcGIS/client/stemapp/widgets/SiteProjectsFinder/item-list.js",
+		"/G/WebAppBuilderForArcGIS/client/stemapp/widgets/SiteProjectsFinder/Widget.js",
+		"/G/WebAppBuilderForArcGIS/client/stemapp/widgets/SiteProjectsFinder/manifest.json",
+		"/G/WebAppBuilderForArcGIS/client/stemapp/widgets/SiteProjectsFinder/config.json",
+		"/G/WebAppBuilderForArcGIS/client/stemapp/widgets/SiteProjectsFinder/nls/strings.js",
+		"/G/WebAppBuilderForArcGIS/client/stemapp/widgets/SiteProjectsFinder/css/style.css",
+		"/G/WebAppBuilderForArcGIS/client/stemapp/widgets/SiteProjectsFinder/item-list.html",
+		"/G/WebAppBuilderForArcGIS/client/stemapp/widgets/SiteProjectsFinder/Widget.html",
+		"/E/Users/ulgu3559/Desktop/ODA_Project/geojsonparser.py",
+		"/E/Users/ulgu3559/Desktop/Scratch_automate/UCB_Buildings.json",
+		"/G/GEOG_5095/Lab04A/js/map.js",
+		"/G/HTML-CSS-and-Javascript-for-Web-Developers/basemap_beta/js/map_beta.js",
+		"/E/Users/ulgu3559/Desktop/SiteProjectsFinder/Widget.js",
+		"/E/Users/ulgu3559/Desktop/SiteProjectsFinder/utils.js",
+		"/E/Users/ulgu3559/Desktop/SiteProjectsFinder/manifest.json",
+		"/E/Users/ulgu3559/Desktop/SiteProjectsFinder/item-list.js",
+		"/G/WebAppBuilderForArcGIS/client/stemapp/widgets/NearMe/Widget.js",
+		"/G/WebAppBuilderForArcGIS/client/stemapp/widgets/NearMe/utils.js",
+		"/G/WebAppBuilderForArcGIS/client/stemapp/widgets/NearMe/searchSourceUtils.js",
+		"/G/WebAppBuilderForArcGIS/client/stemapp/widgets/NearMe/search.js",
+		"/G/WebAppBuilderForArcGIS/client/stemapp/widgets/NearMe/item-list.js",
+		"/G/WebAppBuilderForArcGIS/client/stemapp/widgets/NearMe/item-list.html",
+		"/G/WebAppBuilderForArcGIS/client/stemapp/widgets/NearMe/manifest.json",
+		"/G/WebAppBuilderForArcGIS/client/stemapp/widgets/NearMe/Widget.html",
+		"/G/web_app_meridian_demo/webapp.sublime-project",
+		"/E/Users/ulgu3559/Desktop/NearMe/config.json",
+		"/G/WebAppBuilderForArcGIS/client/stemapp/widgets/samplewidgets/NearMe/item-list.js",
+		"/G/WebAppBuilderForArcGIS/client/stemapp/widgets/samplewidgets/NearMe/Widget.js",
+		"/G/WebAppBuilderForArcGIS/client/stemapp/widgets/samplewidgets/NearMe/searchSourceUtils.js",
+		"/G/WebAppBuilderForArcGIS/client/stemapp/widgets/samplewidgets/NearMe/utils.js",
+		"/G/WebAppBuilderForArcGIS/client/stemapp/widgets/samplewidgets/NearMe/Widget.html",
+		"/G/WebAppBuilderForArcGIS/client/stemapp/widgets/samplewidgets/NearMe/config.json",
+		"/G/WebAppBuilderForArcGIS/client/stemapp/widgets/samplewidgets/NearMe/manifest.json",
+		"/G/WebAppBuilderForArcGIS/client/stemapp/widgets/samplewidgets/Demo/Widget.html",
+		"/G/WebAppBuilderForArcGIS/client/stemapp/widgets/samplewidgets/Demo/css/style.css",
+		"/G/WebAppBuilderForArcGIS/client/stemapp/widgets/Bookmark/css/style.css",
+		"/G/WebAppBuilderForArcGIS/client/stemapp/widgets/NearMe/css/style.css",
+		"/G/WebAppBuilderForArcGIS/client/stemapp/sample-configs/config-demo.json",
+		"/G/WebAppBuilderForArcGIS/client/stemapp/widgets/NearMe/setting/css/style.css",
+		"/E/Users/ulgu3559/Downloads/buildScripts-2.0(2D)/buildScripts/startbuild.js",
+		"/G/WebAppBuilderForArcGIS/client/stemapp/widgets/samplewidgets/Demo/Widget.js",
+		"/G/HTML-CSS-and-Javascript-for-Web-Developers/basemap_beta/index.html",
+		"/C/Users/ulisesdario/Desktop/GEOG_5095/Lab04A/css/stylesheet.css",
+		"/C/Users/ulisesdario/Desktop/GEOG_5095/Lab04A/index.html",
+		"/C/Users/ulisesdario/Desktop/GEOG_5095/Lab04A/js/map.js",
+		"/G/Sublime_3/Sublime Text Build 3083 x64/Data/Packages/Emmet/Emmet.sublime-settings",
+		"/G/WebAppBuilderForArcGIS/client/stemapp/widgets/samplewidgets/Demo/nls/es/strings.js",
+		"/G/WebAppBuilderForArcGIS/client/stemapp/widgets/samplewidgets/Demo/nls/strings.js",
+		"/G/WebAppBuilderForArcGIS/client/stemapp/widgets/samplewidgets/Demo/config.json",
+		"/G/WebAppBuilderForArcGIS/client/stemapp/sample-configs/config-ulises.json",
+		"/G/WebAppBuilderForArcGIS/client/stemapp/config.json",
+		"/E/Users/ulgu3559/Downloads/arcgis-web-appbuilder-2.3/WebAppBuilderForArcGIS/client/stemapp/simpleLoader.js",
+		"/E/Users/ulgu3559/Downloads/features.json",
+		"/E/Users/ulgu3559/Downloads/arcgis-web-appbuilder-2.3/WebAppBuilderForArcGIS/client/stemapp/init.js",
+		"/E/Users/ulgu3559/Downloads/arcgis-web-appbuilder-2.3/WebAppBuilderForArcGIS/client/stemapp/themes/DemoTheme/manifest.json",
+		"/E/Users/ulgu3559/Downloads/arcgis-web-appbuilder-2.3/WebAppBuilderForArcGIS/client/stemapp/sample-configs/config-demo.json",
+		"/E/Users/ulgu3559/Downloads/arcgis-web-appbuilder-2.3/WebAppBuilderForArcGIS/client/stemapp/themes/DemoTheme/layouts/right/config.json",
+		"/E/Users/ulgu3559/Downloads/arcgis-web-appbuilder-2.3/WebAppBuilderForArcGIS/client/stemapp/themes/DemoTheme/panels/SimpleBorderPanel/Panel.js",
+		"/E/Users/ulgu3559/Downloads/arcgis-web-appbuilder-2.3/WebAppBuilderForArcGIS/client/stemapp/themes/DemoTheme/styles/black/style.css",
+		"/E/Users/ulgu3559/Downloads/arcgis-web-appbuilder-2.3/WebAppBuilderForArcGIS/client/stemapp/themes/DemoTheme/main.js",
+		"/E/Users/ulgu3559/Downloads/arcgis-web-appbuilder-2.3/WebAppBuilderForArcGIS/client/stemapp/themes/BillboardTheme/manifest.json",
+		"/E/Users/ulgu3559/Downloads/arcgis-web-appbuilder-2.3/WebAppBuilderForArcGIS/client/stemapp/themes/BillboardTheme/layouts/default/config.json",
+		"/E/Users/ulgu3559/Downloads/arcgis-web-appbuilder-2.3/WebAppBuilderForArcGIS/client/stemapp/themes/BillboardTheme/styles/blue/style.css",
+		"/E/Users/ulgu3559/Downloads/arcgis-web-appbuilder-2.3/WebAppBuilderForArcGIS/client/stemapp/widgets/Search/setting/Setting.html",
+		"/E/Users/ulgu3559/Downloads/arcgis-web-appbuilder-2.3/WebAppBuilderForArcGIS/client/stemapp/widgets/Search/setting/Setting.js",
+		"/E/Users/ulgu3559/Downloads/arcgis-web-appbuilder-2.3/WebAppBuilderForArcGIS/client/stemapp/widgets/LayerList/PopupMenu.js",
+		"/E/Users/ulgu3559/Downloads/arcgis-web-appbuilder-2.3/WebAppBuilderForArcGIS/client/stemapp/widgets/Bookmark/tests/SanityTest.js",
+		"/E/Users/ulgu3559/Downloads/arcgis-web-appbuilder-2.3/WebAppBuilderForArcGIS/client/stemapp/widgets/Bookmark/Widget.html",
+		"/E/Users/ulgu3559/Downloads/arcgis-web-appbuilder-2.3/WebAppBuilderForArcGIS/client/stemapp/widgets/SituationAwareness/config.json",
+		"/E/Users/ulgu3559/Downloads/arcgis-web-appbuilder-2.3/WebAppBuilderForArcGIS/client/stemapp/widgets/SituationAwareness/js/SnapshotName.html",
+		"/E/Users/ulgu3559/Downloads/arcgis-web-appbuilder-2.3/WebAppBuilderForArcGIS/client/stemapp/widgets/NearMe/setting/QuerySourceSetting.html",
+		"/E/Users/ulgu3559/Downloads/arcgis-web-appbuilder-2.3/WebAppBuilderForArcGIS/client/stemapp/widgets/NearMe/setting/layerChooserPopup.html",
+		"/E/Users/ulgu3559/Downloads/arcgis-web-appbuilder-2.3/WebAppBuilderForArcGIS/client/stemapp/widgets/NearMe/setting/css/style.css",
+		"/E/Users/ulgu3559/Downloads/arcgis-web-appbuilder-2.3/WebAppBuilderForArcGIS/client/stemapp/widgets/NearMe/nls/strings.js",
+		"/E/Users/ulgu3559/Downloads/arcgis-web-appbuilder-2.3/WebAppBuilderForArcGIS/client/stemapp/widgets/NearMe/Widget.js",
+		"/G/HTML-CSS-and-Javascript-for-Web-Developers/basemap_beta/css/stylesheet.css",
+		"/E/Users/ulgu3559/Desktop/dummy.html",
+		"/E/Users/ulgu3559/Desktop/susanita_project.py",
+		"/G/HTML-CSS-and-Javascript-for-Web-Developers/week_3/index.html",
+		"/E/Users/ulgu3559/Desktop/run_me_first.py",
+		"/G/GEOG_5990/final_project/sum_centrality.py",
+		"/G/work_in_progress/table_to_numpy.py",
+		"/G/work_in_progress/access_data_to_csv.py",
+		"/T/Projects/Depts_per_Building_Webmap/DEPTSPERBLDG_SCRIPTS/access_data_to_csv.py",
+		"/T/Projects/Depts_per_Building_Webmap/DEPTSPERBLDG_SCRIPTS/csv_to_shp.py",
+		"/G/Ulises_Python_Scripts/ArcScripts_Automat_Publishing_ArcPy/For Upload Into ArcScripts/Overwrite_hosted_feature_service.py",
+		"/G/Sublime_3/Sublime Text Build 3083 x64/Data/Packages/Anaconda/Anaconda.sublime-settings",
+		"/G/work_in_progress/access_sandbox.py",
+		"/G/work_in_progress/odbc_test.py",
+		"/G/Sublime_3/Sublime Text Build 3083 x64/Data/Packages/User/Portable_Miniconda_32_py35.sublime-build",
+		"/F/work_in_progress/odbc_test.py",
+		"/F/work_in_progress/table_to_numpy.py",
+		"/F/work_in_progress/access_sandbox_2.py",
+		"/F/Sublime_3/Sublime Text Build 3083 x64/Data/Packages/User/Portable_Miniconda_32_py35.sublime-build",
+		"/F/Sublime_3/Sublime Text Build 3083 x64/Data/Packages/Anaconda/Anaconda.sublime-settings",
+		"/G/Geog5990_RegressionDemos/gwr.R",
+		"/G/GEOG_5990/Exercise_06/glm.R",
+		"/G/GEOG_5990/Exercise_05/exercise_05.R",
+		"/G/GEOG_5990/Exercise_06/variables.py",
+		"/G/Sublime_3/Sublime Text Build 3083 x64/Data/Packages/User/SublimeREPL.sublime-settings",
+		"/G/GEOG_5990/Exercise_04/exercise_04.R",
+		"/G/GEOG_5990/Exercise_03/exercise_03.R",
+		"/G/GEOG_5990/Exercise_06/glm.py",
+		"/G/Sublime_3/Sublime Text Build 3083 x64/Data/Packages/User/Portable_Anaconda.sublime-build",
+		"/F/Sublime_3/Sublime Text Build 3083 x64/Data/Packages/User/Portable_Anaconda.sublime-build",
+		"/G/work_in_progress/access_sandbox_2.py",
+		"/E/Users/ulgu3559/Downloads/recipe-578815-1.py",
+		"/G/Sublime_3/Sublime Text Build 3083 x64/Data/Packages/User/WinPython27_32bit.sublime-build",
+		"/F/Sublime_3/Sublime Text Build 3083 x64/Data/Packages/User/Anaconda.sublime-settings",
+		"/E/Users/ulgu3559/Desktop/work_in_progress/access_sandbox_2.py",
+		"/E/Users/ulgu3559/Desktop/work_in_progress/table_to_numpy.py",
+		"/G/Sublime_3/Sublime Text Build 3083 x64/Data/Packages/User/Anaconda.sublime-settings",
+		"/G/GEOG_5990/Exercise_06/exercise_06_sandbox.py",
+		"/G/Sublime_3/Sublime Text Build 3083 x64/Data/Packages/SublimeREPL/config/Python/Main.sublime-menu",
+		"/G/Sublime_3/Sublime Text Build 3083 x64/Data/Packages/SublimeREPL/SublimeREPL.sublime-settings",
+		"/E/Users/ulgu3559/Desktop/work_in_progress/access_sandbox.py",
+		"//ifast/iUniversity/guzmansu/Desktop/test.py",
+		"/F/Sublime_3/Sublime Text Build 3083 x64/Data/Packages/User/SublimeREPL.sublime-settings",
+		"/F/Sublime_3/Sublime Text Build 3083 x64/Data/Packages/SublimeREPL/SublimeREPL.sublime-settings",
+		"/F/Sublime_3/Sublime Text Build 3083 x64/Data/Packages/User/SendREPL.sublime-settings",
+		"/E/Users/ulgu3559/Desktop/work_in_progress/depts_per_bldg.py",
+		"/G/CAD_GIS_Office_Scripts/cu_ed_web_map.py",
+		"/E/Users/ulgu3559/Desktop/work_in_progress/access_sandbox",
+		"/G/Sublime_3/Sublime Text Build 3083 x64/Data/Packages/User/SendREPL.sublime-settings",
+		"/G/HTML-CSS-and-Javascript-for-Web-Developers/basemap_beta/index_test.html"
+	],
+	"find":
+	{
+		"height": 49.0
+	},
+	"find_in_files":
+	{
+		"height": 123.0,
+		"where_history":
+		[
+			"<open files>"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"'\n",
+			"_attachClickEvent",
+			"templateDiv",
+			"_onSingleLayerFound",
+			"_attachClickEvent:",
+			"_setItemName",
+			"_itemListTemplate",
+			"esriCTFeatureListItem",
+			"esriCTBackButton",
+			"getTitle",
+			"console",
+			"_getQueryParams",
+			"_featureInfoPanel",
+			"_description",
+			"description",
+			"_setItemCount",
+			"isFeatureCount",
+			"nearme",
+			"NearMe",
+			"SiteProjectsFinder",
+			"NearMe",
+			"label",
+			".esriCTSearchHeader",
+			".jimu-foldable-panel .title-label",
+			"esriCTItemLeftArrow",
+			"esriCTItemName",
+			"esriCTItemRightArrow",
+			"#fff601",
+			"border",
+			"map.on",
+			"direct",
+			"esri_class_mon",
+			"add_stops_button_active",
+			"DIRECTION",
+			"suggestion",
+			"directions",
+			"});",
+			"#esri_dijit_Search_20 > div > div.searchExpandContainer > div > div.searchInputGroup > div.searchMenu.suggestionsMenu",
+			".calcite .simpleDirections .esriStopsAdd .esriStopsAddDestinationBtn",
+			".calcite .simpleDirections .esriStopsButtons",
+			".calcite .simpleDirections .esriStopsGetDirections",
+			".calcite .simpleDirections .esriStopsAdd .esriStopsAddDestination",
+			"outline",
+			"title",
+			";\n",
+			"#cu_nav li",
+			"suggestions",
+			"CU_na",
+			".calcite .arcgisSearch .showSuggestions .suggestionsMenu",
+			"cu_nav li",
+			"cu_nav",
+			".calcite .arcgisSearch .searchMenu",
+			"clear",
+			"tooltip",
+			"li",
+			"#cunav li",
+			".calcite .arcgisSearch .searchClear",
+			".arcgisSearch .searchClear",
+			"python",
+			"general",
+			"glm",
+			"python",
+			"exe",
+			"python",
+			"plt.text(18, 0.04, 'Mean: 16.85%', rotation=90, backgroundcolor='#6E6568',\n         color='white', va='center', ha='center')",
+			"poverty",
+			"python",
+			"font",
+			"jquery.js",
+			"calcite",
+			"<div id=\"directions\"><img src=\"img/walking-icon.png\"></div>",
+			"directionsWidget.startup",
+			"directionsMenu()",
+			"bubu",
+			"dir",
+			"bubu",
+			"var1",
+			"python",
+			")\n",
+			"WRITRHETORIC",
+			"]);\n",
+			"console.log",
+			".calcite .simpleDirections .esriRouteTextColumn",
+			".calcite .simpleDirections .esriRoutes table",
+			".calcite .simpleDirections .esriResultsSummary",
+			"Basemap",
+			".calcite .simpleDirections .esriResultsPrint",
+			".calcite .simpleDirections .esriResultsViewFullRoute:before",
+			".calcite .simpleDirections .esriRoutes",
+			".calcite .simpleDirections .esriResultsSummary",
+			".simpleDirections .esriStopsContainer",
+			"font-family",
+			"search",
+			"focus",
+			".simpleDirections .esriLinkButton:hover",
+			"#",
+			"/*jslint node: true */",
+			"strict",
+			" bldgs_graphic",
+			"popup",
+			".calcite .simpleDirections .esriResultsViewFullRoute:before",
+			"font",
+			"fon",
+			".simpleDirections .esriResultsPrint",
+			".calcite .simpleDirections .esriDirectionsButton",
+			"background-image",
+			".calcite .simpleDirections .esriActivateButton",
+			"border:none",
+			"838384",
+			"search",
+			"hover",
+			"    \n",
+			"popup"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"siteprojectsfinder",
+			"SiteProjectsFinder",
+			"#CFB87C",
+			"esri_class_monitored",
+			"pop_template"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3038,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1025,
+								1025
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										1029,
+										1030
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/single_quote.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										1018,
+										1019
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "js/jquery.googlemap.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9955,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								930,
+								930
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										1171,
+										1172
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										576,
+										577
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": -0.0,
+						"translation.y": 2337.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 2,
+					"file": "js/map.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5209,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1735,
+								1735
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 646.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "css/stylesheet.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1764,
+						"regions":
+						{
+							"gutter_color_1054":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/rgba(0, 0, 0, 0.5).png",
+								"regions":
+								[
+									[
+										1065,
+										1117
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1061":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/rgba(0, 0, 0, 0.5).png",
+								"regions":
+								[
+									[
+										1065,
+										1117
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1065":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/rgba(0, 0, 0, 0.5).png",
+								"regions":
+								[
+									[
+										1065,
+										1117
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1069":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/rgba(0, 0, 0, 0.5).png",
+								"regions":
+								[
+									[
+										1065,
+										1117
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1325":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/rgba(0, 0, 0, 0.2).png",
+								"regions":
+								[
+									[
+										1344,
+										1425
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1333":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/rgba(0, 0, 0, 0.2).png",
+								"regions":
+								[
+									[
+										1344,
+										1425
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1344":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/rgba(0, 0, 0, 0.2).png",
+								"regions":
+								[
+									[
+										1344,
+										1425
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1452":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/rgba(0, 0, 0, 0.16).png",
+								"regions":
+								[
+									[
+										1499,
+										1588
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1459":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/rgba(0, 0, 0, 0.16).png",
+								"regions":
+								[
+									[
+										1499,
+										1588
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1463":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/rgba(0, 0, 0, 0.16).png",
+								"regions":
+								[
+									[
+										1499,
+										1588
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1467":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/rgba(0, 0, 0, 0.16).png",
+								"regions":
+								[
+									[
+										1499,
+										1588
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1499":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/rgba(0, 0, 0, 0.16).png",
+								"regions":
+								[
+									[
+										1499,
+										1588
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1542":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/rgba(0, 0, 0, 0.16).png",
+								"regions":
+								[
+									[
+										1589,
+										1675
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1549":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/rgba(0, 0, 0, 0.16).png",
+								"regions":
+								[
+									[
+										1589,
+										1675
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1553":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/rgba(0, 0, 0, 0.16).png",
+								"regions":
+								[
+									[
+										1589,
+										1675
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1557":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/rgba(0, 0, 0, 0.16).png",
+								"regions":
+								[
+									[
+										1589,
+										1675
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1589":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/rgba(0, 0, 0, 0.16).png",
+								"regions":
+								[
+									[
+										1589,
+										1675
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1629":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/rgba(0, 0, 0, 0.16).png",
+								"regions":
+								[
+									[
+										1676,
+										1757
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1636":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/rgba(0, 0, 0, 0.16).png",
+								"regions":
+								[
+									[
+										1676,
+										1757
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1640":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/rgba(0, 0, 0, 0.16).png",
+								"regions":
+								[
+									[
+										1676,
+										1757
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1644":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/rgba(0, 0, 0, 0.16).png",
+								"regions":
+								[
+									[
+										1676,
+										1757
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_1676":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/rgba(0, 0, 0, 0.16).png",
+								"regions":
+								[
+									[
+										1676,
+										1757
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_168":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/tan.png",
+								"regions":
+								[
+									[
+										168,
+										206
+									]
+								],
+								"scope": "gutter_color"
+							},
+							"gutter_color_729":
+							{
+								"flags": 144,
+								"icon": "Cache/GutterColor/#fea.png",
+								"regions":
+								[
+									[
+										729,
+										796
+									]
+								],
+								"scope": "gutter_color"
+							}
+						},
+						"selection":
+						[
+							[
+								1299,
+								1299
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 46.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 476.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 130.0
+	},
+	"pinned_build_system": "Packages/User/WinPython27_32bit.sublime-build",
+	"project": "lab04.sublime-project",
+	"replace":
+	{
+		"height": 86.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 1,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 352.0,
+	"status_bar_visible": false,
+	"template_settings":
+	{
+	}
+}
