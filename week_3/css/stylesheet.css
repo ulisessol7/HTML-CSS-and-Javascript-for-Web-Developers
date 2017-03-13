@@ -1,101 +1,119 @@
-    /* dummy css file*/
-    /*HEADER*/
-    
-    #header-nav {
-        background-color: rgb(247, 247, 249);
-    }
-    
-    .navbar-default .navbar-brand {
-        /* Brand name*/
-        /* Simply using .navbar-brand is less specific and thus ignored*/
-        font-family: 'Galada', cursive;
-        font-size: 2.2em;
-        color: #005CB9;
-        text-shadow: #000 0 1px;
-        margi
-    }
-    
-    .navbar-brand a:hover,
-    .navbar-brand a:focus {
-        text-decoration: none;
-    }
-    
-    .navbar-default .navbar-header a span {
-        /* LLC text */
-        font-family: 'Lato', sans-serif;
-        font-size: 0.4em;
-        text-shadow: none;
-    }
-    
-    #nav-list {
-        margin-top: 10px;
-    }
-    
-    #nav-list a {
-        font-family: 'Raleway', sans-serif;
-        color: rgb(78, 168, 232);
-        text-shadow: white 0 1px;
-        text-align: center;
-    }
-    
-    #nav-list a:hover {
-        background: #E7E7E7;
-    }
-    
-    header h1 {
-        /* Our Menu */
-        font-family: 'Indie Flower', cursive;
-        color: rgb(232, 78, 78);
-        font-size: 4em;
-        text-shadow: #white 0 1px;
-    }
-    
-    .divider {
-        color: black;
-    }
-    /*END HEADER*/
-    
-    .container-fluid {
-        padding-left: 2%;
-        padding-right: 2%;
-        overflow: hidden;
-    }
-    /*CONTENT*/
-    
-    #content {
-        height: 100%;
-        background-color: rgb(70, 136, 183);
-        width: 96%;
-    }
-    
-    #content p {
-        color: white;
-        text-align: justify;
-    }
-    
-    #mydiv {
-        height: 1000px;
-        width: 100%;
-    }
-    
-    iframe {
-        height: 100%;
-        width: 100%;
-    }
-    /*media queries*/
-    /********** Small devices only **********/
-    /*    @media (min-width: 768px) and (max-width: 991px) {
-        #content {
-            width: 85%;
-        }
-    }*/
-    /********** Extra small devices only **********/
-    
-    @media (max-width: 767px) {
-        header h1 {
-            font-size: 3em;
-        }
-        #content {
-            width: 85%;
-        }
-    }
+html,
+body {
+    height: 100%;
+}
+
+.navbar-default .navbar-brand {
+    padding-left: 40px;
+    color: black;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 1.5em;
+}
+
+h1 {
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+p {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.5em;
+    padding: 10px 10px 10px 10px;
+}
+
+.navbar {
+    background-color: #C751FB;
+    border-radius: 0px;
+    border-width: 2px;
+    border-color: black;
+}
+
+
+/***************** MENU TITLE ********************/
+
+#menu {
+    font-family: 'Damion', cursive;
+    font-size: 5em;
+}
+
+
+/***************** SECTION CONTAINER ********************/
+
+#section-container {
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 100%;
+}
+
+
+/***************** FOOD SECTIONS ********************/
+
+section {
+    height: 100%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+}
+
+section:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+#chicken {
+    background-color: #00D7D7;
+    /*height: 100%;*/
+}
+
+#beef {
+    background-color: #DE6382;
+    height: 100%;
+}
+
+#sushi {
+    background-color: #E3920C;
+    /*height: 100%;*/
+}
+
+
+/***************** NAVBAR MOBILE ********************/
+
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+    border-color: transparent;
+}
+
+.navbar-default .navbar-nav>li>a {
+    font-family: 'Josefin Sans', sans-serif;
+    color: black !important;
+    font-size: 1.4em;
+}
+
+.navbar-default .navbar-brand:focus,
+.navbar-default .navbar-brand:hover {
+    color: white;
+}
+
+
+/*button toggle*/
+
+.navbar-default .navbar-toggle {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #c9c9c9;
+}
+
+.navbar-default .navbar-toggle:focus span,
+.navbar-default .navbar-toggle:hover span {
+    background-color: white;
+}
+
+.navbar-default .navbar-nav>li>a:focus,
+.navbar-default .navbar-nav>li>a:hover {
+    color: white !important;
+}
+
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover {
+    background-color: transparent;
+}
