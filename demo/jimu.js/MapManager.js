@@ -42,10 +42,14 @@ define([
   './MapUrlParamsHandler',
   './AppStateManager',
   './PopupManager',
-  './FilterManager'
+  './FilterManager',
+  'esri/symbols/SimpleFillSymbol',
+  'esri/symbols/SimpleLineSymbol',
+  'esri/Color'
+
 ], function(declare, lang, array, html, query, topic, on, aspect, keys, i18n, dojoConfig, InfoWindow,
   PopupMobile, InfoTemplate, esriRequest, arcgisUtils, Extent, Point, require, jimuUtils, LoadingShelter,
-  LayerInfos, Message, AppStatePopup, MapUrlParamsHandler, AppStateManager, PopupManager, FilterManager) {
+  LayerInfos, Message, AppStatePopup, MapUrlParamsHandler, AppStateManager, PopupManager, FilterManager, SimpleFillSymbol, SimpleLineSymbol, Color  ) {
   var instance = null,
     clazz = declare(null, {
       appConfig: null,
@@ -305,6 +309,10 @@ define([
 
           // set default size of infoWindow.
           map.infoWindow.resize(270, 316);
+          // set the default fill symbol
+          map.infoWindow.fillSymbol = new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, new SimpleLineSymbol(
+                    SimpleLineSymbol.STYLE_SOLID, new Color([86, 90, 92, 1]), 1),
+                new Color([207, 184, 124, 0.50]));
           //var extent;
           map.itemId = appConfig.map.itemId;
           map.itemInfo = response.itemInfo;
@@ -549,6 +557,7 @@ define([
           layer.label = layerConfig.label;
           layer.icon = layerConfig.icon;
           map.addLayer(layer);
+          
         }));
       },
 
@@ -579,7 +588,8 @@ define([
 
       enableWebMapPopup: function() {
         this.map.setInfoWindowOnClick(true);
-      }
+      },
+
 
     });
 

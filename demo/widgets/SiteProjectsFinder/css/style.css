@@ -1,3 +1,16 @@
+/*-----------------------General Styles--------------------------*/
+
+a:link {
+    text-decoration: none;
+}
+
+
+/*b {
+    color: #565A5C;
+}
+*/
+
+
 /*-----------------------Styles for widget panel--------------------------*/
 
 .esriCTNearMeContentPanel {
@@ -232,8 +245,16 @@
 .jimu-widget-nearme .esriCTItemlList {
     width: 100%;
     border-bottom: 1px solid #DDDDDD;
-    height: 36px;
+    /*height: 36px;*/
+    height: 135px;
     cursor: pointer;
+}
+
+
+/*************************ULISES ESTUVO AQUI***********************************/
+
+.jimu-widget-nearme .esriCTItemlList:hover {
+    background-color: #CFB87C;
 }
 
 .jimu-widget-nearme .esriCTItemName {
@@ -242,31 +263,75 @@
     text-overflow: ellipsis;
     line-height: 17px;
     padding: 0px 10px 0px 20px;
-    color: #CFB87C;
+    color: black;
     font-weight: bolder;
+}
+
+.jimu-widget-nearme .esriCTItemName:hover,
+.jimu-widget-nearme .ucbZoomTo:hover {
+    color: white;
+}
+
+.esriViewPopup > div.mainSection > div:nth-child(3) > div:nth-child(1) > a:hover,
+.dijitContentPane .esriCTPopupInfo > .esriViewPopup > div.mainSection > div:nth-child(3) > div:nth-child(1) > a:hover {
+    color: #CFB87C !important;
 }
 
 
 /*************************ULISES ESTUVO AQUI***********************************/
 
-.jimu-widget-nearme .ucbDescription {
+.meridianLogo {
+    height: 10px;
+    width: auto;
+    padding-right: 5px;
+}
+
+.jimu-widget-nearme .ucbDescription,
+.jimu-widget-nearme .ucbStatus,
+.jimu-widget-nearme .ucbMultisite,
+.jimu-widget-nearme .ucbPM,
+.jimu-widget-nearme .ucbPMEmail,
+.jimu-widget-nearme .ucbPMPhone {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     line-height: 17px;
     padding: 0px 10px 0px 20px;
+    /*padding-left: 20px;*/
+    margin-bottom: 2.5px;
+    /*margin-top: 2.5px;*/
+}
+
+.jimu-widget-nearme .ucbDescription,
+.jimu-widget-nearme .ucbPMPhone {
     width: 80%;
 }
 
-.jimu-widget-nearme .esriCTPanelHeader .esriCTItemName {
-    padding: 0px 20px 0px 0px;
-    font-size: 12px;
-    color: #3e3e3e;
+.jimu-widget-nearme .ucbPMPhone {
+    float: left;
 }
 
-.jimu-widget-nearme .esriCTPanelHeader .ucbYear,
-.jimu-widget-nearme .esriCTPanelHeader .ucbDescription {
+.jimu-widget-nearme .ucbPMEmail {
+    width: 100%;
+}
+
+.jimu-widget-nearme .ucbZoomTo {
+    width: 20%;
+    float: right;
+    padding-right: 20px;
+    margin-bottom: 2.5px;
+    font-weight: bold;
+}
+
+.jimu-widget-nearme .esriCTPanelHeader {
     display: none;
+}
+
+.jimu-widget-nearme .esriCTPanelHeader .esriCTItemName {
+    display: none;
+    padding: 0px 20px 0px 0px;
+    font-size: 12px;
+    /*color: #3e3e3e;*/
 }
 
 .jimu-widget-nearme .esriCTItemRightArrow,
@@ -289,6 +354,11 @@
 
 /*************************ULISES ESTUVO AQUI***********************************/
 
+.jimu-tab >.control {
+    /*this hides the information & directions tabs*/
+    overflow: visible;
+}
+
 .jimu-widget-nearme .esriCTItemCount,
 .jimu-widget-nearme .ucbYear {
     white-space: nowrap;
@@ -299,7 +369,7 @@
     height: 17px;
     text-align: right;
     overflow: hidden;
-    max-width: 15%;
+    max-width: 13%;
     text-overflow: ellipsis;
 }
 
@@ -341,7 +411,8 @@
 }
 
 .jimu-widget-nearme .esriCTBackButton {
-    float: left;
+    /*float: left;*/
+    display: none;
 }
 
 .jimu-widget-nearme .esriCTPanelHeader {
@@ -411,18 +482,18 @@
 /*------------------Styles for override tab container css------------------*/
 
 .jimu-widget-nearme .jimu-tab > .jimu-viewstack {
-    position: relative;
+    /*position: relative;*/
     top: 0px;
     height: 100%;
 }
 
 .jimu-widget-nearme .dijitContentPane {
     overflow: auto;
-    padding: 0px 20px;
+    padding: 5px 20px;
 }
 
 .jimu-widget-nearme .esriCTPopupInfo {
-    padding: 20px 0px !important;
+    padding: 0px 0px !important;
 }
 
 .jimu-widget-nearme .jimu-tab {

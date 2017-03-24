@@ -1,36 +1,66 @@
+/*ULISES*/
+
 .jimu-main-background {
     background-color: rgb(0, 0, 0)!important;
+    /*background-color: #464646 !important;
+    color: white !important;*/
 }
 
+
 /* Font styles for header controller */
-.jimu-widget-header-controller .jimu-title, .jimu-widget-header-controller .jimu-subtitle {
+
+.jimu-widget-header-controller .jimu-title,
+.jimu-widget-header-controller .jimu-subtitle {
     color: rgb(0, 0, 0);
+}
+
+
+/*/*ULISES ESTUVO AQUI*/
+
+.jimu-widget-header-controller .header-section {
+    color: white !important;
+    /*background-color: #464646 !important;*/
 }
 
 .jimu-widget-header-controller .links .jimu-link {
     color: rgb(0, 0, 0);
 }
 
+
 /* Border for header controller*/
+
 .jimu-widget-header-controller {
     border-bottom: 1px solid rgb(0, 0, 0);
 }
 
+
 /*Override Navigation color*/
-.jimu-widget-zoomslider, .jimu-widget-extent-navigate {
+
+.jimu-widget-zoomslider,
+.jimu-widget-extent-navigate {
     background-color: rgb(0, 0, 0);
 }
-.vertical.jimu-widget-zoomslider .zoom-in, .jimu-widget-extent-navigate.vertical .previous {
+
+.vertical.jimu-widget-zoomslider .zoom-in,
+.jimu-widget-extent-navigate.vertical .previous {
     border-bottom: 1px solid #ffffff !important;
 }
 
-.jimu-widget-homebutton .HomeButton .home, .jimu-widget-mylocation, .jimu-widget-mylocation .place-holder, .jimu-widget-zoomslider.vertical .zoom-in, .jimu-widget-zoomslider.vertical .zoom-out, .jimu-widget-extent-navigate.vertical .operation {
+.jimu-widget-homebutton .HomeButton .home,
+.jimu-widget-mylocation,
+.jimu-widget-mylocation .place-holder,
+.jimu-widget-zoomslider.vertical .zoom-in,
+.jimu-widget-zoomslider.vertical .zoom-out,
+.jimu-widget-extent-navigate.vertical .operation {
     background-color: rgb(0, 0, 0) !important;
 }
 
+
 /*Navigation*/
 
+
 /*Override jimu panel*/
+
 .jimu-panel {
     border-color: rgb(0, 0, 0);
 }
@@ -39,17 +69,28 @@
     background-color: rgba(255, 255, 255, 0.2) !important;
 }
 
+
 /* New Start */
-.jimu-preload-widget-icon-panel > .jimu-panel-title, .jimu-foldable-panel > .jimu-panel-title, .jimu-title-panel > .title {
+
+.jimu-preload-widget-icon-panel > .jimu-panel-title,
+.jimu-foldable-panel > .jimu-panel-title,
+.jimu-title-panel > .title {
     color: rgb(0, 0, 0);
     background-color: #ffffff;
     border-color: rgb(0, 0, 0);
     border-bottom: 2px solid;
 }
+
+
 /* New End */
 
+
 /* pop up Link CSS */
-.popup-links .title, .popup-links a, .popup-links, .popup-links .line {
+
+.popup-links .title,
+.popup-links a,
+.popup-links,
+.popup-links .line {
     color: rgb(0, 0, 0);
     border-color: rgb(0, 0, 0);
 }
@@ -72,7 +113,10 @@
     border-top: 1px solid rgb(0, 0, 0);
     border-left: 1px solid rgb(0, 0, 0);
 }
+
+
 /* pop up Link CSS */
+
 
 /* jimu dijit override*/
 
@@ -82,6 +126,7 @@
     border: none;
     border-top: 1px solid rgb(0, 0, 0);
 }
+
 .jimu-tab>.control>.tab {
     background-color: #fff;
     color: rgb(0, 0, 0);
@@ -93,6 +138,8 @@
     border-left: 1px solid rgb(0, 0, 0);
     border-right: none;
 }
+
+
 /* CSS For RTL */
 
 .jimu-rtl .jimu-tab>.control>.tab {
@@ -103,8 +150,7 @@
     border-left: 1px solid rgb(0, 0, 0);
 }
 
-.jimu-rtl .jimu-tab>.control>.tab.jimu-state-selected+.tab
-{
+.jimu-rtl .jimu-tab>.control>.tab.jimu-state-selected+.tab {
     border-left: none;
     border-right: 1px solid rgb(0, 0, 0);
 }

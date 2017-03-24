@@ -127,7 +127,7 @@ define([
 
     mo.getHightlightLineSymbol = function(){
       var args = {
-        "color": [0, 255, 255, 255],
+        "color": [86, 90, 92, 255],
         "width": 1.5,
         "type": "esriSLS",
         "style": "esriSLSSolid"
@@ -137,9 +137,9 @@ define([
 
     mo.getHightlightFillSymbol = function(){
       var args = {
-        "color": [255, 255, 255, 128],
+        "color": [86, 90, 92, 255],
         "outline": {
-          "color": [0, 255, 255, 255],
+          "color": [86, 90, 92, 255],
           "width": 1.5,
           "type": "esriSLS",
           "style": "esriSLSSolid"

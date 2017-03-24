@@ -4,34 +4,31 @@
     {
       "url": "https://services.arcgis.com/b3fMqPOmotX6SV4k/arcgis/rest/services/UCB_Project_Areas/FeatureServer/0",
       "geometryType": "esriGeometryPolygon",
-      "id": "UCB_Project_Areas_1526",
+      "id": "UCB_Project_Areas_5465",
       "layerId": "0",
       "baseURL": "https://services.arcgis.com/b3fMqPOmotX6SV4k/arcgis/rest/services/UCB_Project_Areas/FeatureServer/",
       "isMapServer": false,
       "title": "UCB_Project_Areas",
       "popupInfo": {
-        "title": "UCB_PROJECT_SITES: {COMMENTS}",
+        "title": "",
         "fieldInfos": [
           {
-            "fieldName": "OBJECTID",
-            "label": "OBJECTID",
+            "fieldName": "OBJECTID_1",
+            "label": "OBJECTID_1",
             "isEditable": false,
             "tooltip": "",
             "visible": false,
-            "format": null,
-            "stringFieldOption": "textbox"
+            "stringFieldOption": "textbox",
+            "isEditableOnLayer": false
           },
           {
-            "fieldName": "GID",
-            "label": "GID",
+            "fieldName": "CP_NUMBER",
+            "label": "CP_NUMBER",
             "isEditable": true,
             "tooltip": "",
             "visible": true,
-            "format": {
-              "places": 2,
-              "digitSeparator": true
-            },
-            "stringFieldOption": "textbox"
+            "stringFieldOption": "textbox",
+            "isEditableOnLayer": true
           },
           {
             "fieldName": "GEOM_AREA",
@@ -43,20 +40,12 @@
               "places": 2,
               "digitSeparator": true
             },
-            "stringFieldOption": "textbox"
+            "stringFieldOption": "textbox",
+            "isEditableOnLayer": true
           },
           {
-            "fieldName": "COMMENTS",
-            "label": "COMMENTS",
-            "isEditable": true,
-            "tooltip": "",
-            "visible": true,
-            "format": null,
-            "stringFieldOption": "textbox"
-          },
-          {
-            "fieldName": "TAG_X",
-            "label": "TAG_X",
+            "fieldName": "GID",
+            "label": "GID",
             "isEditable": true,
             "tooltip": "",
             "visible": true,
@@ -64,112 +53,200 @@
               "places": 2,
               "digitSeparator": true
             },
-            "stringFieldOption": "textbox"
-          },
-          {
-            "fieldName": "TAG_Y",
-            "label": "TAG_Y",
-            "isEditable": true,
-            "tooltip": "",
-            "visible": true,
-            "format": {
-              "places": 2,
-              "digitSeparator": true
-            },
-            "stringFieldOption": "textbox"
-          },
-          {
-            "fieldName": "TAG_VALUE",
-            "label": "TAG_VALUE",
-            "isEditable": true,
-            "tooltip": "",
-            "visible": true,
-            "format": null,
-            "stringFieldOption": "textbox"
-          },
-          {
-            "fieldName": "TAG_SIZE",
-            "label": "TAG_SIZE",
-            "isEditable": true,
-            "tooltip": "",
-            "visible": true,
-            "format": {
-              "places": 2,
-              "digitSeparator": true
-            },
-            "stringFieldOption": "textbox"
-          },
-          {
-            "fieldName": "TAG_ANGLE",
-            "label": "TAG_ANGLE",
-            "isEditable": true,
-            "tooltip": "",
-            "visible": true,
-            "format": {
-              "places": 2,
-              "digitSeparator": true
-            },
-            "stringFieldOption": "textbox"
-          },
-          {
-            "fieldName": "TAG_JUST",
-            "label": "TAG_JUST",
-            "isEditable": true,
-            "tooltip": "",
-            "visible": true,
-            "format": null,
-            "stringFieldOption": "textbox"
-          },
-          {
-            "fieldName": "CP_NUMBER",
-            "label": "CP_NUMBER",
-            "isEditable": true,
-            "tooltip": "",
-            "visible": true,
-            "format": null,
-            "stringFieldOption": "textbox"
-          },
-          {
-            "fieldName": "SITE_DESC",
-            "label": "SITE_DESC",
-            "isEditable": true,
-            "tooltip": "",
-            "visible": true,
-            "format": null,
-            "stringFieldOption": "textbox"
-          },
-          {
-            "fieldName": "YR_START",
-            "label": "YR_START",
-            "isEditable": true,
-            "tooltip": "",
-            "visible": true,
-            "format": {
-              "places": 2,
-              "digitSeparator": true
-            },
-            "stringFieldOption": "textbox"
-          },
-          {
-            "fieldName": "YR_END",
-            "label": "YR_END",
-            "isEditable": true,
-            "tooltip": "",
-            "visible": true,
-            "format": {
-              "places": 2,
-              "digitSeparator": true
-            },
-            "stringFieldOption": "textbox"
+            "stringFieldOption": "textbox",
+            "isEditableOnLayer": true
           },
           {
             "fieldName": "GlobalID",
+            "label": "GlobalID",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "isEditableOnLayer": true
+          },
+          {
+            "fieldName": "OBJECTID",
+            "label": "OBJECTID",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": false,
+            "format": {
+              "places": 0,
+              "digitSeparator": true
+            },
+            "stringFieldOption": "textbox",
+            "isEditableOnLayer": true
+          },
+          {
+            "fieldName": "Shape__Are",
+            "label": "Shape__Are",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": false,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            },
+            "stringFieldOption": "textbox",
+            "isEditableOnLayer": true
+          },
+          {
+            "fieldName": "Shape__Len",
+            "label": "Shape__Len",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": false,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            },
+            "stringFieldOption": "textbox",
+            "isEditableOnLayer": true
+          },
+          {
+            "fieldName": "MULTISITE",
+            "label": "MULTISITE",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "isEditableOnLayer": true
+          },
+          {
+            "fieldName": "ACTIVE",
+            "label": "ACTIVE",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "isEditableOnLayer": true
+          },
+          {
+            "fieldName": "STATUS",
+            "label": "STATUS",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "isEditableOnLayer": true
+          },
+          {
+            "fieldName": "BUILDING",
+            "label": "BUILDING",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "isEditableOnLayer": true
+          },
+          {
+            "fieldName": "DESCRIPTIO",
+            "label": "DESCRIPTIO",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "isEditableOnLayer": true
+          },
+          {
+            "fieldName": "PROJECT_MA",
+            "label": "PROJECT_MA",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "isEditableOnLayer": true
+          },
+          {
+            "fieldName": "PM_PHONE",
+            "label": "PM_PHONE",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "isEditableOnLayer": true
+          },
+          {
+            "fieldName": "PM_EMAIL",
+            "label": "PM_EMAIL",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "isEditableOnLayer": true
+          },
+          {
+            "fieldName": "DESIGN_STA",
+            "label": "DESIGN_STA",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "isEditableOnLayer": true
+          },
+          {
+            "fieldName": "CONST_STAR",
+            "label": "CONST_STAR",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "isEditableOnLayer": true
+          },
+          {
+            "fieldName": "SUBSTANTIA",
+            "label": "SUBSTANTIA",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "isEditableOnLayer": true
+          },
+          {
+            "fieldName": "DESIGN_END",
+            "label": "DESIGN_END",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "isEditableOnLayer": true
+          },
+          {
+            "fieldName": "CONST_END_",
+            "label": "CONST_END_",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "isEditableOnLayer": true
+          },
+          {
+            "fieldName": "SUBSTANT_1",
+            "label": "SUBSTANT_1",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "isEditableOnLayer": true
+          },
+          {
+            "fieldName": "YEAR",
+            "label": "YEAR",
+            "isEditable": true,
+            "tooltip": "",
+            "visible": true,
+            "stringFieldOption": "textbox",
+            "isEditableOnLayer": true
+          },
+          {
+            "fieldName": "GlobalID_2",
             "label": "",
             "isEditable": false,
             "tooltip": "",
             "visible": false,
-            "format": null,
-            "stringFieldOption": "textbox"
+            "stringFieldOption": "textbox",
+            "isEditableOnLayer": false
           },
           {
             "fieldName": "Shape__Area",
@@ -181,7 +258,8 @@
               "places": 2,
               "digitSeparator": true
             },
-            "stringFieldOption": "textbox"
+            "stringFieldOption": "textbox",
+            "isEditableOnLayer": false
           },
           {
             "fieldName": "Shape__Length",
@@ -193,29 +271,56 @@
               "places": 2,
               "digitSeparator": true
             },
-            "stringFieldOption": "textbox"
+            "stringFieldOption": "textbox",
+            "isEditableOnLayer": false
           }
         ],
-        "description": null,
+        "description": "<div><img alt='' src='https://ucboulder.maps.arcgis.com/sharing/rest/content/items/092bcdbb782e45acb24d828c6a276d5b/data' style='height: 10px; width: auto;padding-right: 5px;' /><a href='http://fmmeridianweb/bcenterprise/Home.aspx?VIEWID=DOC_CA50B&amp;DOCFILTER=9657c0&amp;cp_number={CP_NUMBER}' style='text-decoration: none; color: black; font-weight: bold;' target='_blank'>{CP_NUMBER}</a></div>\n<div style='padding: 5px 0px 5px 0px;'><b>DESCRIPTION:</b> {DESCRIPTIO}</div>\n<div style='padding: 5px 0px 5px 0px;'><b>STATUS:</b> {STATUS}</div>\n<div style='padding: 5px 0px 5px 0px;'><b>MULTISITE:</b> {MULTISITE}</div>\n<div style='padding: 5px 0px 5px 0px;'><b>PROJECT MANAGER:</b> {PROJECT_MA}</div>\n<div>{PM_EMAIL}</div>\n<div style='width: 80%; float: left;padding: 2px 0px 2px 0px;'>{PM_PHONE}</div>\n<div style='width: 20%; float: right;padding: 2px 0px 2px 0px;'>{YEAR}</div>",
         "showAttachments": true,
         "mediaInfos": []
+      },
+      "renderer": {
+        "type": "simple",
+        "label": "",
+        "description": "",
+        "symbol": {
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outline": {
+            "color": [
+              78,
+              78,
+              78,
+              255
+            ],
+            "width": 0.525,
+            "type": "esriSLS",
+            "style": "esriSLSDash"
+          },
+          "type": "esriSFS",
+          "style": "esriSFSSolid"
+        }
       }
     }
   ],
   "bufferInfo": {
     "isVisible": true
   },
-  "defaultBufferDistance": 100,
+  "defaultBufferDistance": 50,
   "maxBufferDistance": 1000,
   "bufferDistanceUnit": {
-    "bufferUnit": "UNIT_METER",
-    "routeUnit": "METER",
-    "distanceUnit": "meters",
-    "label": "Meters",
-    "acronym": "m",
-    "value": "meters"
+    "bufferUnit": "UNIT_FOOT",
+    "routeUnit": "FEET",
+    "distanceUnit": "feet",
+    "label": "Feet",
+    "acronym": "ft",
+    "value": "feet"
   },
-  "zoomToFeature": false,
+  "zoomToFeature": true,
   "intersectSearchedLocation": false,
   "routeService": "https://route.arcgis.com/arcgis/rest/services/World/Route/NAServer/Route_World",
   "directionLengthUnit": {
@@ -226,7 +331,7 @@
     "acronym": "mi",
     "value": "miles"
   },
-  "selectedSearchLayerOnly": false,
+  "selectedSearchLayerOnly": true,
   "isGeodesic": false,
   "showLocationTool": false,
   "symbols": {

@@ -698,6 +698,7 @@ define([
           selectedFeature = evt.result.feature;
         }
       }
+      
       return selectedFeature;
     },
 

@@ -17,7 +17,7 @@
   "appId": "",
   "authorizedCrossOriginDomains": [],
   "title": "DEMO",
-  "subtitle": "with Web AppBuilder for ArcGIS",
+  "subtitle": "credits: CAD - GIS Office University of Colorado Facilities Management",
   "keepAppState": true,
   "logo": "images/app-logo.png",
   "geometryService": "https://utility.arcgisonline.com/arcgis/rest/services/Geometry/GeometryServer",
@@ -212,19 +212,12 @@
         "index": 2
       },
       {
-        "uri": "widgets/LayerList/Widget",
-        "version": "2.3",
-        "id": "widgets_LayerList_Widget_18",
-        "name": "LayerList",
-        "index": 3
-      },
-      {
         "name": "SiteProjectsFinder",
         "version": "2.3",
         "IsController": false,
         "uri": "widgets/SiteProjectsFinder/Widget",
         "config": "configs/SiteProjectsFinder/config_SiteProjectsFinder.json",
-        "index": 5,
+        "index": 4,
         "id": "widgets_SiteProjectsFinder_Widget_30"
       }
     ],
@@ -379,7 +372,7 @@
   "isTemplateApp": true,
   "isWebTier": false,
   "httpProxy": {
-    "useProxy": false,
+    "useProxy": true,
     "alwaysUseProxy": false,
     "url": "",
     "rules": []

@@ -39,7 +39,8 @@
     "jimu/FilterManager",
     "esri/geometry/webMercatorUtils",
     "dijit/registry",
-    "esri/renderers/jsonUtils"
+    "esri/renderers/jsonUtils",
+    "esri/graphicsUtils"
 ], function(
     declare,
     _WidgetBase,
@@ -81,7 +82,8 @@
     FilterManager,
     webMercatorUtils,
     registry,
-    rendererJsonUtils
+    rendererJsonUtils,
+    graphicsUtils
 ) {
     // to create a widget, derive it from BaseWidget.
     return declare([_WidgetBase, Evented], {
@@ -460,6 +462,7 @@
             domStyle.set(this._currentPanel, 'display', 'block');
             domStyle.set(this._currentPanel, 'left', '0px');
             if (opLayer) {
+                // console.log('_onSingleLayerFound', opLayer);
                 this._displayFeatureList(opLayer, defer);
             }
         },
@@ -472,6 +475,7 @@
         _onSingleFeatureFound: function(feature) {
             var featureId, infoPanelBackBtn;
             featureId = feature.attributes[this._selectedLayer.objectIdField];
+            // console.log('feature - onSingleFeatureFound', feature);
             this._displayFilteredFeatures(featureId);
             this._showFeatureDetails(null, feature);
             //hide featureListPanel and Back Button on infoPanel
@@ -499,7 +503,7 @@
             domStyle.set(templateDiv, "color", this.config.fontColor);
             this._currentPanel.appendChild(templateDiv);
             //set layer title as a name field in template
-            this._setItemName(templateDiv, operationalLayer.title);
+            this._setItemName(templateDiv, operationalLayer.title, operationalLayer);
             //query to display feature count
             this._queryForCountOnly(templateDiv, operationalLayer, featureDeferArr);
             //attach click event on left arrow
@@ -515,18 +519,134 @@
         // ******ULISES ESTUVO AQUI**************
         _setItemName: function(templateDiv, value) {
             var divItemName = query(".esriCTItemName", templateDiv)[0];
+            // dom.byId('parent').innerHTML +="<input type='submit' data-dojo-type='dijit/form/Button' onClick='test(this)' id='edit"+1+"' label='Edit' />";
             var aHref = query("a", templateDiv)[0];
             var merLink = "http://fmmeridianweb/bcenterprise/Home.aspx?VIEWID=DOC_CA50B&DOCFILTER=9657c0&cp_number=" + value;
-            // console.log("Itemname", divItemName);
-            // console.log("<a>", aHref);
-            // console.log("full query", query(".esriCTItemName", templateDiv));
             if (divItemName) {
-                domAttr.set(divItemName, "innerHTML", value);
-                domAttr.set(divItemName, "title", value);
+                domAttr.set(divItemName, "innerHTML", divItemName.innerHTML + value);
+                domAttr.set(divItemName, "title", 'Open ' + value + ' in Meridian');
                 domAttr.set(aHref, "href", merLink);
             }
         },
+        /**
+         * set setItemYear field in template
+         * @param{object} template div
+         * @param{string} value to be displayed
+         * @memberOf widgets/SiteProjectsFinder/item-list
+         **/
+        // ******ULISES ESTUVO AQUI**************
+        _setItemYear: function(templateDiv, value) {
+            var divItemYear = query(".ucbYear", templateDiv)[0];
+            if (divItemYear) {
+                domAttr.set(divItemYear, "innerHTML", value);
+                domAttr.set(divItemYear, "title", value);
+            }
 
+        },
+        /**
+         * set setItemDescription field in template
+         * @param{object} template div
+         * @param{string} value to be displayed
+         * @memberOf widgets/SiteProjectsFinder/item-list
+         **/
+        // ******ULISES ESTUVO AQUI**************
+        _setItemDescription: function(templateDiv, value) {
+            var divItemDescription = query(".ucbDescription", templateDiv)[0];
+            if (divItemDescription) {
+                domAttr.set(divItemDescription, "innerHTML", divItemDescription.innerHTML + value);
+                domAttr.set(divItemDescription, "title", value);
+            }
+
+        },
+        /**
+         * set status field in template
+         * @param{object} template div
+         * @param{string} value to be displayed
+         * @memberOf widgets/SiteProjectsFinder/item-list
+         **/
+        // ******ULISES ESTUVO AQUI**************
+        _setItemStatus: function(templateDiv, value) {
+            var divItemStatus = query(".ucbStatus", templateDiv)[0];
+            if (divItemStatus) {
+                domAttr.set(divItemStatus, "innerHTML", divItemStatus.innerHTML + value);
+                domAttr.set(divItemStatus, "title", value);
+            }
+
+        },
+        /**
+         * set multisite field in template
+         * @param{object} template div
+         * @param{string} value to be displayed
+         * @memberOf widgets/SiteProjectsFinder/item-list
+         **/
+        // ******ULISES ESTUVO AQUI**************
+        _setItemMultisite: function(templateDiv, value) {
+            var divItemMultisite = query(".ucbMultisite", templateDiv)[0];
+            if (divItemMultisite) {
+                domAttr.set(divItemMultisite, "innerHTML", divItemMultisite.innerHTML + value);
+                domAttr.set(divItemMultisite, "title", value);
+            }
+
+        },
+        /**
+         * set setItemPM field in template
+         * @param{object} template div
+         * @param{string} value to be displayed
+         * @memberOf widgets/SiteProjectsFinder/item-list
+         **/
+        // ******ULISES ESTUVO AQUI**************
+        _setItemPM: function(templateDiv, value) {
+            var divItemPM = query(".ucbPM", templateDiv)[0];
+            if (divItemPM) {
+                domAttr.set(divItemPM, "innerHTML", divItemPM.innerHTML + value);
+                domAttr.set(divItemPM, "title", value);
+            }
+
+        },
+        /**
+         * set setItemPMEmail field in template
+         * @param{object} template div
+         * @param{string} value to be displayed
+         * @memberOf widgets/SiteProjectsFinder/item-list
+         **/
+        // ******ULISES ESTUVO AQUI**************
+        _setItemPMEmail: function(templateDiv, value) {
+            var divItemPMEmail = query(".ucbPMEmail", templateDiv)[0];
+            if (divItemPMEmail) {
+                domAttr.set(divItemPMEmail, "innerHTML", value);
+                domAttr.set(divItemPMEmail, "title", value);
+            }
+
+        },
+        /**
+         * set setItemPMEmail field in template
+         * @param{object} template div
+         * @param{string} value to be displayed
+         * @memberOf widgets/SiteProjectsFinder/item-list
+         **/
+        // ******ULISES ESTUVO AQUI**************
+        _setItemPMPhone: function(templateDiv, value) {
+            var divItemPMPhone = query(".ucbPMPhone", templateDiv)[0];
+            if (divItemPMPhone) {
+                domAttr.set(divItemPMPhone, "innerHTML", value);
+                domAttr.set(divItemPMPhone, "title", value);
+            }
+
+        },
+        /**
+         * set ZoomTo title in template
+         * @param{object} template div
+         * @param{string} value to be displayed
+         * @memberOf widgets/SiteProjectsFinder/item-list
+         **/
+        // ******ULISES ESTUVO AQUI**************
+        _setZoomTo: function(templateDiv, value) {
+            var divZoomTo = query(".ucbZoomTo", templateDiv)[0];
+            if (divZoomTo) {
+                domAttr.set(divZoomTo, "title", "Zoom to: " + value);
+            }
+
+        },
         /**
          * attach click event on layer template div
          * @param{object} templateDiv
@@ -595,10 +715,14 @@
          * create query parameters
          * @memberOf widgets/NearMe/item-list
          **/
+
+        // *************** ULISES ESTUVO AQUI *************************
         _getQueryParams: function() {
             var queryParams = new Query();
             queryParams.geometry = this._serviceArea || this.map.extent;
             queryParams.spatialRelationship = "esriSpatialRelIntersects";
+            // queryParams.outFields = ["*"];
+            // getting only the relevant information
             queryParams.outFields = ["*"];
             return queryParams;
         },
@@ -673,6 +797,7 @@
         /**
          * query feature layer to get features present in the current buffer area
          * @memberOf widgets/NearMe/item-list
+         * modified by Ulises Guzman
          **/
         _queryForFeatureList: function(defer) {
             this.loading.show();
@@ -690,9 +815,15 @@
                     function(featureSet) {
                         //check if any feature is found
                         if (featureSet.features.length > 0) {
+                            this._clearGrahics();
                             this._isNoFeature = false;
                             //creates feature list
                             this._creatFeatureList(featureSet.features);
+                            this._zoomToGraphic(featureSet.features);
+                            // console.log(' _queryForFeatureList', featureSet.features);
+                            for (pol in featureSet.features) {
+                                this._highlightFeatureOnMap(featureSet.features[pol]);
+                            }
                         }
                         this.loading.hide();
                         if (defer) {
@@ -803,19 +934,27 @@
                     }
                     featureIds += features[i].attributes[this._selectedLayer.objectIdField];
                     featureDiv = domConstruct.toDom(this._itemListTemplate).childNodes[0];
-                    //****************** ULISES ESTUVO AQUI****************
-                    console.log("featureDiv");
-                    console.log(featureDiv);
-                    // console.log(featureIds);
-                    // console.log("features");
-                    // console.log(features[i].attributes);
 
-                    domClass.add(featureDiv, "esriCTFeatureListItem");
                     this._featureListContent.appendChild(featureDiv);
-                    // this._setItemName(featureDiv, features[i].getTitle());
                     //****************** ULISES ESTUVO AQUI****************
                     //set titles to CPNUMBERS or PROJECT NUMBERS
-                    this._setItemName(featureDiv, features[i].attributes.TAG_VALUE);
+                    this._setItemName(featureDiv, features[i].attributes.CP_NUMBER);
+                    //set Year
+                    this._setItemYear(featureDiv, features[i].attributes.YEAR);
+                    //set Description
+                    this._setItemDescription(featureDiv, features[i].attributes.DESCRIPTIO);
+                    //set Status
+                    this._setItemStatus(featureDiv, features[i].attributes.STATUS);
+                    //set Multisite
+                    this._setItemMultisite(featureDiv, features[i].attributes.MULTISITE);
+                    //set Project Manager
+                    this._setItemPM(featureDiv, features[i].attributes.PROJECT_MA);
+                    //set Project Manager Email
+                    this._setItemPMEmail(featureDiv, features[i].attributes.PM_EMAIL);
+                    //set Project Manager Email
+                    this._setItemPMPhone(featureDiv, features[i].attributes.PM_PHONE);
+                    //set Zoom To
+                    this._setZoomTo(featureDiv, features[i].attributes.CP_NUMBER);
 
                     // if geometry type is polygon & Only return polygons that intersect the search location
                     // flag is enabled then hide distance to location text else show
@@ -828,7 +967,9 @@
                     } else {
                         this._setItemCount(featureDiv, features[i].distanceToLocation, false);
                     }
+                    // ULISES ESTUVO AQUI
                     this._attachEventOnFeatureDiv(featureDiv, features[i]);
+                    this._attachEventOnZoomDiv(featureDiv, features[i]);
                 }
                 if (this.parentDivId && registry.byId(this.parentDivId) &&
                     registry.byId(this.parentDivId).resize) {
@@ -1003,23 +1144,59 @@
             return distance;
         },
 
+        // /**
+        //  * attach 'click' event on right arrow to display next panel
+        //  * @param{object} featureDiv
+        //  * @param{object} selectedFeature
+        //  * @memberOf widgets/NearMe/item-list
+        //  **/
+        // _attachEventOnFeatureDiv: function(featureDiv, selectedFeature) {
+        //     this.own(on(featureDiv, "click", lang.hitch(this, function() {
+        //         this._isFeatureList = true;
+        //         var infoPanelBackBtn = query(".esriCTBackButton", this._panels.infoPanel)[0];
+        //         if (infoPanelBackBtn) {
+        //             domStyle.set(infoPanelBackBtn, 'display', 'block');
+        //         }
+        //         this._showFeatureDetails(featureDiv, selectedFeature);
+        //     })));
+        // },
         /**
          * attach 'click' event on right arrow to display next panel
          * @param{object} featureDiv
          * @param{object} selectedFeature
-         * @memberOf widgets/NearMe/item-list
+         * @memberOf widgets/SiteProjectsFinder/item-list
          **/
+        // ULISES ESTUVO AQUI
         _attachEventOnFeatureDiv: function(featureDiv, selectedFeature) {
-            this.own(on(featureDiv, "click", lang.hitch(this, function() {
+            this.own(on(featureDiv, "mouseenter", lang.hitch(this, function() {
                 this._isFeatureList = true;
-                var infoPanelBackBtn = query(".esriCTBackButton", this._panels.infoPanel)[0];
-                if (infoPanelBackBtn) {
-                    domStyle.set(infoPanelBackBtn, 'display', 'block');
-                }
-                this._showFeatureDetails(featureDiv, selectedFeature);
+                // console.log("featurediv", featureDiv);
+                // console.log("selected", selectedFeature);
+                this._getGoldPolygonSymbol(selectedFeature);
+
+            })));
+            this.own(on(featureDiv, "mouseleave", lang.hitch(this, function() {
+                this._isFeatureList = true;
+                this._getGreyPolygonSymbol(selectedFeature);
             })));
         },
+        /**
+         * attach 'click' event on right arrow to display next panel
+         * @param{object} ZoomDiv
+         * @param{object} selectedFeature
+         * @memberOf widgets/SiteProjectsFinder/item-list
+         **/
+        // ULISES ESTUVO AQUI
+        _attachEventOnZoomDiv: function(ZoomDiv, selectedFeature) {
+            this.own(on(ZoomDiv, "click", lang.hitch(this, function() {
+                this._isFeatureList = true;
+                this.map.setExtent(selectedFeature.geometry.getExtent().expand(1.5));
+                console.log("ZoomDiv", ZoomDiv);
+                console.log("selected", selectedFeature);
+                // this._getGoldPolygonSymbol(selectedFeature);
 
+            })));
+        },
         /**
          * displays selected feature info in infoPanel
          * @param{object} featureDiv
@@ -1037,7 +1214,8 @@
             this._selectedFeatureItem = featureDiv;
             this._selectedFeature = selectedFeature;
             this._clearDirections();
-            this._highlightFeatureOnMap();
+            // ULISES ESTUVO AQUI
+            // this._highlightFeatureOnMap(this._selectedFeature);
             //display popup info for selected feature
             this._displayFeatureInfo(selectedFeature);
             if (this.parentDivId && registry.byId(this.parentDivId) &&
@@ -1137,6 +1315,15 @@
                 contentPane.set("content", feature.getContent());
                 this._featureInfoPanel.addChild(contentPane);
             }
+        },
+        /**
+         * Show related popup info in information panel
+         * @memberOf widgets/SiteProjectsFinder/item-list
+         **/
+        _zoomToGraphic: function(graphic) {
+            // console.log('feature', x);
+            var myFeatureExtent = graphicsUtils.graphicsExtent(graphic);
+            this.map.setExtent(myFeatureExtent, true);
         },
 
         /**
@@ -1504,10 +1691,14 @@
          * highlight selected feature on map
          * @memberOf widgets/NearMe/item-list
          **/
-        _highlightFeatureOnMap: function() {
+        _highlightFeatureOnMap: function(feature) {
             var graphics;
-            this._clearGrahics();
-            graphics = this._getHighLightSymbol(this._selectedFeature, this._selectedLayer);
+            // this._clearGrahics();
+            // graphics = this._getHighLightSymbol(this._selectedFeature, this._selectedLayer);
+            graphics = this._getHighLightSymbol(feature, this._selectedLayer);
+            // ******************ULISES ESTUVO AQUI********************************************
+            // console.log('selected',this._selectedFeature);
+            // console.log(graphics);
             this._featureGraphicsLayer.add(graphics);
         },
 
@@ -1675,11 +1866,15 @@
          * @param{object} selected feature which needs to be highlighted
          * @memberOf widgets/NearMe/item-list
          */
+
+        // *********** ULISES ESTUVO AQUI *****************************************
         _getPolygonSymbol: function(graphic) {
             var symbol, graphics, polygon;
             symbol = new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, new SimpleLineSymbol(
-                    SimpleLineSymbol.STYLE_SOLID, new Color([0, 255, 255, 1]), 4),
-                new Color([0, 0, 0, 0]));
+                    SimpleLineSymbol.STYLE_SOLID, new Color([86, 90, 92, 1]), 1),
+                new Color([86, 90, 92, 0.50]));
+            // symbol = new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, new SimpleLineSymbol(
+            //         SimpleLineSymbol.STYLE_SOLID, new Color([207, 184, 124, 1]), 2));
             polygon = new Polygon(new SpatialReference({
                 wkid: graphic.geometry.spatialReference.wkid
             }));
@@ -1689,7 +1884,48 @@
             graphics = new Graphic(polygon, symbol, graphic.attributes);
             return graphics;
         },
+        // *********** ULISES ESTUVO AQUI *****************************************
+        _getGoldPolygonSymbol: function(graphic) {
+            var symbol, gLayer, panelCPNumber, gresultCPNumber;
+            symbol = new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, new SimpleLineSymbol(
+                    SimpleLineSymbol.STYLE_SOLID, new Color([86, 90, 92, 1]), 1),
+                new Color([207, 184, 124, 0.70]));
+            // var graphicLayerIds = this.map.graphicsLayerIds;
+            // var len = graphicLayerIds.length;
+            gLayer = this.map.getLayer("graphicsLayer3");
+            panelCPNumber = graphic.attributes.CP_NUMBER;
+            for (var i = 0, len = gLayer.graphics.length; i < len; i++) {
+                // console.log('cp-poly', gLayer.graphics[i]);
+                gresultCPNumber = gLayer.graphics[i].attributes.CP_NUMBER;
+                if (gresultCPNumber === panelCPNumber) {
+                    gLayer.graphics[i].symbol = symbol;
+                    gLayer.redraw();
+                    console.log("CPNUMBER", gresultCPNumber);
+                }
+            }
 
+        },
+        // *********** ULISES ESTUVO AQUI *****************************************
+        _getGreyPolygonSymbol: function(graphic) {
+            var symbol, gLayer, panelCPNumber, gresultCPNumber;
+            symbol = new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, new SimpleLineSymbol(
+                    SimpleLineSymbol.STYLE_SOLID, new Color([86, 90, 92, 1]), 1),
+                new Color([86, 90, 92, 0.50]));
+            // var graphicLayerIds = this.map.graphicsLayerIds;
+            // var len = graphicLayerIds.length;
+            gLayer = this.map.getLayer("graphicsLayer3");
+            panelCPNumber = graphic.attributes.CP_NUMBER;
+            for (var i = 0, len = gLayer.graphics.length; i < len; i++) {
+                // console.log('cp-poly', gLayer.graphics[i]);
+                gresultCPNumber = gLayer.graphics[i].attributes.CP_NUMBER;
+                if (gresultCPNumber === panelCPNumber) {
+                    gLayer.graphics[i].symbol = symbol;
+                    gLayer.redraw();
+                    console.log("CPNUMBER", gresultCPNumber);
+                }
+            }
+
+        },
         /**
          * Hide all layers from map
          * @memberOf widgets/NearMe/item-list

@@ -58,10 +58,13 @@ define([
         var pointSymbol = new SimpleMarkerSymbol(markerCircleStyle, 16, null, Color.fromArray([0, 255, 255]));
 
         var lineSolidStyle = SimpleLineSymbol.STYLE_SOLID;
-        var lineSymbol = new SimpleLineSymbol(lineSolidStyle, Color.fromArray([0, 255, 255]), 2);
+        var lineSymbol = new SimpleLineSymbol(lineSolidStyle, Color.fromArray([86, 90, 92]), 2);
 
         var fillSolidStyle = SimpleFillSymbol.STYLE_SOLID;
-        var fillSymbol = new SimpleFillSymbol(fillSolidStyle, lineSymbol, Color.fromArray([0, 255, 255, 0.3]));
+        // var fillSymbol = new SimpleFillSymbol(fillSolidStyle, lineSymbol, Color.fromArray([86, 90, 92, 0.3]));
+        var fillSymbol = new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, new SimpleLineSymbol(
+                    SimpleLineSymbol.STYLE_SOLID, new Color([86, 90, 92, 1]), 1),
+                new Color([86, 90, 92, 0.50]));
 
         if (type === 'esriGeometryPoint') {
           layer.setSelectionSymbol(pointSymbol);
@@ -76,7 +79,7 @@ define([
       updateSelectionByFeatures: function(layer, features, selectionMethod){
         //selectionMethod default value is SELECTION_NEW
         //def must be a dojo/_base/Deferred object, because it has callback method and API will call this method
-        if(!layer.getSelectionSymbol()){
+        if(layer.getSelectionSymbol()){
           this.setSelectionSymbol(layer);
         }
         var def = new Deferred();
