@@ -98,7 +98,7 @@
       labelClass.symbol = barriosLabel; // symbol also can be set in LabelClass' json
       flb.setLabelingInfo([labelClass]);
       map.addLayer(flb);
-      var chartC = new Cedar({ "specification": "../atlas_app/cedarSpecs/densityPlotU.json" });
+      var chartC = new Cedar({ "specification": "/atlas_app/cedarSpecs/densityPlotU.json" });
       var datasetC = {
           "url": "http://services5.arcgis.com/G79PVu14Duuuwxv3/arcgis/rest/services/crime2012/FeatureServer/0",
           "query": {
@@ -116,7 +116,7 @@
           "elementId": "#chartC"
       });
 
-      var chartR = new Cedar({ "specification": "../atlas_app/cedarSpecs/densityPlotU.json" });
+      var chartR = new Cedar({ "specification": "/atlas_app/cedarSpecs/densityPlotU.json" });
       var datasetR = {
           "url": "http://services5.arcgis.com/G79PVu14Duuuwxv3/arcgis/rest/services/crime2012/FeatureServer/0",
           "query": {
@@ -133,7 +133,7 @@
       chartR.show({
           "elementId": "#chartR"
       });
-      var chartB = new Cedar({ "specification": "../atlas_app/cedarSpecs/densityPlotU.json" });
+      var chartB = new Cedar({ "specification": "/atlas_app/cedarSpecs/densityPlotU.json" });
       var datasetB = {
           "url": "http://services5.arcgis.com/G79PVu14Duuuwxv3/arcgis/rest/services/crime2012/FeatureServer/0",
           "query": {
