@@ -1,0 +1,178 @@
+/*general styles*/
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+/*signature section*/
+
+#signature {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    margin: 0px;
+    width: 80px;
+    position: relative;
+    top: 90%;
+    left: 93%;
+    z-index: 50;
+    color: white;
+    text-align: center;
+}
+
+em {
+    font-family: 'Shadows Into Light', cursive;
+}
+
+#year {
+    margin: 0px;
+    width: 50px;
+    position: relative;
+    top: 90%;
+    left: 94%;
+    z-index: 50;
+    color: white;
+    font-size: 25px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+#map {
+    height: 100%;
+    width: 85%;
+    margin-top: 0.5%;
+    background-color: black;
+    float: right;
+}
+
+
+/*pop up*/
+
+.esriPopup .esriPopupWrapper {
+    box-shadow: 0 1px 3px rgba(255, 255, 255, 0.12), 0 1px 2px rgba(255, 255, 255, 0.24);
+    border-radius: 0px;
+}
+
+.esriPopup .titlePane,
+.esriPopup .actionsPane,
+.esriPopup .contentPane {
+    border-radius: 0px;
+    background-color: transparent;
+    color: #c1bdbd;
+    transform: translate(0px, 0px, 0px);
+    background-image: -webkit-linear-gradient(bottom left, rgba(25, 22, 31, 0.8) 0%, rgba(46, 46, 47, 0.8) 45%, rgba(39, 40, 41, 0.6) 60%);
+    background-image: -moz-linear-gradient(bottom left, rgba(25, 22, 31, 0.8) 0%, rgba(46, 46, 47, 0.8) 45%, rgba(39, 40, 41, 0.6) 60%);
+    background-image: -o-linear-gradient(bottom left, rgba(25, 22, 31, 0.8) 0%, rgba(46, 46, 47, 0.8) 45%, rgba(39, 40, 41, 0.6) 60%);
+    -o-filter: blur(30px);
+}
+
+.esriPopup .titlePane {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+.esriPopup .pointer,
+.esriPopup .outerPointer {
+    background-color: transparent;
+    color: #ada9a9;
+}
+
+
+/*zoom control*/
+
+.esriSimpleSlider,
+.esriSimpleSliderDecrementButton:hover,
+.esriSimpleSliderIncrementButton:hover {
+    background-color: transparent;
+    color: white;
+    border: 0px;
+}
+
+:focus {
+    outline: none;
+}
+
+
+/*home button*/
+
+#HomeButton {
+    position: relative;
+    top: 150px;
+    left: 20px;
+    z-index: 50;
+    background-color: transparent;
+}
+
+.HomeButton .home {
+    background-color: transparent;
+    padding: 0px;
+}
+
+.HomeButton .home:hover {
+    background-color: transparent;
+}
+
+
+/*esri logo*/
+
+.map .logo-med {
+    display: none;
+}
+
+#chartC,
+#chartR,
+#chartB {
+    float: left;
+    margin-right: 0.5%;
+    margin-left: 0.5%;
+    margin-top: 0.5%;
+    background-color: black;
+    display: flex;
+    width: 14%;
+    height: 15%;
+}
+
+
+/*text section*/
+
+#background {
+    float: left;
+    margin-right: 0.5%;
+    margin-left: 0.5%;
+    margin-top: 0.5%px;
+    /*display: flex;*/
+    width: 14%;
+    height: 50%;
+    overflow: hidden;
+    word-wrap: break-word;
+    /*font-family: Georgia, Times New Roman, Serif;*/
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+}
+
+h1 {
+    /*    float: left;
+    margin-right: 0.5%;
+    margin-left: 0.5%;
+    margin-top: 0.5%px;
+    display: flex;
+    width: 14%;
+    height: 50%;
+    overflow: hidden;
+    word-wrap: break-word;*/
+    font-size: 26px;
+    /*display: flex;*/
+    width: 100%;
+    /*font-family: Yanone Kaffeesatz;*/
+    font-family: franklin-gothic-urw, Arial, Helvetica, sans-serif;
+    /*text-align: center;*/
+}
+
+p {
+    width: 100%;
+    text-align: justify;
+}
