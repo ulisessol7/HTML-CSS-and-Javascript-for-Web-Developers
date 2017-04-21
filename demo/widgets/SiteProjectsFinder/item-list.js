@@ -117,6 +117,11 @@
         _directionsWidget: null, //to store direction widget instance
         _layerCount: null, //to store total layer count to show content Panel accordingly
         _tables: [], //to contains related tables for map layers
+        _filterdef: null, //custom definiton expression
+        _yearFilter: null, // to store the graphics that are created by the buffer operation
+        _yearMinVal: null, // to store the graphics that are created by the buffer operation
+        _yearMaxVal: null, // to store the graphics that are created by the buffer operation
+        _yearsArray: [], // to store the graphics that are created by the buffer operation
         postCreate: function() {
             this._tables = []; //to contains related tables for map layers
             this._panels = {}; //object to store the panels
@@ -136,6 +141,8 @@
             //create graphics layer to add graphic to highlight selected feature
             this._featureGraphicsLayer = new GraphicsLayer();
             this.map.addLayer(this._featureGraphicsLayer);
+            // test
+            this._inputYearFilter();
         },
 
         /**
@@ -219,7 +226,152 @@
                 registry.byId(this.parentDivId).resize();
             }
         },
+        _yearArray: function(start, stop, step) {
+            // source: http://stackoverflow.com/questions/8273047/javascript-function-similar-to-python-range
+            // this is why I love Python
+            if (typeof stop == 'undefined') {
+                // one param defined
+                stop = start;
+                start = 0;
+            }
 
+            if (typeof step == 'undefined') {
+                step = 1;
+            }
+
+            if ((step > 0 && start >= stop) || (step < 0 && start <= stop)) {
+                return [];
+            }
+
+            var result = [];
+            for (var i = start; step > 0 ? i <= stop : i > stop; i += step) {
+                result.push(i);
+            }
+            this._yearsArray = result;
+            // console.log(result);
+
+        },
+
+        _yearGraphicsFilter: function(ymin, ymax) {
+            var invSymbol = this._getInvisiblePolygonSymbol;
+            var greySymbol = this._getGreyPolygonSymbolYear;
+            var gLayer = this.map.getLayer("graphicsLayer3");
+            var inviCandidates = [];
+            var results = query(".esriCTFeatureListContent > *").forEach(function(node, i, arr) {
+                // console.log('first node', node);
+                // reading the YEAR attribute from the results panel
+                var nodeYear = query(".ucbYear", node)[0];
+                var nodeYearVal = Number(domAttr.get(nodeYear, "title"));
+                // console.log(node, "at index", i, "YEAR:", nodeYearVal, typeof nodeYearVal);
+                // console.log(ymin, ymax);
+                // console.log(nodeYearVal, typeof nodeYearVal);
+                if (nodeYearVal == 0) {
+                    // console.log(node, "at index", i, "YEAR:", nodeYearVal);
+                    dojo.style(node, "display", "block");
+                    // greySymbol(nodeYearVal, gLayer);
+                    // console.log('first node grey 0', nodeYearVal, nodeYear);
+                    // gLayer.redraw();
+
+                } else if (!(nodeYearVal >= ymin && nodeYearVal <= ymax)) {
+                    dojo.style(node, "display", "none");
+                    // invSymbol(nodeYearVal, gLayer);
+                    inviCandidates.push(nodeYearVal);
+                    // gLayer.redraw();
+                    // console.log('first node null', nodeYearVal, nodeYear);
+
+                } else {
+                    dojo.style(node, "display", "block");
+                    // greySymbol(nodeYearVal, gLayer);
+                    // console.log('first node grey in range', nodeYearVal, nodeYear);
+                }
+
+            });
+            this._getInvisiblePolygonSymbol(inviCandidates, gLayer);
+            gLayer.redraw();
+
+        },
+        /**
+         * Creates year filter using user's input
+         * @memberOf widgets/SiteProjectsFinder/item-list
+         **/
+        _inputYearFilter: function() {
+            var gLayer = this.map.getLayer("graphicsLayer3");
+            var yearFilterText, inputYearMin, inputYearMax, projectsLayer, yearTmpString, yearMinVal, yearMaxVal, definitionYearFilter;
+            yearFilterText = query(".UCBYearFilterText")[0];
+            // exposing variables to the global scope to avoid traversing the dom multiple times
+            inputYearMin = query(".UCBYearMinValue")[0];
+            inputYearMax = query(".UCBYearMaxValue")[0];
+            yearMinVal = domAttr.get(inputYearMin, "placeholder");
+            this._yearMinVal = Number(yearMinVal);
+            yearMaxVal = domAttr.get(inputYearMax, "placeholder");
+            this._yearMaxVal = Number(yearMaxVal);
+            // Remember to add condition here to make sure that the values are valid
+            definitionYearFilter = `YEAR BETWEEN ${yearMinVal} AND ${yearMaxVal}`;
+            projectsLayer = this.map.getLayer("UCBProjects_1257");
+            yearTmpString = `Show projects between ${yearMinVal} & ${yearMaxVal}`;
+            if (inputYearMin) {
+                // Change all of this to a proper function
+                this.own(on(inputYearMin, "keyup", lang.hitch(this, function(evt) {
+                    evt.preventDefault();
+                    if (evt.keyCode === 13) {
+                        yearMinVal = domAttr.get(inputYearMin, "value");
+                        this._yearMinVal = Number(yearMinVal);
+                        yearTmpString = `Show projects between ${yearMinVal} & ${yearMaxVal}`;
+                        definitionYearFilter = `YEAR BETWEEN ${yearMinVal} AND ${yearMaxVal}`;
+                        domAttr.set(yearFilterText, "innerHTML", yearTmpString);
+                        projectsLayer.setDefinitionExpression(definitionYearFilter);
+                        this._filterdef = definitionYearFilter;
+                        this._yearArray(this._yearMinVal, this._yearMaxVal);
+                        this._yearGraphicsFilter(this._yearMinVal, this._yearMaxVal);
+                        gLayer.redraw();
+                    }
+
+                })));
+                this.own(on(inputYearMin, "click", lang.hitch(this, function(evt) {
+                    evt.preventDefault();
+                    domAttr.set(inputYearMin, "value", this._yearMinVal);
+
+
+                })));
+            }
+            if (inputYearMax) {
+                this.own(on(inputYearMax, "keyup", lang.hitch(this, function(evt) {
+                    evt.preventDefault();
+                    if (evt.keyCode === 13) {
+                        yearMaxVal = domAttr.get(inputYearMax, "value");
+                        this._yearMaxVal = Number(yearMaxVal);
+                        yearTmpString = `Show projects between ${yearMinVal} & ${yearMaxVal}`;
+                        definitionYearFilter = `YEAR BETWEEN ${yearMinVal} AND ${yearMaxVal}`;
+                        domAttr.set(yearFilterText, "innerHTML", yearTmpString);
+                        projectsLayer.setDefinitionExpression(definitionYearFilter);
+                        this._filterdef = definitionYearFilter;
+                        this._yearArray(this._yearMinVal, this._yearMaxVal);
+                        this._yearGraphicsFilter(this._yearMinVal, this._yearMaxVal);
+                        gLayer.redraw();
+                    }
+
+                })));
+                this.own(on(inputYearMax, "click", lang.hitch(this, function(evt) {
+                    evt.preventDefault();
+                    domAttr.set(inputYearMax, "value", this._yearMaxVal);
+
+
+                })));
+            }
+        },
+
+        /**
+         * Creates year filter using user's input
+         * @memberOf widgets/SiteProjectsFinder/item-list
+         **/
+        // _filterResultsByYear: function() {
+        //     var projectsInBuffer;
+        //     projectsInBuffer = this.map.getLayer("graphicsLayer3");
+        //     for (projects in projectsInBuffer){
+        //         console.log('results from filter results by year', projects);
+        //     }
+
+        // },
         /**
          * attach 'click' event on back button to navigate to previous panel
          * @param{object} panel
@@ -400,7 +552,7 @@
         },
 
         /**
-         * Using jimu LayerInfos returns the updated the layer filters on each search layer
+         * Using jimu LayerInfos returns  updated  layer filters on each search layer
          * @memberOf widgets/NearMe/item-list
          */
         _getUpdatedLayerFilters: function() {
@@ -410,9 +562,24 @@
                         function(currentLayer) {
                             var mapLayer = layerInfosObj.getLayerInfoById(
                                 currentLayer.id);
-                            if (mapLayer) {
+                            if ((mapLayer) && (this._filterdef != null)) {
                                 currentLayer.definitionExpression = mapLayer.getFilter();
+                                // currentLayer.definitionExpression = this._filterdef;
+                                // this.map.getLayer("UCBProjects_1257").setDefinitionExpression(this._filterdef);
+                                // currentLayer.definitionExpression = this._filterdef;
+                                console.log('definition exp UpdatedLayerFilters', currentLayer)
+                                console.log('definition exp UpdatedLayerFilters', this._filterdef)
+                                console.log('map Layer filter exp UpdatedLayerFilters', mapLayer.getFilter())
+                            } else {
+                                currentLayer.definitionExpression = mapLayer.getFilter();
+                                console.log('ELSE definition exp UpdatedLayerFilters', currentLayer)
+                                console.log('ELSE definition exp UpdatedLayerFilters', this._filterdef)
                             }
+                            // if (this._filterdef != null) {
+                            //     currentLayer.definitionExpression = this._filterdef;
+                            // }
+                            console.log('definition exp UpdatedLayerFilters afuera', currentLayer.definitionExpression)
+
                         }));
                 }));
         },
@@ -437,7 +604,11 @@
             } else {
                 //display feature list Panel
                 this._layerCount = 1;
+                console.log('filterConfiguredLayer', this._operationalLayers[0]);
                 this._resetFilter(this._operationalLayers[0].layerIndex);
+                // if (this._filterdef != null) {
+                //     this._operationalLayers[0].definitionExpression = this._filterdef;
+                // }
                 this._onSingleLayerFound(featureDeferArr, this._operationalLayers[0]);
             }
         },
@@ -519,7 +690,6 @@
         // ******ULISES ESTUVO AQUI**************
         _setItemName: function(templateDiv, value) {
             var divItemName = query(".esriCTItemName", templateDiv)[0];
-            // dom.byId('parent').innerHTML +="<input type='submit' data-dojo-type='dijit/form/Button' onClick='test(this)' id='edit"+1+"' label='Edit' />";
             var aHref = query("a", templateDiv)[0];
             var merLink = "http://fmmeridianweb/bcenterprise/Home.aspx?VIEWID=DOC_CA50B&DOCFILTER=9657c0&cp_number=" + value;
             if (divItemName) {
@@ -656,7 +826,7 @@
         _attachClickEvent: function(templateDiv, item) {
             this.own(on(templateDiv, "click", lang.hitch(this, function(event) {
                 if (!domClass.contains(templateDiv, "esriCTDisabled") && this._isSlide) {
-                    console.log("do nothing");
+                    // console.log("do nothing");
                     // var featureListPanelBackBtn;
                     // event.stopPropagation();
                     // this._isSlide = false;
@@ -823,6 +993,7 @@
                             // console.log(' _queryForFeatureList', featureSet.features);
                             for (pol in featureSet.features) {
                                 this._highlightFeatureOnMap(featureSet.features[pol]);
+                                // console.log(' _queryForFeatureList', featureSet.features[pol]);
                             }
                         }
                         this.loading.hide();
@@ -839,9 +1010,9 @@
                 }));
             }
         },
-        /**
-         *reset filters on all map layers
-         **/
+        // /**
+        //  *reset filters on all map layers
+        //  **/
         resetAllFilters: function() {
             for (var i = 0; i < this._operationalLayers.length; i++) {
                 this._resetFilter(this._operationalLayers[i].layerIndex);
@@ -870,11 +1041,12 @@
                         //do not enable node if respective layer has no feature
                         domClass.remove(templateDiv, "esriCTDisabled");
                     }
-                } else {
-                    //show distance from selected location to the feature
-                    domAttr.set(divFeatureCount, "innerHTML", (number.format(value.toFixed(2)) + " " +
-                        this.nls.units[this.config.bufferDistanceUnit.value].acronym));
                 }
+                // else {
+                //     //show distance from selected location to the feature
+                //     domAttr.set(divFeatureCount, "innerHTML", (number.format(value.toFixed(2)) + " " +
+                //         this.nls.units[this.config.bufferDistanceUnit.value].acronym));
+                // }
             }
         },
 
@@ -919,7 +1091,8 @@
                 divFeatureCount, maxFeatureLength;
             //sort features according to distance.
             if (features.length > 1) {
-                features = this._getSortedFeatureList(features);
+                // features = this._getSortedFeatureList(features);
+                features = this._getYearSortedFeatureList(features);
             }
             maxFeatureLength = this._getMaxResultCountValue(features.length,
                 this._selectedLayer.maxRecordCount);
@@ -993,6 +1166,9 @@
                 this._showHideOperationalLayer(this._selectedLayer.url, this._selectedLayer
                     .id, true);
                 filter = this._selectedLayer.objectIdField + ' in (' + featureIds + ')';
+                if (this._filterdef != null) {
+                    filter = this._filterdef;
+                }
                 //set filter on query layer
                 this._selectedLayer.setDefinitionExpression(filter);
                 //set filter on map layer
@@ -1050,9 +1226,9 @@
             widgetFilter = this.filterManager.getWidgetFilter(layerIdOnMap, this.id);
             if (widgetFilter) {
                 //reset widget filter on map layer by applying empty filter
-                this._setFilterOnMapLayer("", this._operationalLayers[layerIndex].id,
-                    this._operationalLayers[layerIndex].url,
-                    this._operationalLayers[layerIndex].isMapServer);
+                // this._setFilterOnMapLayer("", this._operationalLayers[layerIndex].id,
+                //     this._operationalLayers[layerIndex].url,
+                //     this._operationalLayers[layerIndex].isMapServer);
                 //once widget filter gets cleared, get updated filter on layer using layerInfos
                 LayerInfos.getInstance(this.map, this.map.webMapResponse.itemInfo).then(
                     lang.hitch(this, function(layerInfosObj) {
@@ -1060,6 +1236,7 @@
                         mapLayer = layerInfosObj.getLayerInfoById(layerIdOnMap);
                         if (mapLayer) {
                             filter = mapLayer.getFilter();
+                            console.log('resetFilter', filter);
                             //if (filter) {
                             this.config.searchLayers[layerIndex].definitionExpression = filter;
                             //set updated definition expression on the layer instances used by widget
@@ -1095,7 +1272,18 @@
             });
             return features;
         },
-
+        /**
+         * sort feature list by year
+         * @param{object} features
+         * @memberOf widgets/NearMe/item-list
+         **/
+        _getYearSortedFeatureList: function(features) {
+            // this should be an option 
+            features.sort(function(featureA, featureB) {
+                return Number(featureA.attributes.YEAR) - Number(featureB.attributes.YEAR);
+            });
+            return features.reverse();
+        },
         /**
          * This function returns if geodesic calculation is done or not
          * @memberOf widgets/NearMe/item-list
@@ -1170,8 +1358,6 @@
         _attachEventOnFeatureDiv: function(featureDiv, selectedFeature) {
             this.own(on(featureDiv, "mouseenter", lang.hitch(this, function() {
                 this._isFeatureList = true;
-                // console.log("featurediv", featureDiv);
-                // console.log("selected", selectedFeature);
                 this._getGoldPolygonSymbol(selectedFeature);
 
             })));
@@ -1191,8 +1377,8 @@
             this.own(on(ZoomDiv, "click", lang.hitch(this, function() {
                 this._isFeatureList = true;
                 this.map.setExtent(selectedFeature.geometry.getExtent().expand(1.5));
-                console.log("ZoomDiv", ZoomDiv);
-                console.log("selected", selectedFeature);
+                // console.log("ZoomDiv", ZoomDiv);
+                // console.log("selected", selectedFeature);
                 // this._getGoldPolygonSymbol(selectedFeature);
 
             })));
@@ -1900,7 +2086,7 @@
                 if (gresultCPNumber === panelCPNumber) {
                     gLayer.graphics[i].symbol = symbol;
                     gLayer.redraw();
-                    console.log("CPNUMBER", gresultCPNumber);
+                    // console.log("CPNUMBER", gresultCPNumber);
                 }
             }
 
@@ -1911,8 +2097,7 @@
             symbol = new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, new SimpleLineSymbol(
                     SimpleLineSymbol.STYLE_SOLID, new Color([86, 90, 92, 1]), 1),
                 new Color([86, 90, 92, 0.50]));
-            // var graphicLayerIds = this.map.graphicsLayerIds;
-            // var len = graphicLayerIds.length;
+            // symbol =null;
             gLayer = this.map.getLayer("graphicsLayer3");
             panelCPNumber = graphic.attributes.CP_NUMBER;
             for (var i = 0, len = gLayer.graphics.length; i < len; i++) {
@@ -1921,7 +2106,52 @@
                 if (gresultCPNumber === panelCPNumber) {
                     gLayer.graphics[i].symbol = symbol;
                     gLayer.redraw();
-                    console.log("CPNUMBER", gresultCPNumber);
+
+                }
+            }
+
+        },
+
+        _getGreyPolygonSymbolYear: function(nodeYearVal, gLayer) {
+            var symbol = symbol = new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, new SimpleLineSymbol(
+                    SimpleLineSymbol.STYLE_SOLID, new Color([86, 90, 92, 1]), 1),
+                new Color([86, 90, 92, 0.50]));
+            for (var i = 0, len = gLayer.graphics.length; i < len; i++) {
+                gresultYEAR = Number(gLayer.graphics[i].attributes.YEAR);
+                if (gresultYEAR === nodeYearVal) {
+                    gLayer.graphics[i].symbol = symbol;
+                    gLayer.redraw();
+                }
+            }
+
+        },
+
+        _getInvisiblePolygonSymbol: function(inviCandidates, gLayer) {
+            var symbol = null;
+            var symbolG = new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, new SimpleLineSymbol(
+                    SimpleLineSymbol.STYLE_SOLID, new Color([86, 90, 92, 1]), 1),
+                new Color([86, 90, 92, 0.50]));
+
+            function contains(arr, item) {
+                return array.indexOf(arr, item) >= 0;
+            }
+            for (var i = 0, len = gLayer.graphics.length; i < len; i++) {
+                gresultYEAR = Number(gLayer.graphics[i].attributes.YEAR);
+                // if (gresultYEAR === nodeYearVal)
+                if (contains(inviCandidates, gresultYEAR)) {
+                    // console.log('if', nodeYearVal, gresultYEAR);
+                    gLayer.graphics[i].symbol = symbol;
+                    gLayer.redraw();
+                    console.log('cp - year NULL:', gLayer.graphics[i].attributes.CP_NUMBER, gresultYEAR);
+                    // console.log('if', gLayer.graphics[i], gLayer.graphics[i].symbol);
+                    // } else {
+
+                } else {
+                    // console.log('else', nodeYearVal, gresultYEAR);
+                    gLayer.graphics[i].symbol = symbolG;
+                    gLayer.redraw();
+                    console.log('cp - year GREY:', gLayer.graphics[i].attributes.CP_NUMBER, gresultYEAR);
+                    // console.log('else', gLayer.graphics[i], gLayer.graphics[i].symbol);
                 }
             }
 
