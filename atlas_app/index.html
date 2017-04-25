@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta https-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
     <title>Reported assaults per Denver Streets</title>
     <link rel="stylesheet" href="https://js.arcgis.com/3.20/esri/css/esri.css">
@@ -65,7 +65,7 @@
         </p>
     </div>
     <div class="contentp" id="METHODS">
-        <p>The number of Assaults per year was derived from City of Denver Open Catalog's crime point dataset which contains 414, 674 crime occurrences of various kinds from 2012 – 2017. <strong>Python</strong> was utilized to derive new fields selecting only the crimes categorized under assault. The street network was obtained from Open Street Maps by using <strong>OSMnx.</strong> Following, the relevant centrality scores, <a href="http://www.sutd.edu.sg/cmsresource/idc/papers/2012_Urban_Network_Analysis_A%20New%20Toolbox_for_ArcGIS.pdf" target="_blank">Reach</a>, <a href="https://en.wikipedia.org/wiki/Centrality#Betweenness_centrality" target="_blank">Betweenness</a> & <a href="https://en.wikipedia.org/wiki/Centrality#Closeness_centrality" target="_blank">Closeness,</a>for each street segment (over 27,000) were calculated using <strong>MIT’s Urban Network Analysis Toolbox.</strong> Next, a spatial join was performed in order to relate both datasets (assaults –points- & street network with centrality scores). Finally, rank fields were calculated for every centrality score using the natural breaks algorithm, the data was cleaned and grouped and new shapefiles were produced. The final shapefiles were then published to <strong>ArcGIS Online</strong> in order to be consumed for the application. Simple Spearman's rho correlations were performed on the final relevant fields.</p>
+        <p>The number of Assaults per year was derived from City of Denver Open Catalog's crime point dataset which contains 414, 674 crime occurrences of various kinds from 2012 – 2017. <strong>Python</strong> was utilized to derive new fields selecting only the crimes categorized under assault. The street network was obtained from Open Street Maps by using <strong>OSMnx.</strong> Following, the relevant centrality scores, <a href="https://www.sutd.edu.sg/cmsresource/idc/papers/2012_Urban_Network_Analysis_A%20New%20Toolbox_for_ArcGIS.pdf" target="_blank">Reach</a>, <a href="https://en.wikipedia.org/wiki/Centrality#Betweenness_centrality" target="_blank">Betweenness</a> & <a href="https://en.wikipedia.org/wiki/Centrality#Closeness_centrality" target="_blank">Closeness,</a>for each street segment (over 27,000) were calculated using <strong>MIT’s Urban Network Analysis Toolbox.</strong> Next, a spatial join was performed in order to relate both datasets (assaults –points- & street network with centrality scores). Finally, rank fields were calculated for every centrality score using the natural breaks algorithm, the data was cleaned and grouped and new shapefiles were produced. The final shapefiles were then published to <strong>ArcGIS Online</strong> in order to be consumed for the application. Simple Spearman's rho correlations were performed on the final relevant fields.</p>
     </div>
     <div class="contentp" id="RESULTS">
         <p>The streets are color coded from lowest (blue) to highest (red) number of assaults. The street segment with the higher number of assaults overall was <strong>14th street, </strong>between Glenarm Place & Tremont Place.
@@ -86,7 +86,7 @@
         <p><strong>Data Sources</strong>
             <br> <a href="https://gis.drcog.org/datacatalog/search/node/open%20space" target="_blank">Open Spaces 2014</a>
             <br><a href="https://www.denvergov.org/opendata" target="_blank">Buildings Outlines 2014 | Crime Data</a>
-            <br><a href="http://geoffboeing.com/2016/11/osmnx-python-street-networks/" target="_blank">Denver Street Network Open Street Maps via OSMnx</a>
+            <br><a href="https://geoffboeing.com/2016/11/osmnx-python-street-networks/" target="_blank">Denver Street Network Open Street Maps via OSMnx</a>
         </p>
         <p><strong>Data Manipulation</strong>
             <br><a href="https://www.python.org/" target="_blank">Python</a>
@@ -94,8 +94,8 @@
             <br> <a href="https://geopandas.org/" target="_blank">GeoPandas</a>
         </p>
         <p><strong>Network Analysis</strong>
-            <br><a href="http://cityform.mit.edu/projects/urban-network-analysis.html" target="_blank">Urban Network Analysis Toolbox</a>
-            <br> <a href="http://www.spacesyntax.com/" target="_blank">Space Syntax</a>
+            <br><a href="https://cityform.mit.edu/projects/urban-network-analysis.html" target="_blank">Urban Network Analysis Toolbox</a>
+            <br> <a href="https://www.spacesyntax.com/" target="_blank">Space Syntax</a>
         </p>
         <p><strong>Visualization</strong>
             <br><a href="https://developers.arcgis.com/javascript/3/" target="_blank">ArcGIS API for JavaScript 3.20</a>
