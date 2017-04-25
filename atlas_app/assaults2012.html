@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title>Assaults in Denver Streets 2012</title>
+    <link rel="stylesheet" href="https://js.arcgis.com/3.20/esri/css/esri.css">
+    <link href="css/stylesheet2012.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Load D3 and vega -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vega/2.6.1/vega.min.js"></script>
+    <!-- Load Cedar -->
+    <script type="text/javascript" src="https://unpkg.com/arcgis-cedar@0.9.2/dist/cedar.js"></script>
+    <script src="https://js.arcgis.com/3.20/"></script>
+    <script src="js/maps2012.js" type="text/javascript">
+    </script>
+    <div id="map">
+        <div id="HomeButton"></div>
+        <div id="year">2012</div>
+        <div id="signature"><em>Ulises Guzman</em></div>
+    </div>
+    <div id="chartC"></div>
+    <div id="chartR"></div>
+    <div id="chartB"></div>
+    <div id="background">
+        <h1>Reported assaults per Denver Streets</h1>
+        <p>A total number of 1,630 assaults were reported during 2012.
+            <br>The streets are color coded from lowest (blue) to highest (red) number of reported assaults. The street segment with the higher number of reported assaults was <strong>Market Street, </strong>between 20th Street & 19th Street.
+            <br>The relationship between  <a href="http://media.voog.com/0000/0036/2451/files/Andres%20Sevtsuk%20PhD.pdf" target="_blank">centrality</a> scores per street segment (independent variable X) & number of assaults per street segment (dependent variable Y) was analyzed using Spearman's & Pearson's correlation coefficients.
+            <br><strong>Spearman’s rho results:</strong> Closeness (-0.106743) | Reach ( 0.100604 ) | Betweenness (0.040920)
+            <br> <strong>Pearson’s results:</strong> Closeness (-0.024489) | Reach (0.090519) | Betweenness (0.021739)
+            <br> No significant linear or monotonic relationships between the centrality scores and number of assaults per street was found. Other statistical analysis would be required in order to investigate other kinds of relationships.
+        </p>
+    </div>
+</body>
+
+</html>

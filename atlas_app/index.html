@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
-    <title>Assaults in Denver Streets 2012</title>
+    <title>Reported assaults per Denver Streets</title>
     <link rel="stylesheet" href="https://js.arcgis.com/3.20/esri/css/esri.css">
     <link href="css/stylesheet.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -24,15 +24,85 @@
     </script>
     <div id="map">
         <div id="HomeButton"></div>
-        <div id="year">2012</div>
-        <div id="signature"><em>Ulises Guzman</em></div>
+        <div id="year">Assaults Averages (2012-2016)</div>
+        <a href="mailto:ulisessol7@hotmail.com">
+            <div id="signature"><em>Ulises Guzman</em></div>
+        </a>
     </div>
-    <div id="chartC"></div>
-    <div id="chartR"></div>
-    <div id="chartB"></div>
-    <div id="background">
-        <h1>Assaults in Denver Streets</h1>
-        <p>Where does it come from? Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32. The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+    <div id="menu">
+        <ul>
+            <li>INTRODUCTION</li>
+            <li>RESEARCH QUESTION</li>
+            <li>METHODS</li>
+            <li>RESULTS</li>
+            <li>DESIGN RATIONALE</li>
+            <li>RESOURCES</li>
+        </ul>
+    </div>
+    <a href="assaults2012.html" target="_blank">
+        <div id="assaults2012" class="minimap"><img src="img/assaults2012.JPG" title="Reported assaults per Denver Streets 2012"></div>
+    </a>
+    <a href="assaults2014.html" target="_blank">
+        <div id="assaults2014" class="minimap"><img src="img/assaults2014.JPG" title="Reported assaults per Denver Streets 2014"></div>
+    </a>
+    <a href="assaults2016.html" target="_blank">
+        <div id="assaults2016" class="minimap"><img src="img/assaults2016.JPG" title="Reported assaults per Denver Streets 2016"></div>
+    </a>
+    <div id="chartC" class="chart"></div>
+    <div id="chartR" class="chart"></div>
+    <div id="chartB" class="chart"></div>
+    <div class="contentp" id="INTRODUCTION">
+        <p>Cities are complex systems of spatial relationships (Batty, 2012, 2013). Once space is understood as a complex interconnected system it is clear that certain areas, or nodes, are more centrally located than others. Centrality is operationalized by means of various indexes that capture certain aspect of it. Several centrality indices have been developed since Bavelas first introduced the concept to human communication studies (Crucitti, Latora, & Porta, 2006) reach and betweenness are just a few examples of these.
+        </p>
+        <p>Recently it has been argued that there is a strong relationship between centrality and crime patterns (Kim & Choi, 2016; Summers & Johnson, 2016). Centrality indexes are good predictors of pedestrian movement (Hillier & Hanson, 1989); more people passing through could also mean an increase of suitable targets according to <a href="hhttps://en.wikipedia.org/wiki/Routine_activity_theory" target="_blank">RAT.</a></p>
+    </div>
+    <div class="contentp" id="RESEARCHQUESTION">
+        <p>Is there a correlation between assaults and streets’ centrality in Denver?</p>
+        <p>Has been there any change on this pattern from 2012 to 2016?</p>
+        <p>Besides the motivation provided by these questions, the idea of this ATLAS, or map application, is to explore data driven visualizations in the context of maps. Therefore, the more technical questions could be stated as follows:</p>
+        <p>How feasible would it be to create an ATLAS using esri’s cedar.js & esri’s ArcGIS API for JavaScript 3.20?</p>
+        <p>What are the best practices for dealing with big datasets using JavaScript?
+        </p>
+    </div>
+    <div class="contentp" id="METHODS">
+        <p>The number of Assaults per year was derived from City of Denver Open Catalog's crime point dataset which contains 414, 674 crime occurrences of various kinds from 2012 – 2017. <strong>Python</strong> was utilized to derive new fields selecting only the crimes categorized under assault. The street network was obtained from Open Street Maps by using <strong>OSMnx.</strong> Following, the relevant centrality scores, <a href="http://www.sutd.edu.sg/cmsresource/idc/papers/2012_Urban_Network_Analysis_A%20New%20Toolbox_for_ArcGIS.pdf" target="_blank">Reach</a>, <a href="https://en.wikipedia.org/wiki/Centrality#Betweenness_centrality" target="_blank">Betweenness</a> & <a href="https://en.wikipedia.org/wiki/Centrality#Closeness_centrality" target="_blank">Closeness,</a>for each street segment (over 27,000) were calculated using <strong>MIT’s Urban Network Analysis Toolbox.</strong> Next, a spatial join was performed in order to relate both datasets (assaults –points- & street network with centrality scores). Finally, rank fields were calculated for every centrality score using the natural breaks algorithm, the data was cleaned and grouped and new shapefiles were produced. The final shapefiles were then published to <strong>ArcGIS Online</strong> in order to be consumed for the application. Simple Spearman's rho correlations were performed on the final relevant fields.</p>
+    </div>
+    <div class="contentp" id="RESULTS">
+        <p>The streets are color coded from lowest (blue) to highest (red) number of assaults. The street segment with the higher number of assaults overall was <strong>14th street, </strong>between Glenarm Place & Tremont Place.
+            <br>The relationship between centrality scores per street segment (independent variable X) & number of assaults per street segment (dependent variable Y) was analyzed using Spearman's & Pearson's correlation coefficients.
+            <br><strong>Spearman’s rho</strong>: Closeness (-0.092293) | Reach (0.081950) | Betweenness (0.023815)
+            <br> <strong>Pearson’s:</strong> Closeness (-0.004599) | Reach (0.067997) | Betweenness (0.009385)
+            <br> No significant linear or monotonic relationships between the centrality scores and number of assaults per street was found. Other statistical analysis would be required in order to investigate other kinds of relationships.
+        </p>
+    </div>
+    <div class="contentp" id="DESIGNRATIONALE">
+        <p>I took a minimalistic approach to the design of the application; the text was kept at minimum, transparent pop ups were used, no legends, no street labels, and no ticks or axes lines for the scatter plots. The color palette is muted; bright colors are only used to emphasize the patterns in the data. The main reasons behind this design are:
+            <br><strong>A very flexible medium,</strong> not everything should be visible all the time; even though street labels were not used, the user can click a street segment to discover relevant information such as the street name.
+            <br><strong>Data driven graphics,</strong>the map is the window that drives the data in the scatterplots; this allows exploring data patterns at different scales at a click of a button.
+            <br><strong>The audience,</strong> the people who are going to be interacting with the application are very familiar with maps, the area and the medium.
+        </p>
+    </div>
+    <div class="contentp" id="RESOURCES">
+        <p><strong>Data Sources</strong>
+            <br> <a href="http://gis.drcog.org/datacatalog/search/node/open%20space" target="_blank">Open Spaces 2014</a>
+            <br><a href="https://www.denvergov.org/opendata" target="_blank">Buildings Outlines 2014 | Crime Data</a>
+            <br><a href="http://geoffboeing.com/2016/11/osmnx-python-street-networks/" target="_blank">Denver Street Network Open Street Maps via OSMnx</a>
+        </p>
+        <p><strong>Data Manipulation</strong>
+            <br><a href="https://www.python.org/" target="_blank">Python</a>
+            <br><a href="http://pandas.pydata.org/" target="_blank">Pandas</a>
+            <br> <a href="http://geopandas.org/" target="_blank">GeoPandas</a>
+        </p>
+        <p><strong>Network Analysis</strong>
+            <br><a href="http://cityform.mit.edu/projects/urban-network-analysis.html" target="_blank">Urban Network Analysis Toolbox</a>
+            <br> <a href="http://www.spacesyntax.com/" target="_blank">Space Syntax</a>
+        </p>
+        <p><strong>Visualization</strong>
+            <br><a href="https://developers.arcgis.com/javascript/3/" target="_blank">ArcGIS API for JavaScript 3.20</a>
+            <br><a href="https://dojotoolkit.org/" target="_blank">Dojo Toolkit 1.12</a>
+            <br> <a href="https://esri.github.io/cedar/" target="_blank">cedar.js</a>
+            <br> <a href="https://fonts.google.com/" target="_blank">Google Fonts</a>
+        </p>
     </div>
 </body>
 

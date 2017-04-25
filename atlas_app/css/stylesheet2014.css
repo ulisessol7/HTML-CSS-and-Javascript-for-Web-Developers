@@ -19,8 +19,8 @@ body {
     margin: 0px;
     width: 80px;
     position: absolute;
-    top: 95%;
-    left: 91.5%;
+    top: 93%;
+    left: 93%;
     z-index: 100;
     color: white;
     text-align: center;
@@ -32,15 +32,14 @@ em {
 
 #year {
     margin: 0px;
-    width: 200px;
+    width: 50px;
     position: absolute;
-    top: 88%;
-    left: 88%;
+    top: 90%;
+    left: 94%;
     z-index: 50;
     color: white;
     font-size: 25px;
     font-family: 'Roboto Condensed', sans-serif;
-    text-align: center;
 }
 
 .map .esriMapContainer {
@@ -50,7 +49,7 @@ em {
 
 #map {
     height: 100%;
-    width: 87%;
+    width: 85%;
     /*margin-top: 0.5%;*/
     background-color: black;
     float: right;
@@ -132,105 +131,56 @@ em {
     display: none;
 }
 
-#menu {
-    float: left;
-    margin-right: 0.5%;
-    margin-left: 0.5%;
-    margin-top: 0.5%;
-    /*    background-color: black;*/
-    display: flex;
-    width: 12%;
-    height: 12%;
-}
-
-.minimap,
-.chart {
+#chartC,
+#chartR,
+#chartB {
     float: left;
     margin-right: 0.5%;
     margin-left: 0.5%;
     margin-top: 0.5%;
     background-color: black;
     display: flex;
-    width: 12%;
-    height: 13%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 -1px 0px rgba(0, 0, 0, 0.02);
-}
-
-.chart {
-    display: none;
-}
-
-.minimap:hover
-{
-    webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    opacity: 0.5;
-}
-
-img {
-    height: auto;
-    width: 100%;
-    /*    max-width: 300px;
-    max-height: 300px;*/
+    width: 14%;
+    height: 15%;
 }
 
 
 /*text section*/
 
-.contentp {
+#background {
     float: left;
     margin-right: 0.5%;
     margin-left: 0.5%;
     margin-top: 0.5%px;
-    width: 12%;
-    height: 45%;
+    /*display: flex;*/
+    width: 14%;
+    height: 50%;
     overflow: hidden;
     word-wrap: break-word;
+    /*font-family: Georgia, Times New Roman, Serif;*/
     font-family: 'Montserrat', sans-serif;
     font-size: 12px;
-    display: none;
 }
 
-#INTRODUCTION {
-    display: block;
-}
-
-ul {
-    padding: 0px;
-    margin: 0px;
-}
-
-li {
-    font-family: "Montserrat";
-    padding-top: 3px;
-    font-size: 12.5px;
-    line-height: 1.4em;
-    letter-spacing: .14em;
-    font-weight: 300;
-    font-style: normal;
-    color: #565A5C;
-    /*font-size: 12px;*/
-    list-style: none;
+h1 {
+    /*    float: left;
+    margin-right: 0.5%;
+    margin-left: 0.5%;
+    margin-top: 0.5%px;
+    display: flex;
+    width: 14%;
+    height: 50%;
+    overflow: hidden;
+    word-wrap: break-word;*/
+    font-size: 26px;
     /*display: flex;*/
     width: 100%;
     /*font-family: Yanone Kaffeesatz;*/
-    /*font-family: franklin-gothic-urw, Arial, Helvetica, sans-serif;*/
-    /*font-weight: bold;*/
-    cursor: pointer;
-    cursor: hand;
-}
-
-li:first-child {
-    color: black;
-}
-
-li:hover {
-    color: black !important;
-    font-weight: 600 !important;
+    font-family: franklin-gothic-urw, Arial, Helvetica, sans-serif;
+    /*text-align: center;*/
 }
 
 p {
     width: 100%;
-    text-align: left;
+    text-align: justify;
 }

@@ -10,8 +10,6 @@
       "esri/Color",
       "esri/symbols/TextSymbol",
       "esri/layers/LabelClass",
-      "dojo/query",
-      "dojo/dom-style",
       "dojo/domReady!"
   ], function(
       domConstruct,
@@ -24,9 +22,7 @@
       SimpleLineSymbol,
       Color,
       TextSymbol,
-      LabelClass,
-      query,
-      domStyle
+      LabelClass
   ) {
       // For 50% screen size
       // "extent", xmin: 954117.5722794618, ymin: 515761.23322408117, xmax: 963661.5207113862, ymax: 518942.549368056
@@ -63,18 +59,17 @@
       }, "HomeButton");
       home.startup();
 
-      var assaults = "http://services5.arcgis.com/G79PVu14Duuuwxv3/arcgis/rest/services/crimeoverall/FeatureServer/0";
+      var assaults = "http://services5.arcgis.com/G79PVu14Duuuwxv3/arcgis/rest/services/crime2012/FeatureServer/0";
       var barrios = "http://services5.arcgis.com/G79PVu14Duuuwxv3/arcgis/rest/services/BarriosDenver/FeatureServer/0";
       var bldgs = "http://services5.arcgis.com/G79PVu14Duuuwxv3/arcgis/rest/services/Denverbldgs/FeatureServer/0";
       var openSpace = "http://services5.arcgis.com/G79PVu14Duuuwxv3/arcgis/rest/services/openspace/FeatureServer/0";
 
       var template = new InfoTemplate(
-          "${name}", "<b>Total Number of Assaults:</b> ${AssaultsM}<br><b>Centrality Scores</b><br><i>Betweennes: ${BRank}</i><br><i>Reach: ${RRank}</i><br><i>Closeness: ${CRank}</i><br>");
-
+          "${name}", "<b>Total Number of Assaults:</b> ${Assaults}<br><b>Centrality Scores</b><br><i>Betweennes: ${BRank}</i><br><i>Reach: ${RRank}</i><br><i>Closeness: ${CRank}</i><br>");
 
       var flassaults = new FeatureLayer(assaults, {
           mode: FeatureLayer.MODE_ONDEMAND,
-          id: "crimeoverall",
+          id: "crime2012",
           infoTemplate: template,
           maxAllowableOffset: calcOffset(),
           outFields: ["*"]
@@ -90,8 +85,8 @@
           id: "buildingsDenver",
           maxAllowableOffset: calcOffset(),
           outFields: ["*"]
-      });
-      var flopenSpace = new FeatureLayer(openSpace, {
+      }); 
+       var flopenSpace = new FeatureLayer(openSpace, {
           mode: FeatureLayer.MODE_ONDEMAND,
           id: "openSpaceDenver",
           maxAllowableOffset: calcOffset(),
@@ -121,15 +116,15 @@
       map.addLayer(flb);
       map.addLayer(flbldgs);
       map.addLayer(flopenSpace);
-      var chartC = new Cedar({ "specification": "cedarspecs/customscatterred.json" });
+      var chartC = new Cedar({ "specification": "cedarspecs/customscatter2012.json" });
       var datasetC = {
-          "url": "http://services5.arcgis.com/G79PVu14Duuuwxv3/arcgis/rest/services/crimeoverall/FeatureServer/0",
+          "url": "http://services5.arcgis.com/G79PVu14Duuuwxv3/arcgis/rest/services/crime2012/FeatureServer/0",
           "query": {
 
           },
           "mappings": {
               "x": { "field": "Closeness" },
-              "y": { "field": "AssaultsM" },
+              "y": { "field": "Assaults" },
               "color": { "field": "RRank" }
           }
       };
@@ -139,15 +134,15 @@
           "elementId": "#chartC"
       });
 
-      var chartR = new Cedar({ "specification": "cedarspecs/customscatterred.json" });
+      var chartR = new Cedar({ "specification": "cedarspecs/customscatter2012.json" });
       var datasetR = {
-          "url": "http://services5.arcgis.com/G79PVu14Duuuwxv3/arcgis/rest/services/crimeoverall/FeatureServer/0",
+          "url": "http://services5.arcgis.com/G79PVu14Duuuwxv3/arcgis/rest/services/crime2012/FeatureServer/0",
           "query": {
 
           },
           "mappings": {
               "x": { "field": "Reach" },
-              "y": { "field": "AssaultsM" },
+              "y": { "field": "Assaults" },
               "color": { "field": "RRank" }
           }
       };
@@ -156,15 +151,15 @@
       chartR.show({
           "elementId": "#chartR"
       });
-      var chartB = new Cedar({ "specification": "cedarspecs/customscatterred.json" });
+      var chartB = new Cedar({ "specification": "cedarspecs/customscatter2012.json" });
       var datasetB = {
-          "url": "http://services5.arcgis.com/G79PVu14Duuuwxv3/arcgis/rest/services/crimeoverall/FeatureServer/0",
+          "url": "http://services5.arcgis.com/G79PVu14Duuuwxv3/arcgis/rest/services/crime2012/FeatureServer/0",
           "query": {
 
           },
           "mappings": {
               "x": { "field": "Betweennes" },
-              "y": { "field": "AssaultsM" },
+              "y": { "field": "Assaults" },
               "color": { "field": "RRank" }
           }
       };
@@ -174,8 +169,8 @@
           "elementId": "#chartB"
       });
       map.on("extent-change", function() {
-          flassaults.maxOffset = calcOffset();
-          flassaults.setMaxAllowableOffset(flassaults.maxOffset);
+          // flassaults.maxOffset = calcOffset();
+          // flassaults.setMaxAllowableOffset(flassaults.maxOffset);
           flbldgs.maxOffset = calcOffset();
           flbldgs.setMaxAllowableOffset(flbldgs.maxOffset);
           var extent = map.extent;
@@ -186,42 +181,12 @@
           chartR.update();
           chartB.dataset.query.geometry = extent;
           chartB.update();
+          console.log(map.getZoom());
+          console.log(map.getScale());
 
       });
 
       function calcOffset() {
           return (map.extent.getWidth() / map.width);
       }
-      // logic for menu
-      var menuItem = query("ul > li");
-      var check = function(n) {
-          query(".contentp").style("display", "none");
-          query("#" + n).style("display", "block");
-
-      };
-      menuItem.onclick(function(evt) {
-          menuItem.style("color", "#565A5C");
-          menuItem.style("font-weight", 300);
-          var itemName = dojo.attr(evt.target, "innerHTML");
-          var minimaps = query(".minimap");
-          var charts = query(".chart");
-          minimaps.style("display", "flex");
-          charts.style("display", "none");
-          domStyle.set(this, "color", "black");
-          domStyle.set(this, "font-weight", 600);
-          if (itemName === "DESIGN RATIONALE") {
-              itemName = "DESIGNRATIONALE";
-          }
-          if (itemName === "RESEARCH QUESTION") {
-              itemName = "RESEARCHQUESTION";
-          }
-          if (itemName === "RESULTS") {
-              minimaps.style("display", "none");
-              charts.style("display", "flex");
-              chartB.update();
-              chartR.update();
-              chartC.update();
-          }
-          check(itemName);
-      });
   });
