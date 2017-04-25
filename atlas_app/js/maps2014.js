@@ -59,10 +59,10 @@
       }, "HomeButton");
       home.startup();
 
-      var assaults = "http://services5.arcgis.com/G79PVu14Duuuwxv3/arcgis/rest/services/crime2014/FeatureServer/0";
-      var barrios = "http://services5.arcgis.com/G79PVu14Duuuwxv3/arcgis/rest/services/BarriosDenver/FeatureServer/0";
-      var bldgs = "http://services5.arcgis.com/G79PVu14Duuuwxv3/arcgis/rest/services/Denverbldgs/FeatureServer/0";
-      var openSpace = "http://services5.arcgis.com/G79PVu14Duuuwxv3/arcgis/rest/services/openspace/FeatureServer/0";
+      var assaults = "https://services5.arcgis.com/G79PVu14Duuuwxv3/arcgis/rest/services/crime2014/FeatureServer/0";
+      var barrios = "https://services5.arcgis.com/G79PVu14Duuuwxv3/arcgis/rest/services/BarriosDenver/FeatureServer/0";
+      var bldgs = "https://services5.arcgis.com/G79PVu14Duuuwxv3/arcgis/rest/services/Denverbldgs/FeatureServer/0";
+      var openSpace = "https://services5.arcgis.com/G79PVu14Duuuwxv3/arcgis/rest/services/openspace/FeatureServer/0";
 
       var template = new InfoTemplate(
           "${name}", "<b>Total Number of Assaults:</b> ${Assaults}<br><b>Centrality Scores</b><br><i>Betweennes: ${BRank}</i><br><i>Reach: ${RRank}</i><br><i>Closeness: ${CRank}</i><br>");
@@ -118,7 +118,7 @@
       map.addLayer(flopenSpace);
       var chartC = new Cedar({ "specification": "cedarspecs/customscatter2014.json" });
       var datasetC = {
-          "url": "http://services5.arcgis.com/G79PVu14Duuuwxv3/arcgis/rest/services/crime2014/FeatureServer/0",
+          "url": "https://services5.arcgis.com/G79PVu14Duuuwxv3/arcgis/rest/services/crime2014/FeatureServer/0",
           "query": {
 
           },
@@ -136,7 +136,7 @@
 
       var chartR = new Cedar({ "specification": "cedarspecs/customscatter2014.json" });
       var datasetR = {
-          "url": "http://services5.arcgis.com/G79PVu14Duuuwxv3/arcgis/rest/services/crime2014/FeatureServer/0",
+          "url": "https://services5.arcgis.com/G79PVu14Duuuwxv3/arcgis/rest/services/crime2014/FeatureServer/0",
           "query": {
 
           },
@@ -153,7 +153,7 @@
       });
       var chartB = new Cedar({ "specification": "cedarspecs/customscatter2014.json" });
       var datasetB = {
-          "url": "http://services5.arcgis.com/G79PVu14Duuuwxv3/arcgis/rest/services/crime2014/FeatureServer/0",
+          "url": "https://services5.arcgis.com/G79PVu14Duuuwxv3/arcgis/rest/services/crime2014/FeatureServer/0",
           "query": {
 
           },
