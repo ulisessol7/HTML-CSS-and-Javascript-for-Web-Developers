@@ -105,7 +105,7 @@
             placeholder: jimuUtils.stripHTML(source.placeholder || ""),
             countryCode: source.countryCode || "",
             maxSuggestions: source.maxSuggestions,
-            maxResults: source.maxResults || 6,
+            maxResults: source.maxResults || 3,
             zoomScale: source.zoomScale || 50000,
             useMapExtent: !!source.searchInCurrentMapExtent
           };
@@ -146,8 +146,8 @@
               exactMatch: !!source.exactMatch,
               name: jimuUtils.stripHTML(source.name || ""),
               placeholder: jimuUtils.stripHTML(source.placeholder || ""),
-              maxSuggestions: source.maxSuggestions || 6,
-              maxResults: source.maxResults || 6,
+              maxSuggestions: source.maxSuggestions || 3,
+              maxResults: source.maxResults || 3,
               zoomScale: source.zoomScale || 50000,
               infoTemplate: template,
               useMapExtent: !!source.searchInCurrentMapExtent,

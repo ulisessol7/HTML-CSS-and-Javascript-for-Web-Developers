@@ -11,6 +11,8 @@ define([
     "./search",
     "./item-list",
     "jimu/portalUtils",
+    "esri/layers/FeatureLayer",
+    "esri/geometry/Extent",
     "esri/layers/GraphicsLayer",
     "esri/graphic",
     "esri/tasks/GeometryService",
@@ -42,6 +44,8 @@ define([
     SearchInstance,
     ItemList,
     portalUtils,
+    FeatureLayer,
+    Extent,
     GraphicsLayer,
     Graphic,
     GeometryService,
@@ -307,6 +311,20 @@ define([
          */
         _createSearchInstance: function() {
             var searchOptions;
+            // this layer  mimics what we have in our GIS system right now, the layer is hosted in ArcGIS Online
+            var cu_bldgs = new FeatureLayer("https://services5.arcgis.com/G79PVu14Duuuwxv3/ArcGIS/rest/services/BLDGS_test/FeatureServer/0", {
+                outFields: ["BLDG_NAME", "BLDG_CODE", "BLDG_NUMBE", "BLDG_ADDRE"]
+            });
+            // boulder search extent
+            var boulder_extent = new Extent({
+                "xmin": 3043062.709893935,
+                "ymin": 1242503.5101015298,
+                "xmax": 3081808.4767370443,
+                "ymax": 1258757.248199367,
+                "spatialReference": {
+                    "wkid": 2876
+                }
+            });
             // get webmap response
             this.config.response = this.map.webMapResponse;
             //set search options
@@ -317,7 +335,7 @@ define([
                 minCharacters: 0,
                 maxLocations: 5,
                 searchDelay: 100,
-                enableHighlight: false
+                enableHighlight: false,
             };
             // create an instance of search widget
             this._searchInstance = new SearchInstance({
@@ -658,11 +676,15 @@ define([
             }
             // console.log("years", years);
             // spread operator
-            min = Math.min(...years);
-            max = Math.max(...years);
+            // min = Math.min(...years);
+            min = Math.min.apply(null, years);
+            // max = Math.max(...years);
+            max = Math.max.apply(null, years);
+
             // console.log("values", min, max);
             // Template Strings, notice the use of use back-ticks
-            textTemplate = `Show projects between ${min} & ${max}`;
+            // textTemplate = `Show projects between ${min} & ${max}`;
+            textTemplate = "Show projects between" + min + "&" + max;
             minNodeValue = query(".UCBYearMinValue", this.domNode)[0];
             maxNodeValue = query(".UCBYearMaxValue", this.domNode)[0];
             yearNode = query(".UCBYearFilterText", this.domNode)[0];
@@ -691,16 +713,16 @@ define([
             yearMinVal = domAttr.get(placeholderYearMin, "placeholder");
             yearMaxVal = domAttr.get(placeholderYearMax, "placeholder");
             // Remember to change to this switch pattern
-            if ((this._yearMinVal != 0) && (this._yearMaxVal != 0)) {
-                filter = `YEAR BETWEEN ${this._yearMinVal} AND ${this._yearMaxVal}`;
+            if ((this._yearMinVal !== 0) && (this._yearMaxVal !== 0)) {
+                filter = "YEAR BETWEEN" + " " + this._yearMinVal + " " + "AND" + " " + this._yearMaxVal;
                 this._filterdef = filter;
             }
-            if ((this._yearMinVal === 0) && (this._yearMaxVal != 0)) {
-                filter = `YEAR BETWEEN ${yearMinVal} AND ${this._yearMaxVal}`;
+            if ((this._yearMinVal === 0) && (this._yearMaxVal !== 0)) {
+                filter = "YEAR BETWEEN" + " " + this._yearMinVal + " " + "AND" + " " + this._yearMaxVal;
                 this._filterdef = filter;
             }
-            if ((this._yearMinVal != 0) && (this._yearMaxVal === 0)) {
-                filter = `YEAR BETWEEN ${this._yearMinVal} AND ${yearMaxVal}`;
+            if ((this._yearMinVal !== 0) && (this._yearMaxVal === 0)) {
+                filter = "YEAR BETWEEN" + " " + this._yearMinVal + " " + "AND" + " " + this._yearMaxVal;
                 this._filterdef = filter;
             }
             // console.log(filter);

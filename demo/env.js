@@ -32,6 +32,7 @@ Global variables:
   setConfigViewerTopic: in builder only, used to communicate between builder and config window
   setPreviewViewerTopic: in builder only, used to communicate between builder and preview window
   appId: in builder only, the current opened app id.
+
   apiUrl: the URL of the ArcGIS API for JavaScript
   allCookies: all cookies
   path: the builder/app path section in window.location
@@ -41,10 +42,13 @@ Global variables:
   isRTL: the language is right to left,
   wabVersion: the wab version, like 1.1, 1.2
   productVersion: the product version, like portal10.3, online3.5, developer edition1.0
+
   dojoConfig: the dojo config object
   jimuConfig: defined in jimu/main
+
   weinreUrl: for mobile debug
   debug: boolean. If it's debug mode, the app will load weinre file
+
 Global functions:
   loadResource: load JS or CSS
   loadResources: load array of JS or CSS
@@ -53,9 +57,8 @@ Global functions:
 *******************************/
 /*global testLoad, ActiveXObject */
 var
-//    the URL of the ArcGIS API for JavaScript, you can change it to point to your own API.
-  apiUrl = '//js.arcgis.com/3.19',
-
+  //    the URL of the ArcGIS API for JavaScript, you can change it to point to your own API.
+  apiUrl = '//js.arcgis.com/3.20',
 
   //weinreUrl: String
   //    weinre is a tool which can help debug the app on mobile devices.
@@ -88,11 +91,11 @@ var
 (function(global){
   //init API URL
   var queryObject = getQueryObject();
-  var apiVersion = '3.19';
+  var apiVersion = '3.20';
 
   ////////uncomment the following line when downloading the app
 
-  apiUrl = '//js.arcgis.com/3.19';
+  apiUrl = '//js.arcgis.com/3.20';
 
   //////////////////////////////////////////////////////////////
   allCookies = getAllCookies();

@@ -306,9 +306,9 @@
             yearMaxVal = domAttr.get(inputYearMax, "placeholder");
             this._yearMaxVal = Number(yearMaxVal);
             // Remember to add condition here to make sure that the values are valid
-            definitionYearFilter = `YEAR BETWEEN ${yearMinVal} AND ${yearMaxVal}`;
+            definitionYearFilter = "YEAR BETWEEN" + " " + yearMinVal + " " +  "AND" + " " +  yearMaxVal;
             projectsLayer = this.map.getLayer("UCBProjects_1257");
-            yearTmpString = `Show projects between ${yearMinVal} & ${yearMaxVal}`;
+            yearTmpString = "Show projects between" + yearMinVal + "&" + yearMaxVal;
             if (inputYearMin) {
                 // Change all of this to a proper function
                 this.own(on(inputYearMin, "keyup", lang.hitch(this, function(evt) {
@@ -316,8 +316,8 @@
                     if (evt.keyCode === 13) {
                         yearMinVal = domAttr.get(inputYearMin, "value");
                         this._yearMinVal = Number(yearMinVal);
-                        yearTmpString = `Show projects between ${yearMinVal} & ${yearMaxVal}`;
-                        definitionYearFilter = `YEAR BETWEEN ${yearMinVal} AND ${yearMaxVal}`;
+                        yearTmpString = "Show projects between" + yearMinVal + "&" + yearMaxVal;
+                        definitionYearFilter = "YEAR BETWEEN" + " " + yearMinVal + " " +  "AND" + " " +  yearMaxVal;
                         domAttr.set(yearFilterText, "innerHTML", yearTmpString);
                         projectsLayer.setDefinitionExpression(definitionYearFilter);
                         this._filterdef = definitionYearFilter;
@@ -340,8 +340,8 @@
                     if (evt.keyCode === 13) {
                         yearMaxVal = domAttr.get(inputYearMax, "value");
                         this._yearMaxVal = Number(yearMaxVal);
-                        yearTmpString = `Show projects between ${yearMinVal} & ${yearMaxVal}`;
-                        definitionYearFilter = `YEAR BETWEEN ${yearMinVal} AND ${yearMaxVal}`;
+                        yearTmpString = "Show projects between" + yearMinVal + "&" + yearMaxVal;
+                        definitionYearFilter = "YEAR BETWEEN" + " " + yearMinVal + " " +  "AND" + " " +  yearMaxVal;
                         domAttr.set(yearFilterText, "innerHTML", yearTmpString);
                         projectsLayer.setDefinitionExpression(definitionYearFilter);
                         this._filterdef = definitionYearFilter;

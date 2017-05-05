@@ -254,7 +254,7 @@
     "acronym": "ft",
     "value": "feet"
   },
-  "zoomToFeature": false,
+  "zoomToFeature": true,
   "intersectSearchedLocation": false,
   "routeService": "https://route.arcgis.com/arcgis/rest/services/World/Route/NAServer/Route_World",
   "directionLengthUnit": {
@@ -315,9 +315,28 @@
   },
   "maxResultCount": null,
   "searchSourceSettings": {
-    "allPlaceholder": "",
+    "allPlaceholder": "GO BUFFS!",
     "showInfoWindowOnSelect": true,
     "sources": [
+      {
+        "layerId": null,
+        "url": "https://services5.arcgis.com/G79PVu14Duuuwxv3/ArcGIS/rest/services/BLDGS_test/FeatureServer/0",
+        "name": "UCB_BUILDINGS",
+        "placeholder": "GO BUFFS!",
+        "searchFields": [
+          "BLDG_NUMBE",
+          "BLDG_CODE",
+          "BLDG_NAME",
+          "BLDG_ADDRE"
+        ],
+        "displayField": "BLDG_NAME",
+        "exactMatch": false,
+        "searchInCurrentMapExtent": false,
+        "zoomScale": 50000,
+        "maxSuggestions": 3,
+        "maxResults": 3,
+        "type": "query"
+      },
       {
         "url": "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer",
         "name": "Esri World Geocoder",
