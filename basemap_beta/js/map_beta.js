@@ -7,7 +7,7 @@ $(document).ready(function() {
     // **********************************************************************************************************************************
     // DOJO REQUIRES
     // **********************************************************************************************************************************
-    require(["esri/map", "esri/dijit/Search", "esri/layers/FeatureLayer", "esri/dijit/PopupTemplate", "esri/symbols/PictureMarkerSymbol",
+    require(["esri/map", "esri/layers/VectorTileLayer", "esri/dijit/Search", "esri/layers/FeatureLayer", "esri/dijit/PopupTemplate", "esri/symbols/PictureMarkerSymbol",
         "esri/geometry/Extent", "esri/symbols/SimpleFillSymbol", "esri/symbols/SimpleLineSymbol", "esri/Color", "esri/tasks/QueryTask",
         "esri/tasks/query", "esri/graphic",
         "dojo/on",
@@ -17,7 +17,7 @@ $(document).ready(function() {
         "dojo/dom-construct",
         "dojo/parser", "dijit/layout/BorderContainer", "dijit/layout/ContentPane", "dojo/html", "esri/dijit/Directions",
         "dojo/i18n!esri/nls/jsapi", "dojo/domReady!"
-    ], function(Map, Search, FeatureLayer, PopupTemplate, PictureMarkerSymbol, Extent, SimpleFillSymbol, SimpleLineSymbol, Color, QueryTask, Query, Graphic,
+    ], function(Map, VectorTileLayer, Search, FeatureLayer, PopupTemplate, PictureMarkerSymbol, Extent, SimpleFillSymbol, SimpleLineSymbol, Color, QueryTask, Query, Graphic,
         on,
         connect,
         dom,
@@ -30,12 +30,13 @@ $(document).ready(function() {
         // **********************************************************************************************************************************
         map = new Map("map", {
             // basemap: "topo-vector",
-            basemap: "topo-vector",
             // long, lat
             center: [-105.2659, 40.0076],
             zoom: 16,
             slider: false
         });
+        var basemap = new VectorTileLayer("https://tiles.arcgis.com/tiles/b3fMqPOmotX6SV4k/arcgis/rest/services/UCB_CAMPUS_TILE_VECTOR/VectorTileServer?f=pjson&cacheKey=9c2d8fcfe4fb353d");
+        map.addLayer(basemap);
         // **********************************************************************************************************************************
         // SEARCH WIDGET
         // **********************************************************************************************************************************
@@ -211,11 +212,11 @@ $(document).ready(function() {
         map.on("click", function(evt) {
             var layerId;
             console.log(evt);
-            $("#dot_location").show().css({
-                // I'm  using 5 to get the center of the dot.It's diameter is 10px
-                left: (evt.pageX - 5) + "px",
-                top: (evt.pageY - 5) + "px"
-            });
+            // $("#dot_location").show().css({
+            //     // I'm  using 5 to get the center of the dot.It's diameter is 10px
+            //     left: (evt.pageX - 5) + "px",
+            //     top: (evt.pageY - 5) + "px"
+            // });
             // hides the context -menu on right click
             $(".context-menu-container").hide();
             if (evt.graphic) {
@@ -284,7 +285,7 @@ $(document).ready(function() {
             showClearButton: true,
             searchOptions: dir_sources,
             // routeTaskUrl: "http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Network/USA/NAServer/Route"
-            routeTaskUrl: "http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Network/USA/NAServer/Route"
+            // routeTaskUrl: "http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Network/USA/NAServer/Route"
         }, "dir");
         // directionsWidget.on("directions-start", function(evt) {
         //     for (var i = 0; i < directionsWidget.stops.length; i++) {
@@ -433,11 +434,11 @@ $(document).ready(function() {
                     $(esri_sugg).insertAfter('#dir');
                     $(esri_sugg).show();
                     // remember to change this to a css class
-                    $(esri_sugg).css('background-color', 'white');
-                    $(esri_sugg).css('width', '100%');
-                    $(esri_sugg).css('float', 'left');
+                    // $(esri_sugg).css('background-color', 'white');
+                    // $(esri_sugg).css('width', '100%');
+                    // $(esri_sugg).css('float', 'left');
                     $(custom_sugg_ul).on('click keypress', 'li', function() {
-                        console.log($(this).text());
+                        // console.log($(this).text());
                         var search_input = $(this).text();
                         $('#search_input').val(search_input);
                     });
@@ -447,7 +448,7 @@ $(document).ready(function() {
                     $(custom_sugg_ul).off('click keypress', 'li', function() {});
                     $(custom_sugg).hide();
                     $(esri_sugg).hide();
-                    console.log(esri_class_monitored.attributes[1].value + 'OFF');
+                    // console.log(esri_class_monitored.attributes[1].value + 'OFF');
                     $(custom_sugg).insertAfter('#search');
                 }
             });
@@ -459,40 +460,45 @@ $(document).ready(function() {
         // // **********************************************************************************************************************************
         // SUGGESTIONS DROPDOWN - DIRECTIONS WIDGET
         // // **********************************************************************************************************************************
-        $('#directions, .esriLinkButton.esriStopsClearDirections').on('click', function() {
-            var dir_sugg = $('td.esriStopGeocoderColumn').find('.searchMenu.suggestionsMenu')[0];
-            // console.log(dir_sugg.html());
-            var dir_esri_class_monitored = $('td.esriStopGeocoderColumn').find('.searchGroup')[0];
-            var dir_custom_sugg = $('#cu_nav > div > div:nth-child(6)')[0];
-            var mut = new MutationObserver(function(mutations) {
-                mutations.forEach(function(mutation) {
-                    // console.log(dir_esri_class_monitored.attributes[1].value);
-                    // if (dir_esri_class_monitored.attributes[1].value === suggestions_on) {
-                    // console.log('target has class: ' + suggestions_on);
-                    // console.log(dir_esri_class_monitored.attributes[1].value);
-                    // || 'searchGroup hasValue'
-                    // if ($('td.esriStopGeocoderColumn').find('.searchGroup').hasClass('searchGroup'))
-                    if ($('td.esriStopGeocoderColumn').find('.searchGroup').hasClass('searchGroup hasValue showSuggestions' || 'searchGroup hasValue')) {
-                        console.log(dir_esri_class_monitored.attributes[1].value);
-                        $(dir_sugg).insertAfter('#dir');
-                        $(dir_sugg).show();
-                        // remember to change this to a css class
-                        $(dir_sugg).css('background-color', 'white');
-                        $(dir_sugg).css('width', '100%');
-                        $(dir_sugg).css('float', 'left');
-                    } else {
-                        console.log(dir_esri_class_monitored.attributes[1].value);
-                        // $(dir_custom_sugg).hide();
-                        // $(dir_sugg).hide();
+        // $('#directions, .esriLinkButton.esriStopsClearDirections').on('click', function() {
+        //     var dir_sugg = $('td.esriStopGeocoderColumn').find('.searchMenu.suggestionsMenu')[0];
+        //     // console.log(dir_sugg.html());
+        //     var dir_esri_class_monitored = $('td.esriStopGeocoderColumn').find('.searchGroup')[0];
+        //     var dir_custom_sugg = $('#cu_nav > div > div:nth-child(6)')[0];
+        //     var custom_sugg_ul = '#cu_nav > div > div:nth-child(5) > div > ul';
+        //     var mut = new MutationObserver(function(mutations) {
+        //         mutations.forEach(function(mutation) {
+        //             // console.log(dir_esri_class_monitored.attributes[1].value);
+        //             // if (dir_esri_class_monitored.attributes[1].value === suggestions_on) {
+        //             // console.log('target has class: ' + suggestions_on);
+        //             // console.log(dir_esri_class_monitored.attributes[1].value);
+        //             // || 'searchGroup hasValue'
+        //             // if ($('td.esriStopGeocoderColumn').find('.searchGroup').hasClass('searchGroup'))
+        //             if ($('td.esriStopGeocoderColumn').find('.searchGroup').hasClass('searchGroup hasValue showSuggestions' || 'searchGroup hasValue')) {
+        //                 console.log(dir_esri_class_monitored, "mutation element");
+        //                 console.log(dir_custom_sugg, "dir_custom_sugg");
+        //                 console.log(dir_sugg, "dir_sugg");
+        //                 $(custom_sugg_ul).on('click keypress', 'li', function() {
+        //                     // console.log($(this).text());
+        //                     var search_input = $(this).text();
+        //                     $('searchInputGroup').val(search_input);
+        //                     console.log("li event");
+        //                 });
+        //                 $(dir_sugg).insertAfter('#dir');
+        //                 $(dir_sugg).show();
+        //             } else {
+        //                 // console.log(dir_esri_class_monitored.attributes[1].value);
+        //                 $(dir_custom_sugg).hide();
+        //                 $(dir_sugg).hide();
 
-                    }
+        //             }
 
-                });
-            });
-            // console.log(dir_esri_class_monitored);
-            // pass in the target node, as well as the observer options
-            mut.observe(dir_esri_class_monitored, config);
-        });
+        //         });
+        //     });
+        //     // console.log(dir_esri_class_monitored);
+        //     // pass in the target node, as well as the observer options
+        //     mut.observe(dir_esri_class_monitored, config);
+        // });
         // ESRI DOJO READY BRACKET
     });
 
