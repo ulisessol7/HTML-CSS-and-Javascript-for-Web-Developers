@@ -307,7 +307,7 @@
             this._yearMaxVal = Number(yearMaxVal);
             // Remember to add condition here to make sure that the values are valid
             definitionYearFilter = "YEAR BETWEEN" + " " + yearMinVal + " " +  "AND" + " " +  yearMaxVal;
-            projectsLayer = this.map.getLayer("UCBProjects_1257");
+            projectsLayer = this.map.getLayer("UCBProjects_5135");
             yearTmpString = "Show projects between" + yearMinVal + "&" + yearMaxVal;
             if (inputYearMin) {
                 // Change all of this to a proper function
@@ -565,7 +565,7 @@
                             if ((mapLayer) && (this._filterdef != null)) {
                                 currentLayer.definitionExpression = mapLayer.getFilter();
                                 // currentLayer.definitionExpression = this._filterdef;
-                                // this.map.getLayer("UCBProjects_1257").setDefinitionExpression(this._filterdef);
+                                // this.map.getLayer("UCBProjects_5135").setDefinitionExpression(this._filterdef);
                                 // currentLayer.definitionExpression = this._filterdef;
                                 console.log('definition exp UpdatedLayerFilters', currentLayer)
                                 console.log('definition exp UpdatedLayerFilters', this._filterdef)

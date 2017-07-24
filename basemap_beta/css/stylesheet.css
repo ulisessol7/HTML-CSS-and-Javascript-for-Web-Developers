@@ -84,6 +84,10 @@ https://github.com/Esri/calcite-bootstrap/issues/255*/
                 float: right;
             }
             
+            .calcite .esriViewPopup .gallery .frame {
+                padding: 0px !important;
+            }
+            
             #map .esriViewPopup div.mainSection .header {
                 font-style: normal;
                 font-family: Arial;
@@ -95,7 +99,7 @@ https://github.com/Esri/calcite-bootstrap/issues/255*/
             }
             
             .calcite .esriPopup .header {
-                font-size: 11px;
+                font-size: 11px !important;
             }
             
             #map .esriViewPopup .hzLine+div {

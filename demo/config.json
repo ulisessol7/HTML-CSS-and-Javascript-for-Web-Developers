@@ -177,18 +177,8 @@
       "right": 0,
       "bottom": 0
     },
-    "itemId": "958b3558c5924abba1899bbb9d0e565e",
-    "mapOptions": {
-      "extent": {
-        "xmin": -11719214.498626256,
-        "ymin": 4866455.66982057,
-        "xmax": -11717829.077488704,
-        "ymax": 4867554.452102077,
-        "spatialReference": {
-          "wkid": 102100
-        }
-      }
-    },
+    "itemId": "645924b28c824743a025ef83f02c6125",
+    "mapOptions": {},
     "id": "map",
     "portalUrl": "https://ucboulder.maps.arcgis.com"
   },
@@ -363,7 +353,7 @@
     },
     "loadingGif": {
       "visible": true,
-      "uri": "configs/loading/images/predefined_loading_1.gif",
+      "uri": "/webappbuilder/apps/3/configs/loading/images/predefined_loading_1.gif",
       "width": 58,
       "height": 29
     }

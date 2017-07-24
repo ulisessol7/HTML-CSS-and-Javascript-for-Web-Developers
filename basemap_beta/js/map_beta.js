@@ -284,8 +284,7 @@ $(document).ready(function() {
             map: map,
             showClearButton: true,
             searchOptions: dir_sources,
-            // routeTaskUrl: "http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Network/USA/NAServer/Route"
-            // routeTaskUrl: "http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Network/USA/NAServer/Route"
+            routeTaskUrl: "https://localhost:6443/arcgis/rest/services/networkdemo/NAServer/Route"
         }, "dir");
         // directionsWidget.on("directions-start", function(evt) {
         //     for (var i = 0; i < directionsWidget.stops.length; i++) {

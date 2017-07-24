@@ -663,8 +663,8 @@ define([
         _yearFilter: function() {
             var years, projects, ftures, year, min, max, yearNode, textTemplate, minNodeValue, maxNodeValue;
             years = [];
-            projects = this.map.getLayer("UCBProjects_1257");
-            // console.log(this.map.graphicsLayerIds);
+            console.log(this.map.graphicsLayerIds);
+            projects = this.map.getLayer("UCBProjects_5135");
             // selectedProjects = this.map.getLayer("graphicsLayer3");
             ftures = projects.graphics;
             for (var i in ftures) {
@@ -726,7 +726,7 @@ define([
                 this._filterdef = filter;
             }
             // console.log(filter);
-            // projects = this.map.getLayer("UCBProjects_1257");
+            // projects = this.map.getLayer("UCBProjects_5135");
             // projects.setDefinitionExpression(filter);
         },
         // /**
@@ -737,7 +737,7 @@ define([
         // _dummyslider: function() {
         //     var years, maxYear, minYear, projects, features, year, min, max, bufferClick;
         //     years = [];
-        //     projects = this.map.getLayer("UCBProjects_1257");
+        //     projects = this.map.getLayer("UCBProjects_5135");
         //     console.log(this.map.graphicsLayerIds);
         //     // selectedProjects = this.map.getLayer("graphicsLayer3");
         //     ftures = projects.graphics;
@@ -773,7 +773,7 @@ define([
         //     // Template Strings, notice the use of use back-ticks
         //     // projectsfilter = `YEAR IS NOT NULL AND YEAR BETWEEN ${lowRange} AND ${highRange}`;
         //     projectsfilter = `YEAR BETWEEN ${lowRange} AND ${highRange}`;
-        //     projects = this.map.getLayer("UCBProjects_1257");
+        //     projects = this.map.getLayer("UCBProjects_5135");
         //     console.log('evt before if', this._mapClickEvt);
         //     console.log('projects before if', projects);
         //     projects.setDefinitionExpression(projectsfilter);

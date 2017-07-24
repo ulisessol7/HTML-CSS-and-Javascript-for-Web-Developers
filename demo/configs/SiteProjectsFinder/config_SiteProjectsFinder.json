@@ -4,13 +4,13 @@
     {
       "url": "https://services.arcgis.com/b3fMqPOmotX6SV4k/arcgis/rest/services/UCBProjects/FeatureServer/0",
       "geometryType": "esriGeometryPolygon",
-      "id": "UCBProjects_1257",
+      "id": "UCBProjects_5135",
       "layerId": "0",
       "baseURL": "https://services.arcgis.com/b3fMqPOmotX6SV4k/arcgis/rest/services/UCBProjects/FeatureServer/",
       "isMapServer": false,
       "title": "UCBProjects",
       "popupInfo": {
-        "title": "",
+        "title": "UCB_PROJECT_SITES_PRO: {CP_NUMBER}",
         "fieldInfos": [
           {
             "fieldName": "OBJECTID",
@@ -18,8 +18,8 @@
             "isEditable": false,
             "tooltip": "",
             "visible": false,
-            "stringFieldOption": "textbox",
-            "isEditableOnLayer": false
+            "format": null,
+            "stringFieldOption": "textbox"
           },
           {
             "fieldName": "CP_NUMBER",
@@ -27,8 +27,8 @@
             "isEditable": true,
             "tooltip": "",
             "visible": true,
-            "stringFieldOption": "textbox",
-            "isEditableOnLayer": true
+            "format": null,
+            "stringFieldOption": "textbox"
           },
           {
             "fieldName": "GEOM_AREA",
@@ -40,8 +40,7 @@
               "places": 2,
               "digitSeparator": true
             },
-            "stringFieldOption": "textbox",
-            "isEditableOnLayer": true
+            "stringFieldOption": "textbox"
           },
           {
             "fieldName": "GID",
@@ -53,8 +52,7 @@
               "places": 2,
               "digitSeparator": true
             },
-            "stringFieldOption": "textbox",
-            "isEditableOnLayer": true
+            "stringFieldOption": "textbox"
           },
           {
             "fieldName": "MULTISITE",
@@ -62,8 +60,8 @@
             "isEditable": true,
             "tooltip": "",
             "visible": true,
-            "stringFieldOption": "textbox",
-            "isEditableOnLayer": true
+            "format": null,
+            "stringFieldOption": "textbox"
           },
           {
             "fieldName": "STATUS",
@@ -71,8 +69,8 @@
             "isEditable": true,
             "tooltip": "",
             "visible": true,
-            "stringFieldOption": "textbox",
-            "isEditableOnLayer": true
+            "format": null,
+            "stringFieldOption": "textbox"
           },
           {
             "fieldName": "DESCRIPTIO",
@@ -80,8 +78,8 @@
             "isEditable": true,
             "tooltip": "",
             "visible": true,
-            "stringFieldOption": "textbox",
-            "isEditableOnLayer": true
+            "format": null,
+            "stringFieldOption": "textbox"
           },
           {
             "fieldName": "PROJECT_MA",
@@ -89,8 +87,8 @@
             "isEditable": true,
             "tooltip": "",
             "visible": true,
-            "stringFieldOption": "textbox",
-            "isEditableOnLayer": true
+            "format": null,
+            "stringFieldOption": "textbox"
           },
           {
             "fieldName": "PM_PHONE",
@@ -98,8 +96,8 @@
             "isEditable": true,
             "tooltip": "",
             "visible": true,
-            "stringFieldOption": "textbox",
-            "isEditableOnLayer": true
+            "format": null,
+            "stringFieldOption": "textbox"
           },
           {
             "fieldName": "PM_EMAIL",
@@ -107,8 +105,8 @@
             "isEditable": true,
             "tooltip": "",
             "visible": true,
-            "stringFieldOption": "textbox",
-            "isEditableOnLayer": true
+            "format": null,
+            "stringFieldOption": "textbox"
           },
           {
             "fieldName": "DESIGN_STA",
@@ -116,8 +114,8 @@
             "isEditable": true,
             "tooltip": "",
             "visible": true,
-            "stringFieldOption": "textbox",
-            "isEditableOnLayer": true
+            "format": null,
+            "stringFieldOption": "textbox"
           },
           {
             "fieldName": "CONST_STAR",
@@ -125,8 +123,8 @@
             "isEditable": true,
             "tooltip": "",
             "visible": true,
-            "stringFieldOption": "textbox",
-            "isEditableOnLayer": true
+            "format": null,
+            "stringFieldOption": "textbox"
           },
           {
             "fieldName": "SUBSTANTIA",
@@ -134,8 +132,8 @@
             "isEditable": true,
             "tooltip": "",
             "visible": true,
-            "stringFieldOption": "textbox",
-            "isEditableOnLayer": true
+            "format": null,
+            "stringFieldOption": "textbox"
           },
           {
             "fieldName": "DESIGN_END",
@@ -143,8 +141,8 @@
             "isEditable": true,
             "tooltip": "",
             "visible": true,
-            "stringFieldOption": "textbox",
-            "isEditableOnLayer": true
+            "format": null,
+            "stringFieldOption": "textbox"
           },
           {
             "fieldName": "CONST_END_",
@@ -152,8 +150,8 @@
             "isEditable": true,
             "tooltip": "",
             "visible": true,
-            "stringFieldOption": "textbox",
-            "isEditableOnLayer": true
+            "format": null,
+            "stringFieldOption": "textbox"
           },
           {
             "fieldName": "SUBSTANT_1",
@@ -161,8 +159,8 @@
             "isEditable": true,
             "tooltip": "",
             "visible": true,
-            "stringFieldOption": "textbox",
-            "isEditableOnLayer": true
+            "format": null,
+            "stringFieldOption": "textbox"
           },
           {
             "fieldName": "YEAR",
@@ -170,8 +168,8 @@
             "isEditable": true,
             "tooltip": "",
             "visible": true,
-            "stringFieldOption": "textbox",
-            "isEditableOnLayer": true
+            "format": null,
+            "stringFieldOption": "textbox"
           },
           {
             "fieldName": "GlobalID",
@@ -179,8 +177,8 @@
             "isEditable": false,
             "tooltip": "",
             "visible": false,
-            "stringFieldOption": "textbox",
-            "isEditableOnLayer": false
+            "format": null,
+            "stringFieldOption": "textbox"
           },
           {
             "fieldName": "Shape__Area",
@@ -192,8 +190,7 @@
               "places": 2,
               "digitSeparator": true
             },
-            "stringFieldOption": "textbox",
-            "isEditableOnLayer": false
+            "stringFieldOption": "textbox"
           },
           {
             "fieldName": "Shape__Length",
@@ -205,11 +202,10 @@
               "places": 2,
               "digitSeparator": true
             },
-            "stringFieldOption": "textbox",
-            "isEditableOnLayer": false
+            "stringFieldOption": "textbox"
           }
         ],
-        "description": "<div><img alt='' src='https://ucboulder.maps.arcgis.com/sharing/rest/content/items/092bcdbb782e45acb24d828c6a276d5b/data' style='height: 10px; width: auto;padding-right: 5px;' /><a href='http://fmmeridianweb/bcenterprise/Home.aspx?VIEWID=DOC_CA50B&amp;DOCFILTER=9657c0&amp;cp_number={CP_NUMBER}' style='text-decoration: none; color: black; font-weight: bold;' target='_blank'>{CP_NUMBER}</a></div>\n<div style='padding: 5px 0px 5px 0px;'><b>DESCRIPTION:</b> {DESCRIPTIO}</div>\n<div style='padding: 5px 0px 5px 0px;'><b>STATUS:</b> {STATUS}</div>\n<div style='padding: 5px 0px 5px 0px;'><b>MULTISITE:</b> {MULTISITE}</div>\n<div style='padding: 5px 0px 5px 0px;'><b>PROJECT MANAGER:</b> {PROJECT_MA}</div>\n<div>{PM_EMAIL}</div>\n<div style='width: 80%; float: left;padding: 2px 0px 2px 0px;'>{PM_PHONE}</div>\n<div style='width: 20%; float: right;padding: 2px 0px 2px 0px;'>{YEAR}</div>",
+        "description": null,
         "showAttachments": true,
         "mediaInfos": []
       },
@@ -218,15 +214,10 @@
         "label": "",
         "description": "",
         "symbol": {
-          "color": [
-            192,
-            250,
-            238,
-            0
-          ],
+          "color": null,
           "outline": {
             "color": [
-              255,
+              230,
               0,
               0,
               255
@@ -245,7 +236,7 @@
     "isVisible": true
   },
   "defaultBufferDistance": 100,
-  "maxBufferDistance": 1000,
+  "maxBufferDistance": 5000,
   "bufferDistanceUnit": {
     "bufferUnit": "UNIT_FOOT",
     "routeUnit": "FEET",
@@ -254,7 +245,7 @@
     "acronym": "ft",
     "value": "feet"
   },
-  "zoomToFeature": true,
+  "zoomToFeature": false,
   "intersectSearchedLocation": false,
   "routeService": "https://route.arcgis.com/arcgis/rest/services/World/Route/NAServer/Route_World",
   "directionLengthUnit": {
@@ -265,7 +256,7 @@
     "acronym": "mi",
     "value": "miles"
   },
-  "selectedSearchLayerOnly": true,
+  "selectedSearchLayerOnly": false,
   "isGeodesic": false,
   "showLocationTool": false,
   "symbols": {
@@ -315,19 +306,19 @@
   },
   "maxResultCount": null,
   "searchSourceSettings": {
-    "allPlaceholder": "GO BUFFS!",
+    "allPlaceholder": "",
     "showInfoWindowOnSelect": true,
     "sources": [
       {
         "layerId": null,
-        "url": "https://services5.arcgis.com/G79PVu14Duuuwxv3/ArcGIS/rest/services/BLDGS_test/FeatureServer/0",
-        "name": "UCB_BUILDINGS",
-        "placeholder": "GO BUFFS!",
+        "url": "https://services.arcgis.com/b3fMqPOmotX6SV4k/arcgis/rest/services/Buildings/FeatureServer/0",
+        "name": "UCB Buildings",
+        "placeholder": "",
         "searchFields": [
-          "BLDG_NUMBE",
+          "BLDG_NUM",
           "BLDG_CODE",
           "BLDG_NAME",
-          "BLDG_ADDRE"
+          "ADDRESS"
         ],
         "displayField": "BLDG_NAME",
         "exactMatch": false,
